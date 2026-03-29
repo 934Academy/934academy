@@ -6,13 +6,12 @@
     <title>9 3/4 Academy - Centro de Formación Integral</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Añadimos un poco de estilo extra para el menú desplegable */
+        /* Estilos para el menú desplegable */
         nav ul { list-style: none; padding: 0; display: flex; justify-content: center; background: var(--gris-suave); border-radius: 8px; }
         nav li { position: relative; padding: 15px 20px; }
         nav a { text-decoration: none; color: #333; font-weight: 500; }
         nav li:hover { background: #e0e0e0; cursor: pointer; }
         
-        /* El truco del desplegable */
         .dropdown-content {
             display: none;
             position: absolute;
@@ -31,13 +30,27 @@
         }
         .dropdown:hover .dropdown-content { display: block; }
         .dropdown-content a:hover { background-color: var(--gris-suave); color: var(--rojo-corporativo); }
+
+        /* Ajuste específico para el logo */
+        .logo-container {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .logo-img {
+            max-width: 280px; /* Ajusta este valor según el tamaño de tu logo */
+            height: auto;
+        }
     </style>
 </head>
 <body>
 
     <header class="container">
-        <h1 style="border-bottom: none; margin-bottom: 5px; text-align: center;">9 ¾ Academy</h1>
-        <p style="text-align: center; color: #666;">Formación personalizada en Granada</p>
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/logos/rojo.png" alt="9 3/4 Academy Logo" class="logo-img">
+            </a>
+            <p style="color: #666; margin-top: 10px;">Formación personalizada en Granada</p>
+        </div>
         
         <nav>
             <ul>
