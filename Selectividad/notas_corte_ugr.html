@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas de Corte UGR 2025 - 9 3/4 Academy</title>
+    <style>
+        :root {
+            --rojo-corporativo: #d32f2f;
+            --gris-suave: #f4f4f4;
+            --texto: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            color: var(--texto);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: var(--rojo-corporativo);
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th {
+            background-color: var(--rojo-corporativo);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95em;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .badge {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        input#search {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Notas de Corte 2025</h1>
+        <p class="subtitle">Universidad de Granada (UGR) - Convocatoria Ordinaria</p>
+    </header>
+
+    <input type="text" id="search" onkeyup="filterTable()" placeholder="Buscar carrera (ej: Medicina, Derecho...)...">
+
+    <table id="notasTable">
+        <thead>
+            <tr>
+                <th>Grado / Carrera</th>
+                <th>Centro / Facultad</th>
+                <th style="text-align:center;">Nota General</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr><td>ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS</td><td>FACULTAD DE CIENCIAS SOCIALES Y JURÍDICAS (MELILLA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS</td><td>F. CIENCIAS ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>8,896 PREF</td></tr>
+        <tr><td>ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS</td><td>FACULTAD DE EDUCACIÓN, ECONOMÍA Y TECNOLOGÍA (CEUTA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS + DERECHO</td><td>F. CIENCIAS ECONÓMICAS Y EMPRESARIALES-F. DERECHO</td><td style='text-align:center; font-weight:bold;'>7,597 PREF</td></tr>
+        <tr><td>ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS + DERECHO</td><td>FACULTAD DE CIENCIAS SOCIALES Y JURÍDICAS (MELILLA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>ANTROPOLOGÍA SOCIAL Y CULTURAL</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>ARQUEOLOGÍA</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>BELLAS ARTES</td><td>FACULTAD DE BELLAS ARTES</td><td style='text-align:center; font-weight:bold;'>9,588 PREF</td></tr>
+        <tr><td>BIOLOGÍA</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>8,730 PREF</td></tr>
+        <tr><td>BIOQUÍMICA</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>12,289 PREF</td></tr>
+        <tr><td>BIOTECNOLOGÍA</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>12,563 PREF</td></tr>
+        <tr><td>CIENCIA DE DATOS E INTELIGENCIA ARTIFICIAL</td><td>E.T.S. DE INGENIERÍAS INFORMÁTICA Y DE TELECOMUNICACIÓN</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>CIENCIA DE DATOS E INTELIGENCIA ARTIFICIAL(Melilla)</td><td>FACULTAD DE CIENCIAS SOCIALES Y JURÍDICAS (MELILLA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>CIENCIA Y TECNOLOGÍA DE LOS ALIMENTOS</td><td>FACULTAD DE FARMACIA</td><td style='text-align:center; font-weight:bold;'>6,943 PREF</td></tr>
+        <tr><td>CIENCIAS AMBIENTALES</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>CIENCIAS DE LA ACTIVIDAD FÍSICA Y DEL DEPORTE</td><td>FACULTAD DE CIENCIAS DEL DEPORTE</td><td style='text-align:center; font-weight:bold;'>11,564 PREF</td></tr>
+        <tr><td>CIENCIAS POLÍTICAS Y DE LA ADMINISTRACIÓN</td><td>F. DE CIENCIAS POLÍTICAS Y SOCIOLOGÍA</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>CIENCIAS POLÍTICAS Y DE LA ADMINISTRACIÓN + PERIODISMO</td><td>F. DE CIENCIAS POLÍTICAS Y SOCIOLOGÍA</td><td style='text-align:center; font-weight:bold;'>7,239 PREF</td></tr>
+        <tr><td>CIENCIAS POLÍTICAS Y DE LA ADMINISTRACIÓN + SOCIOLOGÍA</td><td>F. DE CIENCIAS POLÍTICAS Y SOCIOLOGÍA</td><td style='text-align:center; font-weight:bold;'>7,043 PREF</td></tr>
+        <tr><td>COMUNICACIÓN AUDIOVISUAL</td><td>FACULTAD DE COMUNICACIÓN Y DOCUMENTACIÓN</td><td style='text-align:center; font-weight:bold;'>9,327 PREF</td></tr>
+        <tr><td>CONSERVACIÓN Y RESTAURACIÓN DE BIENES CULTURALES</td><td>FACULTAD DE BELLAS ARTES</td><td style='text-align:center; font-weight:bold;'>8,152 PREF</td></tr>
+        <tr><td>CRIMINOLOGÍA</td><td>FACULTAD DE DERECHO</td><td style='text-align:center; font-weight:bold;'>10,347 PREF</td></tr>
+        <tr><td>DERECHO</td><td>FACULTAD DE DERECHO</td><td style='text-align:center; font-weight:bold;'>7,580 PREF</td></tr>
+        <tr><td>DERECHO + CIENCIAS POLÍTICAS Y DE LA ADMINISTRACIÓN</td><td>F. DE CIENCIAS POLÍTICAS Y SOCIOLOGÍA Y FACULTAD DE DERECHO</td><td style='text-align:center; font-weight:bold;'>7,456 PREF</td></tr>
+        <tr><td>ECONOMÍA</td><td>F. CIENCIAS ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>ECONOMÍA BILINGÜE</td><td>F. CIENCIAS ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>EDIFICACIÓN (antes Arquitectura Técnica)</td><td>ESCUELA TÉCNICA SUPERIOR DE INGENIERÍA DE EDIFICACIÓN</td><td style='text-align:center; font-weight:bold;'>6,336 PREF</td></tr>
+        <tr><td>EDIFICACIÓN + ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS</td><td>ESCUELA TÉCNICA SUPERIOR DE INGENIERÍA DE EDIFICACIÓN Y FAC. CC. ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>6,180 PREF</td></tr>
+        <tr><td>EDUCACIÓN INFANTIL</td><td>FACULTAD DE EDUCACIÓN, ECONOMÍA Y TECNOLOGÍA (CEUTA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>EDUCACIÓN INFANTIL</td><td>CENTRO DE MAGISTERIO LA INMACULADA (ADS)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>EDUCACIÓN INFANTIL</td><td>FACULTAD DE CIENCIAS DE LA EDUCACIÓN</td><td style='text-align:center; font-weight:bold;'>7,910 PREF</td></tr>
+        <tr><td>EDUCACIÓN INFANTIL</td><td>FACULTAD DE CIENCIAS DE LA EDUCACIÓN Y DEL DEPORTE (MELILLA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>EDUCACIÓN PRIMARIA</td><td>FACULTAD DE CIENCIAS DE LA EDUCACIÓN</td><td style='text-align:center; font-weight:bold;'>8,450 PREF</td></tr>
+        <tr><td>EDUCACIÓN PRIMARIA</td><td>FACULTAD DE EDUCACIÓN, ECONOMÍA Y TECNOLOGÍA (CEUTA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>EDUCACIÓN PRIMARIA</td><td>FACULTAD DE CIENCIAS DE LA EDUCACIÓN Y DEL DEPORTE (MELILLA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>EDUCACIÓN PRIMARIA</td><td>CENTRO DE MAGISTERIO LA INMACULADA (ADS)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>EDUCACIÓN PRIMARIA (FORMACIÓN BILINGÜE)</td><td>FACULTAD DE CIENCIAS DE LA EDUCACIÓN</td><td style='text-align:center; font-weight:bold;'>7,974 PREF</td></tr>
+        <tr><td>EDUCACIÓN PRIMARIA + CIENCIAS DE LA ACTIVIDAD FÍSICA Y DEL DEPORTE</td><td>FACULTAD DE CIENCIAS DE LA EDUCACIÓN Y DEL DEPORTE (MELILLA)</td><td style='text-align:center; font-weight:bold;'>7,620 PREF</td></tr>
+        <tr><td>EDUCACIÓN PRIMARIA + ESTUDIOS FRANCESES</td><td>F. CIENCIAS DE LA EDUCACIÓN Y F. FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>EDUCACIÓN PRIMARIA + ESTUDIOS INGLESES</td><td>F. CIENCIAS DE LA EDUCACIÓN Y F. FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>11,141 PREF</td></tr>
+        <tr><td>EDUCACIÓN SOCIAL</td><td>FACULTAD DE CIENCIAS DE LA EDUCACIÓN Y DEL DEPORTE (MELILLA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>EDUCACIÓN SOCIAL</td><td>FACULTAD DE CIENCIAS DE LA EDUCACIÓN</td><td style='text-align:center; font-weight:bold;'>7,547 PREF</td></tr>
+        <tr><td>EDUCACIÓN SOCIAL</td><td>FACULTAD DE EDUCACIÓN, ECONOMÍA Y TECNOLOGÍA (CEUTA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>ENFERMERÍA</td><td>FACULTAD DE CIENCIAS DE LA SALUD (CEUTA)</td><td style='text-align:center; font-weight:bold;'>10,764 PREF</td></tr>
+        <tr><td>ENFERMERÍA</td><td>FACULTAD DE CIENCIAS DE LA SALUD (MELILLA)</td><td style='text-align:center; font-weight:bold;'>10,754 PREF</td></tr>
+        <tr><td>ENFERMERÍA</td><td>FACULTAD DE CIENCIAS DE LA SALUD</td><td style='text-align:center; font-weight:bold;'>12,430 PREF</td></tr>
+        <tr><td>ESTADÍSTICA</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>10,274 PREF</td></tr>
+        <tr><td>ESTUDIOS DE ARQUITECTURA</td><td>E.T.S. DE ARQUITECTURA</td><td style='text-align:center; font-weight:bold;'>10,043 PREF</td></tr>
+        <tr><td>ESTUDIOS FRANCESES</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>ESTUDIOS FRANCESES + FILOLOGÍA HISPÁNICA</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>ESTUDIOS INGLESES</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>7,278 PREF</td></tr>
+        <tr><td>ESTUDIOS INGLESES + FILOLOGÍA HISPÁNICA</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>6,670 PREF</td></tr>
+        <tr><td>ESTUDIOS ÁRABES E ISLÁMICOS</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>FARMACIA</td><td>FACULTAD DE FARMACIA</td><td style='text-align:center; font-weight:bold;'>10,834 PREF</td></tr>
+        <tr><td>FARMACIA + NUTRICIÓN HUMANA Y DIETÉTICA</td><td>FACULTAD DE FARMACIA</td><td style='text-align:center; font-weight:bold;'>12,415 PREF</td></tr>
+        <tr><td>FILOLOGÍA CLÁSICA</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>9,691 PREF</td></tr>
+        <tr><td>FILOLOGÍA HISPÁNICA</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>FILOSOFÍA</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>FINANZAS Y CONTABILIDAD</td><td>F. CIENCIAS ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>7,460 PREF</td></tr>
+        <tr><td>FISIOTERAPIA</td><td>FACULTAD DE CIENCIAS DE LA SALUD</td><td style='text-align:center; font-weight:bold;'>12,348 PREF</td></tr>
+        <tr><td>FISIOTERAPIA</td><td>FACULTAD DE CIENCIAS DE LA SALUD (MELILLA)</td><td style='text-align:center; font-weight:bold;'>10,039 PREF</td></tr>
+        <tr><td>FÍSICA</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>11,863 PREF</td></tr>
+        <tr><td>GEOGRAFÍA Y GESTIÓN DEL TERRITORIO</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>GEOLOGÍA</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>HISTORIA</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>HISTORIA DEL ARTE</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>HISTORIA Y CIENCIAS DE LA MÚSICA</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>INFORMACIÓN Y DOCUMENTACIÓN</td><td>FACULTAD DE COMUNICACIÓN Y DOCUMENTACIÓN</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>INGENIERÍA BIOMÉDICA(1º-2º UJA + 3º-4º UGR)</td><td>E.T.S. DE INGENIERÍA DE CAMINOS, CANALES Y PUERTOS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>INGENIERÍA CIVIL (PARS con Máster Universitario en Ingeniería de Caminos, Canales y Puertos)</td><td>E.T.S. DE INGENIERÍA DE CAMINOS, CANALES Y PUERTOS</td><td style='text-align:center; font-weight:bold;'>7,311 PREF</td></tr>
+        <tr><td>INGENIERÍA CIVIL + ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS</td><td>E.T.S. DE INGENIERÍA DE CAMINOS, CANALES Y PUERTOS Y FAC. CC. ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>7,562 PREF</td></tr>
+        <tr><td>INGENIERÍA DE TECNOLOGÍAS DE TELECOMUNICACIÓN (PARS con Máster Univ. en Ing. de Telecomunicación)</td><td>E.T.S. DE INGENIERÍAS INFORMÁTICA Y DE TELECOMUNICACIÓN</td><td style='text-align:center; font-weight:bold;'>9,337 PREF</td></tr>
+        <tr><td>INGENIERÍA ELECTRÓNICA INDUSTRIAL</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>10,106 PREF</td></tr>
+        <tr><td>INGENIERÍA INFORMÁTICA (PARS con Máster Universitario en Ingeniería Informática)</td><td>E.T.S. DE INGENIERÍAS INFORMÁTICA Y DE TELECOMUNICACIÓN</td><td style='text-align:center; font-weight:bold;'>10,322 PREF</td></tr>
+        <tr><td>INGENIERÍA INFORMÁTICA (PARS con Máster Universitario en Ingeniería Informática)</td><td>FACULTAD DE EDUCACIÓN, ECONOMÍA Y TECNOLOGÍA (CEUTA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>INGENIERÍA INFORMÁTICA + ADMINISTRACIÓN Y DIRECCIÓN DE EMPRESAS</td><td>E.T.S. DE INGENIERÍAS INFORMÁTICA Y DE TELECOMUNICACIÓN Y FAC. CC. ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>9,688 PREF</td></tr>
+        <tr><td>INGENIERÍA INFORMÁTICA + MATEMÁTICAS</td><td>FACULTAD DE CIENCIAS Y E.T.S. INGENIERÍAS INFORMÁTICAS Y DE TELECOMUNICACIÓN</td><td style='text-align:center; font-weight:bold;'>12,982 PREF</td></tr>
+        <tr><td>INGENIERÍA QUÍMICA (PARS con Máster Universitario en Ingeniería Química)</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>6,947 PREF</td></tr>
+        <tr><td>LENGUAS MODERNAS Y SUS LITERATURAS</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>LITERATURAS COMPARADAS</td><td>FACULTAD DE FILOSOFÍA Y LETRAS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>LOGOPEDIA</td><td>FACULTAD DE PSICOLOGÍA</td><td style='text-align:center; font-weight:bold;'>8,600 PREF</td></tr>
+        <tr><td>MATEMÁTICAS</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>12,282 PREF</td></tr>
+        <tr><td>MATEMÁTICAS + FÍSICA</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>13,364 PREF</td></tr>
+        <tr><td>MEDICINA</td><td>FACULTAD DE MEDICINA</td><td style='text-align:center; font-weight:bold;'>13,252 PREF</td></tr>
+        <tr><td>MÁRKETING E INVESTIGACIÓN DE MERCADOS</td><td>F. CIENCIAS ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>8,509 PREF</td></tr>
+        <tr><td>NUTRICIÓN HUMANA Y DIETÉTICA</td><td>FACULTAD DE FARMACIA</td><td style='text-align:center; font-weight:bold;'>9,320 PREF</td></tr>
+        <tr><td>NUTRICIÓN HUMANA Y DIETÉTICA + CIENCIA Y TECNOLOGÍA DE LOS ALIMENTOS</td><td>FACULTAD DE FARMACIA</td><td style='text-align:center; font-weight:bold;'>11,002 PREF</td></tr>
+        <tr><td>ODONTOLOGÍA</td><td>FACULTAD DE ODONTOLOGÍA</td><td style='text-align:center; font-weight:bold;'>13,072 PREF</td></tr>
+        <tr><td>PEDAGOGÍA</td><td>FACULTAD DE CIENCIAS DE LA EDUCACIÓN</td><td style='text-align:center; font-weight:bold;'>7,080 PREF</td></tr>
+        <tr><td>PSICOLOGÍA</td><td>FACULTAD DE PSICOLOGÍA</td><td style='text-align:center; font-weight:bold;'>10,683 PREF</td></tr>
+        <tr><td>QUÍMICA</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>9,013 PREF</td></tr>
+        <tr><td>RELACIONES LABORALES Y RECURSOS HUMANOS</td><td>FACULTAD DE RELACIONES LABORALES Y RECURSOS HUMANOS</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>RELACIONES LABORALES Y RECURSOS HUMANOS</td><td>FACULTAD DE CIENCIAS SOCIALES Y JURÍDICAS (MELILLA)</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>SOCIOLOGÍA</td><td>F. DE CIENCIAS POLÍTICAS Y SOCIOLOGÍA</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>TERAPIA OCUPACIONAL</td><td>FACULTAD DE CIENCIAS DE LA SALUD</td><td style='text-align:center; font-weight:bold;'>10,148 PREF</td></tr>
+        <tr><td>TRABAJO SOCIAL</td><td>FACULTAD DE TRABAJO SOCIAL</td><td style='text-align:center; font-weight:bold;'>7,080 PREF</td></tr>
+        <tr><td>TRADUCCIÓN E INTERPRETACIÓN: ALEMÁN</td><td>F. TRADUCCIÓN E INTERPRETACIÓN</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>TRADUCCIÓN E INTERPRETACIÓN: ALEMÁN + TURISMO</td><td>F. TRADUCCIÓN E INTERPRETACIÓN Y F. CC. ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>TRADUCCIÓN E INTERPRETACIÓN: FRANCÉS</td><td>F. TRADUCCIÓN E INTERPRETACIÓN</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>TRADUCCIÓN E INTERPRETACIÓN: FRANCÉS + TURISMO</td><td>F. TRADUCCIÓN E INTERPRETACIÓN Y F. CC. ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>TRADUCCIÓN E INTERPRETACIÓN: INGLÉS</td><td>F. TRADUCCIÓN E INTERPRETACIÓN</td><td style='text-align:center; font-weight:bold;'>10,101 PREF</td></tr>
+        <tr><td>TRADUCCIÓN E INTERPRETACIÓN: INGLÉS + TURISMO</td><td>F. TRADUCCIÓN E INTERPRETACIÓN Y F. CC. ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>7,335 PREF</td></tr>
+        <tr><td>TRADUCCIÓN E INTERPRETACIÓN: ÁRABE</td><td>F. TRADUCCIÓN E INTERPRETACIÓN</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>TURISMO</td><td>F. CIENCIAS ECONÓMICAS Y EMPRESARIALES</td><td style='text-align:center; font-weight:bold;'>5,000</td></tr>
+        <tr><td>ÓPTICA Y OPTOMETRÍA</td><td>FACULTAD DE CIENCIAS</td><td style='text-align:center; font-weight:bold;'>6,739 PREF</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+function filterTable() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("search");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("notasTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
+</body>
+</html>
