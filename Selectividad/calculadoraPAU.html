@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora PAU 2026 | Academia</title>
+    <style>
+        :root {
+            --pau-red: #d32f2f;
+            --pau-yellow: #fccb19;
+            --bg-light: #f8f9fa;
+        }
+
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg-light); margin: 0; padding: 15px; color: #333; }
+        
+        .container { max-width: 500px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; }
+
+        .header { background: var(--pau-red); color: white; padding: 25px; text-align: center; }
+        .header h1 { margin: 0; font-size: 1.4rem; text-transform: uppercase; }
+
+        .section { padding: 20px; border-bottom: 1px solid #eee; }
+        .section-title { font-weight: 800; color: var(--pau-red); text-transform: uppercase; font-size: 0.8rem; margin-bottom: 15px; display: block; border-left: 4px solid var(--pau-red); padding-left: 10px; }
+
+        .input-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; gap: 10px; }
+        label { font-size: 0.9rem; flex: 1; font-weight: 500; }
+        input[type="number"] { width: 70px; padding: 8px; border: 1px solid #ccc; border-radius: 5px; text-align: center; font-weight: bold; }
+        
+        select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px; font-size: 0.85rem; background: #fff; }
+
+        .result-box { background: var(--pau-yellow); padding: 25px; text-align: center; border-top: 3px solid #e2b616; }
+        .final-score { font-size: 3.5rem; font-weight: 900; color: #000; margin: 5px 0; }
+        
+        .btn-calc { display: block; width: calc(100% - 40px); margin: 15px auto; padding: 15px; background: var(--pau-red); color: white; border: none; border-radius: 6px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
+        .btn-calc:hover { background: #b71c1c; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Calculadora de Nota PAU</h1>
+    </div>
+
+    <div class="section">
+        <span class="section-title">Expediente (60%)</span>
+        <div class="input-row">
+            <label>Media de Bachillerato</label>
+            <input type="number" id="notaBach" min="5" max="10" step="0.01" placeholder="0.00">
+        </div>
+    </div>
+
+    <div class="section">
+        <span class="section-title">Fase Obligatoria (40%)</span>
+        <div class="input-row"><label>Lengua y Literatura II</label><input type="number" class="fase-ob" min="0" max="10" step="0.1" placeholder="0"></div>
+        <div class="input-row"><label>Lengua Extranjera</label><input type="number" class="fase-ob" min="0" max="10" step="0.1" placeholder="0"></div>
+        <div class="input-row"><label>Hist. España / Filosofía</label><input type="number" class="fase-ob" min="0" max="10" step="0.1" placeholder="0"></div>
+        <div class="input-row"><label>Materia de Modalidad</label><input type="number" class="fase-ob" min="0" max="10" step="0.1" placeholder="0"></div>
+    </div>
+
+    <div class="section">
+        <span class="section-title">Fase Específica (Voluntaria)</span>
+        
+        <label>Asignatura 1:</label>
+        <select id="sel1" class="asignatura-list"></select>
+        <div class="input-row">
+            <label>Nota examen 1:</label>
+            <input type="number" id="esp1" min="0" max="10" step="0.1" placeholder="0">
+            <select id="pond1" style="width: 80px; margin: 0;">
+                <option value="0.2">0.2</option>
+                <option value="0.1">0.1</option>
+            </select>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+
+        <label>Asignatura 2:</label>
+        <select id="sel2" class="asignatura-list"></select>
+        <div class="input-row">
+            <label>Nota examen 2:</label>
+            <input type="number" id="esp2" min="0" max="10" step="0.1" placeholder="0">
+            <select id="pond2" style="width: 80px; margin: 0;">
+                <option value="0.2">0.2</option>
+                <option value="0.1">0.1</option>
+            </select>
+        </div>
+    </div>
+
+    <button class="btn-calc" onclick="calcular()">Calcular Nota Final</button>
+
+    <div class="result-box">
+        <div style="font-weight: bold; color: #7a6200;">TU NOTA DE ADMISIÓN:</div>
+        <div class="final-score" id="totalScore">0.000</div>
+    </div>
+</div>
+
+<script>
+    const asignaturas = [
+        "-- Selecciona Asignatura --",
+        "Análisis Musical II", "Artes Escénicas II", "Biología", "Dibujo Artístico II", 
+        "Dibujo Técnico II", "Diseño", "Física", "Fundamentos Artísticos", 
+        "Geografía", "Geología y C. Ambientales", "Griego II", "Historia del Arte", 
+        "Historia de la Música y la Danza", "Latín II", "Literatura Dramática", 
+        "Matemáticas II", "Matemáticas CCSS II", "Química", "Tecnología e Ingeniería II",
+        "Segunda Lengua Extranjera"
+    ];
+
+    function cargarAsignaturas() {
+        const selects = document.querySelectorAll('.asignatura-list');
+        selects.forEach(sel => {
+            asignaturas.forEach(asig => {
+                let opt = document.createElement('option');
+                opt.value = asig;
+                opt.innerHTML = asig;
+                sel.appendChild(opt);
+            });
+        });
+    }
+
+    function calcular() {
+        const bach = parseFloat(document.getElementById('notaBach').value) || 0;
+        
+        let sumaOb = 0;
+        document.querySelectorAll('.fase-ob').forEach(i => sumaOb += parseFloat(i.value) || 0);
+        const mediaOb = sumaOb / 4;
+
+        let acceso = (bach * 0.6) + (mediaOb * 0.4);
+
+        const n1 = parseFloat(document.getElementById('esp1').value) || 0;
+        const p1 = parseFloat(document.getElementById('pond1').value) || 0;
+        const n2 = parseFloat(document.getElementById('esp2').value) || 0;
+        const p2 = parseFloat(document.getElementById('pond2').value) || 0;
+
+        let extra = 0;
+        if (n1 >= 5) extra += (n1 * p1);
+        if (n2 >= 5) extra += (n2 * p2);
+
+        let final = acceso + extra;
+        document.getElementById('totalScore').innerText = final.toFixed(3);
+    }
+
+    window.onload = cargarAsignaturas;
+</script>
+
+</body>
+</html>
