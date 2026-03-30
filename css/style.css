@@ -3,6 +3,7 @@
     --gris-suave: #f4f4f4;
 }
 
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -101,4 +102,16 @@ tr:nth-child(even) {
         .logo-img {
             max-width: 280px; /* Ajusta este valor según el tamaño de tu logo */
             height: auto;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: #d32f2f;
         }

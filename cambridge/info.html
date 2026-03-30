@@ -6,90 +6,168 @@
     <title>Información de Clases - Academia de Inglés</title>
     <link rel="stylesheet" href="../css/style.css"/> 
     <style>
-        .levels-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
+        /* FONDO BLANCO INTEGRADO */
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center; 
+            align-items: flex-start; /* Alineado arriba para que no flote en pantallas largas */
+            min-height: 100vh;      
+            background: #ffffff;    /* Blanco puro */
+            font-family: 'Segoe UI', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* CONTENEDOR PRINCIPAL SIN BORDE PESADO */
+        .card {
+            background: white;
+            text-align: center;
+            color: #333;
+            max-width: 1100px;
             width: 100%;
         }
-        .level-card {
-            background: #f9f9f9;
-            border: 2px solid #d32f2f;
-            border-radius: 12px;
-            padding: 20px;
-            transition: transform 0.3s;
+
+        .logo-img {
+            max-width: 180px;
+            margin-bottom: 20px;
         }
+
+        h1 {
+            color: #d32f2f;
+            margin: 10px 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        /* DISEÑO DE LAS TARJETAS DE NIVELES */
+        .levels-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .level-card {
+            background: #ffffff;
+            border: 1px solid #eee; /* Borde muy suave */
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra ligera */
+        }
+
         .level-card:hover {
             transform: translateY(-5px);
-            background: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #d32f2f;
         }
+
+        .level-card h3 {
+            color: #d32f2f;
+            margin-top: 0;
+            font-size: 1.5em;
+            text-align: center;
+            border-bottom: 2px solid #fff5f5;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
         .age-badge {
             background: #d32f2f;
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
             display: inline-block;
-            margin-bottom: 10px;
+            margin: 20px 0;
         }
+
         .promo-banner {
-            margin-top: 20px;
+            margin-top: 60px;
             font-weight: bold;
-            font-size: 1.2em;
-            border-top: 2px dashed #d32f2f;
-            padding-top: 15px;
+            font-size: 1.4em;
+            color: #d32f2f;
+            padding: 30px;
+            background: #fdfdfd;
+            border: 1px dashed #d32f2f;
+            border-radius: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+            color: #444;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        /* BOTÓN DE RETORNO DISCRETO */
+        
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            .level-card { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-<div class="card" style="max-width: 900px; min-width: 80%;">
+<div class="card">
+    <header>
+        <a href="../index.html">
+            <img src="../images/logos/rojo.png" alt="9 3/4 Academy" class="logo-img">
+        </a>
+    </header>
+
     <h1>Nuestras Clases de Inglés</h1>
     <div class="age-badge">Desde los 6 años en adelante</div>
     
-    <p>Preparamos a nuestros alumnos para el éxito comunicativo y la obtención de títulos oficiales con una metodología dinámica y adaptada.</p>
+    <p style="font-size: 1.2em; max-width: 800px; margin: 0 auto; color: #666; line-height: 1.6;">
+        Formamos alumnos para alcanzar la fluidez y certificar sus conocimientos con títulos oficiales mediante una metodología dinámica.
+    </p>
 
     <div class="levels-container">
         <div class="level-card">
             <h3>Nivel B1 (PET)</h3>
-            <p><strong>Umbral:</strong> Para alumnos que ya dominan lo básico y quieren empezar a defenderse en situaciones cotidianas y viajes.</p>
-            <ul style="text-align: left; font-size: 0.9em;">
-                <li>Comprensión de puntos principales.</li>
-                <li>Redacción de textos sencillos.</li>
-                <li>Descripción de experiencias y deseos.</li>
+            <p><strong>Enfoque:</strong> Desarrollo de autonomía. Ideal para empezar a comunicarse en viajes y situaciones cotidianas.</p>
+            <ul>
+                <li>Entender ideas principales de temas familiares.</li>
+                <li>Escribir textos sencillos sobre gustos.</li>
+                <li>Describir experiencias y planes futuros.</li>
             </ul>
         </div>
 
         <div class="level-card">
             <h3>Nivel B2 (FCE)</h3>
-            <p><strong>Avanzado:</strong> El nivel estándar para universidades y trabajos. Comunicación fluida con hablantes nativos.</p>
-            <ul style="text-align: left; font-size: 0.9em;">
-                <li>Entendimiento de ideas complejas.</li>
-                <li>Fluidez y naturalidad al hablar.</li>
-                <li>Producción de textos detallados.</li>
+            <p><strong>Enfoque:</strong> Fluidez avanzada. Requisito estándar para entornos universitarios y laborales internacionales.</p>
+            <ul>
+                <li>Comprensión de textos técnicos y complejos.</li>
+                <li>Conversación fluida sin esfuerzo para los nativos.</li>
+                <li>Argumentar puntos de vista de forma clara.</li>
             </ul>
         </div>
 
         <div class="level-card">
             <h3>Nivel C1 (CAE)</h3>
-            <p><strong>Dominio:</strong> Para quienes necesitan un uso profesional y académico exigente del idioma.</p>
-            <ul style="text-align: left; font-size: 0.9em;">
-                <li>Uso flexible y efectivo del inglés.</li>
-                <li>Comprensión de textos extensos.</li>
-                <li>Expresión espontánea y precisa.</li>
+            <p><strong>Enfoque:</strong> Dominio profesional. Para un uso exigente y preciso del idioma en cualquier ámbito.</p>
+            <ul>
+                <li>Uso flexible del inglés con fines sociales.</li>
+                <li>Expresión espontánea, fluida y precisa.</li>
+                <li>Producir textos claros y bien estructurados.</li>
             </ul>
         </div>
     </div>
 
     <div class="promo-banner">
-        ¡Formamos bilingües desde la infancia!
+        ¡Tu futuro en inglés comienza con nosotros!
     </div>
-<!--
-    <div style="margin-top: 30px;">
-        <button onclick="window.history.back()" class="back-button">Volver al Inicio</button>
-        <button onclick="window.print()">Descargar Info (PDF)</button>
-    </div>-->
+
+    <a href="../index.html" class="back-link">← Volver a la página principal</a>
 </div>
 
 </body>
