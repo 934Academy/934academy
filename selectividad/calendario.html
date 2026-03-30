@@ -4,87 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendario PAU 2026 - Final</title>
-    <style>
-        :root {
-            --pau-red: #d32f2f;
-            --pau-yellow: #fccb19;
-            --sunday-red: #e74c3c;
-            --border-color: #eee;
-            --text-normal: #444;
-        }
-
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            padding: 40px;
-            background-color: #f8f9fa;
-        }
-
-        .calendar {
-            background: white;
-            width: 420px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .header {
-            padding: 20px;
-            text-align: center;
-            color: var(--pau-red);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .header h2 { margin: 0; font-size: 1.4rem; font-weight: 800; }
-
-        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-
-        th { padding: 15px 0; font-size: 0.8rem; color: #888; border-bottom: 1px solid var(--border-color); }
-        .sun-head { color: var(--sunday-red); }
-
-        td {
-            height: 55px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-normal);
-            border-bottom: 1px solid #f9f9f9;
-        }
-
-        .intensivo-day {
-            background-color: var(--pau-red);
-            color: white !important;
-        }
-
-        /* AJUSTE: Etiquetas de sección con texto en blanco */
-        .label-row td {
-            height: auto;
-            padding: 8px 0;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 800;
-            color: white !important; /* Texto blanco forzado */
-        }
-        
-        .red-label { background-color: var(--pau-red); }
-        .yellow-label { background-color: var(--pau-yellow); border-top: 2px solid #f1c40f; }
-
-        .sel-circle {
-            display: inline-block;
-            width: 35px;
-            height: 35px;
-            line-height: 35px;
-            border: 2px solid #e67e22;
-            border-radius: 50%;
-            color: #d35400;
-        }
-
-        .sunday { color: var(--sunday-red); }
-        .weekend { background-color: transparent !important; color: var(--text-normal) !important; }
-        .weekend.sunday { color: var(--sunday-red) !important; }
-    </style>
+    <link rel="stylesheet" href="../css/calendario.css">
+    
 </head>
 <body>
 

@@ -1,0 +1,191 @@
+/* VARIABLES GLOBALES */
+:root {
+    --rojo-corporativo: #d32f2f;
+    --pau-red: #d32f2f; /* Alias para la calculadora */
+    --pau-yellow: #fccb19;
+    --gris-suave: #f4f4f4;
+    --bg-light: #f8f9fa;
+}
+
+/* ESTILOS BASE */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-light);
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* CONTENEDORES */
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* Estilo específico para el contenedor de la calculadora (más estrecho) */
+.container-calc {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    padding: 0; /* Se quita el padding para que el header llegue al borde */
+}
+
+/* TÍTULOS Y CABECERAS */
+h1 {
+    color: var(--rojo-corporativo);
+    text-align: center;
+    border-bottom: 2px solid var(--rojo-corporativo);
+    padding-bottom: 10px;
+}
+
+.header-calc {
+    background: var(--pau-red);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.header-calc h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: white;
+    border-bottom: none;
+}
+
+/* SECCIONES E INTERFAZ DE CALCULADORA */
+.section {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.section-title {
+    font-weight: 800;
+    color: var(--pau-red);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    display: block;
+    border-left: 4px solid var(--pau-red);
+    padding-left: 10px;
+}
+
+.input-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 10px;
+}
+
+label {
+    font-size: 0.9rem;
+    flex: 1;
+    font-weight: 500;
+}
+
+input[type="number"] {
+    width: 70px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    background: #fff;
+}
+
+/* TABLAS Y HORARIOS */
+.dia-titulo {
+    background-color: var(--rojo-corporativo);
+    color: white;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: var(--gris-suave);
+    width: 25%;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.descanso {
+    color: #777;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+/* BLOQUES DE RESULTADOS Y NOTAS */
+.result-box {
+    background: var(--pau-yellow);
+    padding: 25px;
+    text-align: center;
+    border-top: 3px solid #e2b616;
+}
+
+.final-score {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #000;
+    margin: 5px 0;
+}
+
+.nota {
+    background-color: #fff3cd;
+    padding: 15px;
+    border-left: 5px solid #ffc107;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+/* BOTONES */
+.btn-calc {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 15px auto;
+    padding: 15px;
+    background: var(--pau-red);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 800;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn-calc:hover {
+    background: #b71c1c;
+}

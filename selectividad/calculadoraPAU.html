@@ -4,65 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora PAU 2026 | Academia</title>
-    <style>
-        :root {
-            --pau-red: #d32f2f;
-            --pau-yellow: #fccb19;
-            --bg-light: #f8f9fa;
-        }
-
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg-light); margin: 0; padding: 15px; color: #333; }
-        
-        .container { max-width: 500px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); overflow: hidden; }
-
-        .header { background: var(--pau-red); color: white; padding: 25px; text-align: center; }
-        .header h1 { margin: 0; font-size: 1.4rem; text-transform: uppercase; }
-
-        .section { padding: 20px; border-bottom: 1px solid #eee; }
-        .section-title { font-weight: 800; color: var(--pau-red); text-transform: uppercase; font-size: 0.8rem; margin-bottom: 15px; display: block; border-left: 4px solid var(--pau-red); padding-left: 10px; }
-
-        .input-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; gap: 10px; }
-        label { font-size: 0.9rem; flex: 1; font-weight: 500; }
-        input[type="number"] { width: 70px; padding: 8px; border: 1px solid #ccc; border-radius: 5px; text-align: center; font-weight: bold; }
-        
-        select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px; font-size: 0.85rem; background: #fff; }
-
-        .result-box { background: var(--pau-yellow); padding: 25px; text-align: center; border-top: 3px solid #e2b616; }
-        .final-score { font-size: 3.5rem; font-weight: 900; color: #000; margin: 5px 0; }
-        
-        .btn-calc { display: block; width: calc(100% - 40px); margin: 15px auto; padding: 15px; background: var(--pau-red); color: white; border: none; border-radius: 6px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
-        .btn-calc:hover { background: #b71c1c; }
-    </style>
+    <link rel="stylesheet" href="../css/calculadora.css">
 </head>
 <body>
- <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                
-                <li class="dropdown">
-                    <a href="#">Selectividad ▼</a>
-                    <div class="dropdown-content">
-                        <a href="./intensivos.html">🚀 Cursos Intensivos</a>
-                        <a href="./horario.html">📅 Horario PAU 2026</a>
-                        <a href="./calculadoraPAU.html" >🧮 Calculadora de Nota</a>
-                        <a href="./calendario.html">📆 Calendario Oficial</a>
-                        <a href="./notas_corte_ugr.html">📊 Notas de Corte 2025</a>
-                    </div>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#">Cambridge ▼</a>
-                    <div class="dropdown-content">
-                        <a href="../cambridge/plataforma-test.html">📝 Plataforma de Tests</a>
-                        <a href="..cambridge/niveles.html">🎓 B1, B2, C1</a>
-                    </div>
-                </li>
-
-                <li><a href="../refuerzo/clases.html">Clases de Refuerzo</a></li>
-                
-                <li><a href="../contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+ 
 <div class="container">
     <div class="header">
         <h1>Calculadora de Nota PAU</h1>
