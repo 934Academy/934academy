@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Información de Clases - Academia de Inglés</title>
+    <link rel="stylesheet" href="../css/style.css"/> 
+    <style>
+        .levels-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            width: 100%;
+        }
+        .level-card {
+            background: #f9f9f9;
+            border: 2px solid #d32f2f;
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        .level-card:hover {
+            transform: translateY(-5px);
+            background: #fff;
+        }
+        .age-badge {
+            background: #d32f2f;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .promo-banner {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+            border-top: 2px dashed #d32f2f;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card" style="max-width: 900px; min-width: 80%;">
+    <h1>Nuestras Clases de Inglés</h1>
+    <div class="age-badge">Desde los 6 años en adelante</div>
+    
+    <p>Preparamos a nuestros alumnos para el éxito comunicativo y la obtención de títulos oficiales con una metodología dinámica y adaptada.</p>
+
+    <div class="levels-container">
+        <div class="level-card">
+            <h3>Nivel B1 (PET)</h3>
+            <p><strong>Umbral:</strong> Para alumnos que ya dominan lo básico y quieren empezar a defenderse en situaciones cotidianas y viajes.</p>
+            <ul style="text-align: left; font-size: 0.9em;">
+                <li>Comprensión de puntos principales.</li>
+                <li>Redacción de textos sencillos.</li>
+                <li>Descripción de experiencias y deseos.</li>
+            </ul>
+        </div>
+
+        <div class="level-card">
+            <h3>Nivel B2 (FCE)</h3>
+            <p><strong>Avanzado:</strong> El nivel estándar para universidades y trabajos. Comunicación fluida con hablantes nativos.</p>
+            <ul style="text-align: left; font-size: 0.9em;">
+                <li>Entendimiento de ideas complejas.</li>
+                <li>Fluidez y naturalidad al hablar.</li>
+                <li>Producción de textos detallados.</li>
+            </ul>
+        </div>
+
+        <div class="level-card">
+            <h3>Nivel C1 (CAE)</h3>
+            <p><strong>Dominio:</strong> Para quienes necesitan un uso profesional y académico exigente del idioma.</p>
+            <ul style="text-align: left; font-size: 0.9em;">
+                <li>Uso flexible y efectivo del inglés.</li>
+                <li>Comprensión de textos extensos.</li>
+                <li>Expresión espontánea y precisa.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="promo-banner">
+        ¡Formamos bilingües desde la infancia!
+    </div>
+<!--
+    <div style="margin-top: 30px;">
+        <button onclick="window.history.back()" class="back-button">Volver al Inicio</button>
+        <button onclick="window.print()">Descargar Info (PDF)</button>
+    </div>-->
+</div>
+
+</body>
+</html>
