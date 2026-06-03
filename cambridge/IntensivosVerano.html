@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Información de Clases - Academia de Inglés</title>
+    <link rel="stylesheet" href="../css/style.css"/> 
+    <style>
+        /* FONDO BLANCO INTEGRADO */
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center; 
+            align-items: flex-start; /* Alineado arriba para que no flote en pantallas largas */
+            min-height: 100vh;      
+            background: #ffffff;    /* Blanco puro */
+            font-family: 'Segoe UI', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* CONTENEDOR PRINCIPAL SIN BORDE PESADO */
+        .card {
+            background: white;
+            text-align: center;
+            color: #333;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .logo-img {
+            max-width: 180px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #d32f2f;
+            margin: 10px 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        /* DISEÑO DE LAS TARJETAS DE NIVELES */
+        .levels-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .level-card {
+            background: #ffffff;
+            border: 1px solid #eee; /* Borde muy suave */
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra ligera */
+        }
+
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #d32f2f;
+        }
+
+        .level-card h3 {
+            color: #d32f2f;
+            margin-top: 0;
+            font-size: 1.5em;
+            text-align: center;
+            border-bottom: 2px solid #fff5f5;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .age-badge {
+            background: #d32f2f;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .promo-banner {
+            margin-top: 60px;
+            font-weight: bold;
+            font-size: 1.4em;
+            color: #d32f2f;
+            padding: 30px;
+            background: #fdfdfd;
+            border: 1px dashed #d32f2f;
+            border-radius: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+            color: #444;
+        }
+
+        li {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        /* BOTÓN DE RETORNO DISCRETO */
+        
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            .level-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <header>
+        <a href="../index.html">
+            <img src="../images/logos/rojo.png" alt="9 3/4 Academy" class="logo-img">
+        </a>
+    </header>
+
+    <h1>Intensivos de Verano 2026</h1>
+    <div class="age-badge">5 semanas de clases intensivas desde el 30 de junio</div>
+    
+    <p style="font-size: 1.2em; max-width: 800px; margin: 0 auto; color: #666; line-height: 1.6;">
+        Formamos alumnos para alcanzar la fluidez y certificar sus conocimientos con los títulos oficiales de <strong>Cambridge</strong> mediante una metodología dinámica. Disponemos de modalidades <strong>presencial y online</strong> con todos los materiales incluidos y acceso a nuestra plataforma online exclusiva.
+    </p>
+
+    <div class="levels-container">
+        <div class="level-card">
+            <h3>Nivel B1 (PET)</h3>
+            <p><strong>Enfoque:</strong> Desarrollo de autonomía. Ideal para empezar a comunicarse en viajes y situaciones cotidianas.</p>
+            <ul>
+                <li>Entender ideas principales de temas familiares.</li>
+                <li>Escribir textos sencillos sobre gustos.</li>
+                <li>Describir experiencias y planes futuros.</li>
+                <li><strong>Turnos disponibles:</strong> De 9:00 a 10:30 o de 10:30 a 12:00.</li>
+            </ul>
+        </div>
+
+        <div class="level-card">
+            <h3>Nivel B2 (FCE)</h3>
+            <p><strong>Enfoque:</strong> Fluidez avanzada. Requisito estándar para entornos universitarios y laborales internacionales.</p>
+            <ul>
+                <li>Comprensión de textos técnicos y complejos.</li>
+                <li>Conversación fluida sin esfuerzo para los nativos.</li>
+                <li>Argumentar puntos de vista de forma clara.</li>
+                <li><strong>Turnos disponibles:</strong> De 9:00 a 10:30 o de 10:30 a 12:00.</li>
+            </ul>
+        </div>
+
+        <div class="level-card">
+            <h3>Nivel C1 (CAE)</h3>
+            <p><strong>Enfoque:</strong> Dominio profesional. Para un uso exigente y preciso del idioma en cualquier ámbito.</p>
+            <ul>
+                <li>Uso flexible del inglés con fines sociales.</li>
+                <li>Expresión espontánea, fluida y precisa.</li>
+                <li>Producir textos claros y bien estructurados.</li>
+                <li><strong>Turnos disponibles:</strong> De 9:00 a 10:30 o de 10:30 a 12:00.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="promo-banner">
+        ¡Este verano eleva tu inglés al siguiente nivel!
+    </div>
+
+    <a href="../index.html" class="back-link">← Volver a la página principal</a>
+</div>
+
+</body>
+</html>
