@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>934 Academy — Cambridge Exams</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+<div id="overlay" class="overlay"></div>
+
+<div id="app">
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+      <img src="images/logo.png" alt="Logo 934 Academy">
+      <div class="sidebar-brand">
+        934 Academy
+        <span>Cambridge Exams</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <div class="nav-section">
+        <div class="nav-label">General</div>
+        <div class="nav-item active" data-page="dashboard">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+          Inicio
+        </div>
+        <!-- ✅ NUEVO: Mis resultados -->
+        <div class="nav-item" data-page="resultados">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/>
+          </svg>
+          Mis resultados
+        </div>
+      </div>
+
+      <div class="nav-section">
+        <div class="nav-label">Mis exámenes</div>
+        <div class="nav-item" data-page="destreza" data-skill="use-of-english">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+          </svg>
+          Use of English
+        </div>
+        <div class="nav-item" data-page="destreza" data-skill="reading">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          Reading
+        </div>
+        <div class="nav-item" data-page="destreza" data-skill="writing">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+          <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+        </svg>
+        Writing
+      </div>
+        <div class="nav-item disabled">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+          </svg>
+          Listening
+          <span class="badge badge-soon" style="margin-left:auto">Próx.</span>
+        </div>
+        
+        
+      </div>
+
+      <div class="nav-section admin-only" style="display:none">
+        <div class="nav-label">Administración</div>
+        <div class="nav-item" data-page="admin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Gestión de alumnos
+        </div>
+      </div>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-block">
+        <div class="user-avatar" id="user-avatar">?</div>
+        <div>
+          <div class="user-name"  id="user-name">–</div>
+          <div class="user-level" id="user-level">–</div>
+        </div>
+      </div>
+      <button class="btn-logout" id="btn-logout">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Cerrar sesión
+      </button>
+    </div>
+
+  </aside>
+
+  <div class="main-content">
+
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:0.75rem">
+        <button class="menu-btn" id="menu-btn" aria-label="Abrir menú">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+        <nav id="breadcrumb" class="breadcrumb" aria-label="Ruta">
+          <span class="current">Inicio</span>
+        </nav>
+      </div>
+      <span style="font-size:var(--text-sm);color:var(--color-text-muted)" id="dash-greeting"></span>
+    </header>
+
+    <!-- ══ DASHBOARD ══ -->
+    <main class="page active" id="page-dashboard">
+      <div class="page-header">
+        <h1 class="page-title">Bienvenida, <span id="dash-greeting-name"></span> 👋</h1>
+        <p class="page-subtitle">Selecciona una destreza para Practice</p>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Tu nivel</div>
+          <div class="stat-value" id="stat-level">–</div>
+          <div class="stat-sub">Cambridge</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Alumno</div>
+          <div class="stat-value" style="font-size:1.2rem" id="stat-name">–</div>
+          <div class="stat-sub">934 Academy</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-title">Destrezas disponibles</div>
+        <div class="skill-grid" id="skill-grid"></div>
+      </div>
+    </main>
+
+    <!-- ══ DESTREZA ══ -->
+    <main class="page" id="page-destreza">
+      <div class="page-header">
+        <h1 class="page-title" id="destreza-title">Use of English</h1>
+        <p class="page-subtitle" id="destreza-subtitle">Selecciona una parte</p>
+      </div>
+      <div id="destreza-content"></div>
+    </main>
+
+    <!-- ══ EJERCICIO ══ -->
+    <main class="page" id="page-ejercicio">
+      <div id="ejercicio-content"></div>
+    </main>
+
+    <!-- ══ RESULTADOS ══ -->
+    <main class="page" id="page-resultados">
+      <div class="page-header">
+        <h1 class="page-title">Mis resultados</h1>
+        <p class="page-subtitle">Historial de ejercicios completados</p>
+      </div>
+      <div id="resultados-content"></div>
+    </main>
+
+    <!-- ══ ADMIN ══ -->
+    <main class="page" id="page-admin">
+      <div class="page-header">
+        <h1 class="page-title">Gestión de alumnos</h1>
+        <p class="page-subtitle">Añade, consulta y elimina alumnos de la plataforma</p>
+      </div>
+      <div class="admin-grid">
+        <div class="card full-width">
+          <div class="card-title">Alumnos registrados</div>
+          <div style="overflow-x:auto">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Usuario</th><th>Nombre</th><th>Nivel</th><th>Rol</th><th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="students-tbody">
+                <tr><td colspan="5" style="color:var(--color-text-faint);text-align:center;padding:2rem">Cargando...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Añadir alumno</div>
+          <form class="add-form" id="add-student-form">
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label">Usuario</label>
+                <input class="form-input" id="new-username" placeholder="ana_garcia" required autocomplete="off">
+              </div>
+              <div class="form-field">
+                <label class="form-label">Nombre completo</label>
+                <input class="form-input" id="new-name" placeholder="Ana García" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label">Contraseña</label>
+                <input class="form-input" type="password" id="new-password"
+                  placeholder="Mínimo 6 caracteres" required autocomplete="new-password">
+              </div>
+              <div class="form-field">
+                <label class="form-label">Nivel</label>
+                <select class="form-select" id="new-level">
+                  <option value="A1">A1 Movers</option>
+                  <option value="A2">A2 Key</option>
+                  <option value="B1">B1 Preliminary</option>
+                  <option value="B2" selected>B2 First</option>
+                  <option value="C1">C1 Advanced</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Añadir alumno</button>
+          </form>
+        </div>
+        <div class="card">
+          <div class="card-title">ℹ️ Información</div>
+          <div class="info-box">
+            <p>Las contraseñas se guardan <strong>cifradas</strong> en Supabase — nadie puede verlas, ni tú.</p>
+            <p>Si un alumno olvida su contraseña, <strong>elimínalo y vuelve a crearlo</strong> con una nueva (los resultados se perderán).</p>
+            <p>El usuario que el alumno usa para entrar es exactamente el que escribes aquí, en minúsculas.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
