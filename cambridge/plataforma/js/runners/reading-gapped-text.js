@@ -1,7 +1,7 @@
 import { saveResult } from '../auth.js';
 
 let exercise = null;
-let answers  = {};
+let answers  = {}; // Almacenará { A: "B", B: "A", ... } guardando la LETRA seleccionada
 let _skill   = '';
 let _part    = '';
 
@@ -18,7 +18,7 @@ function renderSelector(exercises) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Part 6 — Gapped Text</h1>
-      <p class="page-subtitle">${exercises.length} ejercicios disponibles</p>
+      <p class="page-subtitle">${exercises.length} exercises available</p>
     </div>
     <div class="skill-grid">
       ${exercises.map((ex, i) => `
@@ -34,7 +34,7 @@ function renderSelector(exercises) {
   c.querySelectorAll('.skill-card[data-i]').forEach(card => {
     card.addEventListener('click', () => {
       exercise = exercises[parseInt(card.dataset.i)];
-      answers  = {};
+      answers  = { A: "", B: "", C: "", D: "" }; // Inicializamos los 4 huecos vacíos
       renderExercise(exercises);
     });
   });
@@ -43,87 +43,102 @@ function renderSelector(exercises) {
 function renderExercise(exercises) {
   const c = document.getElementById('ejercicio-content');
 
-  // Build text with gap markers
-  let textWithGaps = exercise.reading_text;
-  ['A','B','C','D'].forEach(letter => {
-    const selectedId = answers[letter] || '';
-    const selectedPara = exercise.paragraphs.find(p => p.id === selectedId);
-    const gapLabel = selectedPara
-      ? `<span style="background:var(--color-primary);color:#fff;padding:2px 10px;border-radius:20px;
-          font-weight:700;font-size:.85rem;cursor:pointer" data-gap="${letter}">[${letter}: ${selectedPara.letter} ✓]</span>`
-      : `<span style="background:var(--color-border);color:var(--color-text);padding:2px 10px;border-radius:20px;
-          font-weight:700;font-size:.85rem;cursor:pointer" data-gap="${letter}">[Hueco ${letter}]</span>`;
-    textWithGaps = textWithGaps.replace(`[${letter}]`, gapLabel);
-  });
+  // Clonamos el texto base para no machacar el original
+  let textWithDropdowns = exercise.reading_text;
+  
+  // Lista de letras de opciones disponibles en este ejercicio (A, B, C, D, E, F)
+  const optionLetters = exercise.paragraphs.map(p => p.letter).sort();
 
-  // Available paragraphs (not yet used)
-  const usedIds = Object.values(answers);
-  const available = exercise.paragraphs.filter(p => !usedIds.includes(p.id));
+  // Reemplazamos cada marcador [A], [B], [C], [D] por un selector <select>
+  ['A', 'B', 'C', 'D'].forEach(gap => {
+    let optionsHtml = `<option value="">--</option>`;
+    optionLetters.forEach(letter => {
+      const isSelected = answers[gap] === letter ? 'selected' : '';
+      optionsHtml += `<option value="${letter}" ${isSelected}>${letter}</option>`;
+    });
+
+    const selectHtml = `
+      <select class="gap-dropdown" data-gap="${gap}" style="
+        padding: 4px 8px;
+        border-radius: 4px;
+        border: 2px solid var(--color-primary);
+        font-weight: bold;
+        background-color: var(--color-surface);
+        color: var(--color-text);
+        cursor: pointer;
+        margin: 0 4px;
+      ">
+        ${optionsHtml}
+      </select>
+    `;
+    
+    textWithDropdowns = textWithDropdowns.replace(`[${gap}]`, selectHtml);
+  });
 
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Part 6 — ${exercise.title}</h1>
-      <p class="page-subtitle">Elige el párrafo que encaja en cada hueco [A]–[D]</p>
+      <p class="page-subtitle">Read the text and choose the correct paragraph (A–F) for each gap. <strong>Two paragraphs are extra!</strong></p>
     </div>
-    <div class="card" style="line-height:1.8;margin-bottom:1.5rem">${textWithGaps}</div>
+    
+    <div class="card" style="line-height:1.8; margin-bottom:1.5rem; font-size:1.05rem;">
+      ${textWithDropdowns}
+    </div>
+
     <div class="card" style="margin-bottom:1.5rem">
-      <div class="card-title">Párrafos disponibles</div>
-      <div style="display:flex;flex-direction:column;gap:.75rem" id="para-list">
-        ${available.map(p => `
-          <div class="card" data-para-id="${p.id}" style="cursor:pointer;border:2px solid var(--color-border)">
-            <strong>${p.letter}.</strong> ${p.text}
+      <div class="card-title" style="border-bottom: 2px solid var(--color-border); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+        📂 Available Paragraphs (A–F)
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1rem">
+        ${exercise.paragraphs.map(p => `
+          <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 0.5rem; border-bottom: 1px dashed var(--color-border);">
+            <span style="
+              background: var(--color-primary); 
+              color: white; 
+              font-weight: bold; 
+              padding: 2px 8px; 
+              border-radius: 4px;
+              min-width: 25px;
+              text-align: center;
+            ">${p.letter}</span>
+            <div style="color: var(--color-text); line-height: 1.5;">${p.text}</div>
           </div>
         `).join('')}
-        ${available.length === 0 ? '<p style="color:var(--color-text-muted)">Todos los párrafos han sido asignados.</p>' : ''}
       </div>
     </div>
-    <div style="margin-bottom:1rem;padding:1rem;background:var(--color-surface);border-radius:8px;
-      border:1px solid var(--color-border);font-size:.85rem;color:var(--color-text-muted)">
-      💡 Haz clic en un hueco del texto para seleccionarlo, luego haz clic en el párrafo que quieres asignarle.
-    </div>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap">
+
+    <div style="display:flex; gap:1rem; flex-wrap:wrap">
       <button class="btn" id="btn-sel">← Selector</button>
-      <button class="btn" id="btn-clear">Limpiar</button>
-      <button class="btn btn-primary" id="btn-check">Corregir</button>
+      <button class="btn" id="btn-clear">Clear Answers</button>
+      <button class="btn btn-primary" id="btn-check">Check Results</button>
     </div>
   `;
 
-  let selectedGap = null;
-
-  c.querySelectorAll('[data-gap]').forEach(el => {
-    el.addEventListener('click', () => {
-      c.querySelectorAll('[data-gap]').forEach(g => g.style.outline = '');
-      selectedGap = el.dataset.gap;
-      el.style.outline = '3px solid var(--color-primary)';
+  // Escuchamos los cambios en los desplegables para actualizar el estado en tiempo real
+  c.querySelectorAll('.gap-dropdown').forEach(select => {
+    select.addEventListener('change', (e) => {
+      const gap = e.target.dataset.gap;
+      answers[gap] = e.target.value;
     });
   });
 
-  c.querySelectorAll('[data-para-id]').forEach(el => {
-    el.addEventListener('click', () => {
-      if (!selectedGap) {
-        el.style.outline = '2px solid var(--color-primary)';
-        setTimeout(() => el.style.outline = '', 600);
-        return;
-      }
-      // Remove previous assignment of this gap
-      delete answers[selectedGap];
-      answers[selectedGap] = el.dataset.paraId;
-      selectedGap = null;
-      renderExercise(exercises);
-    });
+  document.getElementById('btn-clear').addEventListener('click', () => { 
+    answers = { A: "", B: "", C: "", D: "" }; 
+    renderExercise(exercises); 
   });
-
-  document.getElementById('btn-clear').addEventListener('click', () => { answers = {}; renderExercise(exercises); });
   document.getElementById('btn-sel').addEventListener('click', () => renderSelector(exercises));
   document.getElementById('btn-check').addEventListener('click', () => finishQuiz(exercises));
 }
 
 async function finishQuiz(exercises) {
   let correct = 0;
-  ['A','B','C','D'].forEach(letter => {
-    if (answers[letter] === exercise.answers[letter]) correct++;
+  const gaps = ['A', 'B', 'C', 'D'];
+  
+  gaps.forEach(gap => {
+    if (answers[gap] === exercise.answers[gap]) correct++;
   });
-  const total = 4;
+  
+  const total = gaps.length;
   const pct   = Math.round((correct / total) * 100);
   const color = pct >= 75 ? '#22c55e' : pct >= 50 ? '#f59e0b' : '#ef4444';
 
@@ -139,50 +154,54 @@ async function finishQuiz(exercises) {
   const c = document.getElementById('ejercicio-content');
   c.innerHTML = `
     <div class="page-header">
-      <h1 class="page-title">Resultados — ${exercise.title}</h1>
+      <h1 class="page-title">Results — ${exercise.title}</h1>
     </div>
     <div class="stat-grid">
       <div class="stat-card">
-        <div class="stat-label">Correctas</div>
+        <div class="stat-label">Correct Gaps</div>
         <div class="stat-value">${correct} / ${total}</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Puntuación</div>
+        <div class="stat-label">Final Score</div>
         <div class="stat-value" style="color:${color}">${pct}%</div>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem" id="review-list"></div>
-    <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
-      <button class="btn" id="btn-repeat">Repetir</button>
-      <button class="btn" id="btn-sel">Elegir otro</button>
-      <button class="btn" id="btn-destreza">← Reading</button>
+    <div style="display:flex; flex-direction:column; gap:1.25rem; margin-top:1.5rem" id="review-list"></div>
+    <div style="display:flex; gap:1rem; margin-top:1.5rem; flex-wrap:wrap">
+      <button class="btn" id="btn-repeat">Repeat Exercise</button>
+      <button class="btn" id="btn-sel">Choose Another</button>
+      <button class="btn" id="btn-destreza">← Back to Reading</button>
     </div>
   `;
 
   const list = document.getElementById('review-list');
-  ['A','B','C','D'].forEach(letter => {
-    const correctId  = exercise.answers[letter];
-    const userId     = answers[letter];
-    const correctPara = exercise.paragraphs.find(p => p.id === correctId);
-    const userPara    = exercise.paragraphs.find(p => p.id === userId);
-    const ok          = userId === correctId;
-    const div         = document.createElement('div');
-    div.className     = 'card';
-    div.style.borderLeft = `4px solid ${ok ? '#22c55e' : '#ef4444'}`;
+  gaps.forEach(gap => {
+    const correctLetter = exercise.answers[gap];
+    const userLetter    = answers[gap];
+    
+    const correctPara = exercise.paragraphs.find(p => p.letter === correctLetter);
+    const userPara    = exercise.paragraphs.find(p => p.letter === userLetter);
+    
+    const isCorrect = userLetter === correctLetter;
+    
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.style.borderLeft = `4px solid ${isCorrect ? '#22c55e' : '#ef4444'}`;
+    
     div.innerHTML = `
-      <div class="card-title" style="color:${ok ? '#22c55e' : '#ef4444'}">
-        Hueco ${letter}: ${ok ? '✅ Correcto' : '❌ Incorrecto'}
+      <div class="card-title" style="color:${isCorrect ? '#22c55e' : '#ef4444'}; font-weight: bold; margin-bottom: 0.5rem;">
+        Gap [${gap}] — ${isCorrect ? '✅ Correct' : '❌ Incorrect'}
       </div>
-      <p><strong>Tu respuesta:</strong> ${userPara ? `${userPara.letter}. ${userPara.text}` : '<em>Sin responder</em>'}</p>
-      <p><strong>Correcta:</strong> <span style="color:#22c55e;font-weight:600">${correctPara.letter}. ${correctPara.text}</span></p>
-      <p style="border-top:1px solid var(--color-border);padding-top:.75rem;margin-top:.75rem">
-        <strong>Explicación:</strong> ${exercise.explanations[letter]}
-      </p>
+      <p style="margin: 0.25rem 0;"><strong>Your selection:</strong> ${userLetter ? `<span style="background: var(--color-border); padding: 2px 6px; border-radius:4px;">Paragraph ${userLetter}</span>: ${userPara.text}` : '<em style="color: grey;">No answer selected</em>'}</p>
+      <p style="margin: 0.25rem 0;"><strong>Correct Paragraph:</strong> <span style="color:#22c55e; font-weight:600;"><span style="background: #22c55e; color: white; padding: 2px 6px; border-radius:4px;">Paragraph ${correctLetter}</span>: ${correctPara.text}</span></p>
+      <div style="border-top:1px solid var(--color-border); padding-top:0.75rem; margin-top:0.75rem; font-size: 0.95rem;">
+        <strong>Key Explanation:</strong> ${exercise.explanations[gap]}
+      </div>
     `;
     list.appendChild(div);
   });
 
-  document.getElementById('btn-repeat').addEventListener('click', () => { answers = {}; renderExercise(exercises); });
+  document.getElementById('btn-repeat').addEventListener('click', () => { answers = { A: "", B: "", C: "", D: "" }; renderExercise(exercises); });
   document.getElementById('btn-sel').addEventListener('click', () => renderSelector(exercises));
   document.getElementById('btn-destreza').addEventListener('click', () => window.navigate('destreza', { skill: _skill }));
 }

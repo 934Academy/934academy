@@ -2,7 +2,7 @@ export const WRITING_PROMPTS_B2 = [
   {
     type: 'Essay',
     icon: '📝',
-    desc: 'Argumenta sobre un tema con dos puntos de vista',
+    desc: 'Argument a topic from two different perspectives',
     prompts: [
       {
         id: 'b2_w_essay_1',
@@ -17,7 +17,7 @@ In your essay you should:
 • give your own opinion
 
 Write 140–190 words.`,
-        tips: ['Usa conectores de contraste: however, on the other hand, whereas', 'Da tu opinión en la conclusión con: In my view, I believe that...', 'Evita repetir las mismas palabras — usa sinónimos']
+        tips: ['Use contrastive connectors: however, on the other hand, whereas', 'Give your opinion in the conclusion with: In my view, I believe that...', 'Avoid repeating the same words — use synonyms']
       },
       {
         id: 'b2_w_essay_2',
@@ -32,7 +32,7 @@ In your essay you should:
 • give your own opinion with reasons
 
 Write 140–190 words.`,
-        tips: ['Estructura clara: introducción, punto a favor, punto en contra, conclusión', 'Usa: It is argued that... / Supporters of this view claim that...', 'Cierra con una opinión clara y justificada']
+        tips: ['Clear structure: introduction, point in favor, point against, conclusion', 'Use: It is argued that... / Supporters of this view claim that...', 'End with a clear and justified opinion']
       },
       {
         id: 'b2_w_essay_3',
@@ -45,14 +45,14 @@ In your essay you should:
 • give your own conclusion
 
 Write 140–190 words.`,
-        tips: ['Incluye ejemplos concretos para apoyar tus argumentos', 'Usa: In contrast to previous generations... / Unlike their parents...', 'No olvides hacer referencia a los dos puntos del enunciado']
+        tips: ['Include concrete examples to support your arguments', 'Use: In contrast to previous generations... / Unlike their parents...', 'Don\'t forget to refer to both points of the prompt']
       }
     ]
   },
   {
     type: 'Article',
     icon: '📰',
-    desc: 'Escribe para una revista con tono personal y atractivo',
+    desc: 'Write for a magazine with a personal and engaging tone',
     prompts: [
       {
         id: 'b2_w_article_1',
@@ -64,7 +64,7 @@ Write an article describing a piece of technology and explaining how it has affe
 Your article should be interesting and engaging for other students.
 
 Write 140–190 words.`,
-        tips: ['Empieza con una pregunta o frase impactante para captar la atención', 'Usa un tono personal — puedes usar "I" y "you"', 'Añade un título llamativo a tu artículo']
+        tips: ['Start with a question or striking sentence to capture attention', 'Use a personal tone — you can use "I" and "you"', 'Add an engaging title to your article']
       },
       {
         id: 'b2_w_article_2',
@@ -74,7 +74,7 @@ Write 140–190 words.`,
 Describe the place, explain why it is special and say why more people should visit it.
 
 Write 140–190 words.`,
-        tips: ['Usa lenguaje descriptivo: vivid adjectives, sensory details', 'Incluye por qué el lugar es especial o poco conocido', 'Termina con una recomendación directa al lector']
+        tips: ['Use descriptive language: vivid adjectives, sensory details', 'Include why the place is special or little known', 'End with a direct recommendation to the reader']
       },
       {
         id: 'b2_w_article_3',
@@ -84,14 +84,14 @@ Write 140–190 words.`,
 Write an article about something important you have learned and how it changed the way you think or behave.
 
 Write 140–190 words.`,
-        tips: ['Sé personal y honesto — los mejores artículos son auténticos', 'Usa narrativa: describe cuándo/cómo aprendiste la lección', 'Conecta tu experiencia con algo universal que los lectores puedan identificar']
+        tips: ['Be personal and honest — the best articles are authentic', 'Use narrative: describe when/how you learned the lesson', 'Connect your experience with something universal that readers can relate to']
       }
     ]
   },
   {
     type: 'Review',
     icon: '⭐',
-    desc: 'Evalúa una película, libro o lugar con criterio',
+    desc: 'Grade something you have experienced and give recommendations',
     prompts: [
       {
         id: 'b2_w_review_1',
@@ -104,7 +104,7 @@ In your review you should:
 • say whether you would recommend it and to whom
 
 Write 140–190 words.`,
-        tips: ['No cuentes el final — evita los spoilers', 'Usa lenguaje evaluativo: outstanding, disappointing, gripping, predictable', 'Dirígete al lector: "If you enjoy thrillers, this is the film for you."']
+        tips: ['No reveal the ending — avoid spoilers', 'Use evaluative language: outstanding, disappointing, gripping, predictable', 'Address the reader: "If you enjoy thrillers, this is the film for you."']
       },
       {
         id: 'b2_w_review_2',
@@ -117,7 +117,7 @@ In your review describe:
 • whether you would recommend it
 
 Write 140–190 words.`,
-        tips: ['Incluye detalles sensoriales: taste, smell, atmosphere', 'Sé equilibrado — menciona tanto lo positivo como lo negativo', 'Termina con una recomendación clara']
+        tips: ['Include sensory details: taste, smell, atmosphere', 'Be balanced — mention both positive and negative aspects', 'End with a clear recommendation']
       },
       {
         id: 'b2_w_review_3',
@@ -130,14 +130,14 @@ In your review you should:
 • say whether other students should read it
 
 Write 140–190 words.`,
-        tips: ['Menciona el género: thriller, romance, science fiction, biography...', 'Compara con otros libros si es útil: "Unlike most novels of this type..."', 'Usa comillas para citar frases memorables del libro']
+        tips: ['Mention the genre: thriller, romance, science fiction, biography...', 'Compare with other books if useful: "Unlike most novels of this type..."', 'Use quotation marks to cite memorable quotes from the book']
       }
     ]
   },
   {
     type: 'Report',
     icon: '📊',
-    desc: 'Escribe de forma formal con secciones y recomendaciones',
+    desc: 'Write formally with sections and recommendations',
     prompts: [
       {
         id: 'b2_w_report_1',
@@ -150,7 +150,7 @@ In your report you should:
 • make recommendations for improvement
 
 Write 140–190 words.`,
-        tips: ['Usa subtítulos: Introduction, Current Situation, Recommendations', 'Tono formal y objetivo — evita opiniones personales excesivas', 'Usa el pasivo: "It has been suggested that... / Students were asked..."']
+        tips: ['Use section headings: Introduction, Current Situation, Recommendations', 'Formal and objective tone — avoid excessive personal opinions', 'Use the passive voice: "It has been suggested that... / Students were asked..."']
       },
       {
         id: 'b2_w_report_2',
@@ -163,7 +163,7 @@ In your report you should:
 • suggest specific changes with reasons
 
 Write 140–190 words.`,
-        tips: ['Sé específico con tus recomendaciones: "The council should invest in..."', 'Usa lenguaje formal: Furthermore, In addition, It is recommended that...', 'Incluye datos o ejemplos para apoyar tus sugerencias']
+        tips: ['Be specific with your recommendations: "The council should invest in..."', 'Use formal language: Furthermore, In addition, It is recommended that...', 'Include data or examples to support your suggestions']
       },
       {
         id: 'b2_w_report_3',
@@ -171,14 +171,14 @@ Write 140–190 words.`,
         task: `Your teacher has asked you to write a report on the most popular ways students in your school spend their free time, and to suggest how the school could better support these activities.
 
 Write 140–190 words.`,
-        tips: ['Estructura en secciones claras con subtítulos', 'Presenta los datos de forma objetiva antes de hacer recomendaciones', 'Termina con una conclusión breve que resuma tus sugerencias']
+        tips: ['Structure in clear sections with headings', 'Present the data objectively before making recommendations', 'End with a brief conclusion that summarizes your suggestions']
       }
     ]
   },
   {
     type: 'Formal Letter / Email',
     icon: '✉️',
-    desc: 'Escribe con tono formal para un propósito concreto',
+    desc: 'Write formally for a specific purpose',
     prompts: [
       {
         id: 'b2_w_formal_1',
@@ -191,7 +191,7 @@ In your letter you should ask about:
 • the total cost and payment options
 
 Write 140–190 words.`,
-        tips: ['Empieza con: Dear Sir/Madam, y termina con: Yours faithfully,', 'Usa frases formales de petición: I would be grateful if you could...', 'Organiza en párrafos según los tres puntos del enunciado']
+        tips: ['Start with: Dear Sir/Madam, and end with: Yours faithfully,', 'Use formal request phrases: I would be grateful if you could...', 'Organize into paragraphs based on the three points of the prompt']
       },
       {
         id: 'b2_w_formal_2',
@@ -204,7 +204,7 @@ In your email you should:
 • say clearly what you would like the company to do
 
 Write 140–190 words.`,
-        tips: ['Tono firme pero educado — no uses lenguaje agresivo', 'Usa: I am writing to complain about... / I would like to request...', 'Sé específico sobre lo que quieres: refund, replacement, apology']
+        tips: ['Be firm but polite — don\'t use aggressive language', 'Use: I am writing to complain about... / I would like to request...', 'Be specific about what you want: refund, replacement, apology']
       },
       {
         id: 'b2_w_formal_3',
@@ -217,14 +217,14 @@ In your letter you should:
 • suggest a more balanced perspective
 
 Write 140–190 words.`,
-        tips: ['Empieza con: Dear Editor,', 'Cita el artículo: "In your recent article, it was suggested that..."', 'Usa lenguaje persuasivo: It is important to consider... / In reality...']
+        tips: ['Start with: Dear Editor,', 'Cite the article: "In your recent article, it was suggested that..."', 'Use persuasive language: It is important to consider... / In reality...']
       }
     ]
   },
   {
     type: 'Informal Letter / Email',
     icon: '💬',
-    desc: 'Escribe a un amigo con tono natural y cercano',
+    desc: 'Write to a friend with a natural and friendly tone',
     prompts: [
       {
         id: 'b2_w_informal_1',
@@ -237,7 +237,7 @@ In your email you should:
 • say how the experience affected you
 
 Write 140–190 words.`,
-        tips: ['Usa un saludo informal: Hi [name]! / Hey!', 'Incluye lenguaje coloquial: It was absolutely amazing! / I couldn\'t believe it when...', 'Termina de forma amistosa: Can\'t wait to hear from you! / Write back soon!']
+        tips: ['Use an informal greeting: Hi [name]! / Hey!', 'Include colloquial language: It was absolutely amazing! / I couldn\'t believe it when...', 'End in a friendly way: Can\'t wait to hear from you! / Write back soon!']
       },
       {
         id: 'b2_w_informal_2',
@@ -250,7 +250,7 @@ In your email include:
 • any practical tips (transport, weather, customs)
 
 Write 140–190 words.`,
-        tips: ['Sé específico y personal: "You have to try the food at..."', 'Usa imperativos amistosos: Make sure you visit... / Don\'t miss...', 'Añade tu propia experiencia para hacer el email más auténtico']
+        tips: ['Be specific and personal: "You have to try the food at..."', 'Use friendly imperatives: Make sure you visit... / Don\'t miss...', 'Add your own experience to make the email more authentic']
       },
       {
         id: 'b2_w_informal_3',
@@ -263,7 +263,7 @@ In your email you should:
 • make a final recommendation
 
 Write 140–190 words.`,
-        tips: ['Empieza reconociendo la situación de tu amigo: "I totally understand why you\'re unsure..."', 'Usa lenguaje de consejo: If I were you... / Have you thought about...?', 'Sé honesto pero comprensivo — es un email a un amigo']
+        tips: ['Start by acknowledging your friend\'s situation: "I totally understand why you\'re unsure..."', 'Use advice-giving language: If I were you... / Have you thought about...?', 'Be honest but understanding — this is an email to a friend']
       }
     ]
   }

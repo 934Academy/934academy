@@ -18,7 +18,7 @@ function renderSelector(exercises) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Part 5 — Multiple Choice</h1>
-      <p class="page-subtitle">${exercises.length} ejercicios disponibles</p>
+      <p class="page-subtitle">${exercises.length} exercises available</p>
     </div>
     <div class="skill-grid">
       ${exercises.map((ex, i) => `
@@ -45,13 +45,13 @@ function renderExercise(exercises) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Part 5 — ${exercise.title}</h1>
-      <p class="page-subtitle">Lee el texto y responde las preguntas</p>
+      <p class="page-subtitle">Read the text and answer the questions</p>
     </div>
     <div class="card" style="line-height:1.8;margin-bottom:1.5rem">${exercise.reading_text}</div>
     <div style="display:flex;flex-direction:column;gap:1.25rem" id="questions-list"></div>
     <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
       <button class="btn" id="btn-sel">← Selector</button>
-      <button class="btn btn-primary" id="btn-check">Corregir</button>
+      <button class="btn btn-primary" id="btn-check">Check Answers</button>
     </div>
   `;
 
@@ -60,7 +60,7 @@ function renderExercise(exercises) {
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `
-      <div class="card-title">Pregunta ${i + 1}</div>
+      <div class="card-title">Question ${i + 1}</div>
       <p style="margin-bottom:.75rem">${q.text}</p>
       <div style="display:flex;flex-direction:column;gap:.5rem">
         ${q.options.map((opt, j) => `
@@ -108,22 +108,22 @@ async function finishQuiz(exercises) {
   const c = document.getElementById('ejercicio-content');
   c.innerHTML = `
     <div class="page-header">
-      <h1 class="page-title">Resultados — ${exercise.title}</h1>
+      <h1 class="page-title">Results — ${exercise.title}</h1>
     </div>
     <div class="stat-grid">
       <div class="stat-card">
-        <div class="stat-label">Correctas</div>
+        <div class="stat-label">Correct</div>
         <div class="stat-value">${correct} / ${total}</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Puntuación</div>
+        <div class="stat-label">Score</div>
         <div class="stat-value" style="color:${color}">${pct}%</div>
       </div>
     </div>
     <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
-      <button class="btn btn-primary" id="btn-review">Revisar respuestas</button>
-      <button class="btn" id="btn-repeat">Repetir</button>
-      <button class="btn" id="btn-sel">Elegir otro</button>
+      <button class="btn btn-primary" id="btn-review">Review Answers</button>
+      <button class="btn" id="btn-repeat">Repeat</button>
+      <button class="btn" id="btn-sel">Choose Another</button>
       <button class="btn" id="btn-destreza">← Reading</button>
     </div>
   `;
@@ -138,9 +138,9 @@ function showReview(exercises) {
   const c = document.getElementById('ejercicio-content');
   c.innerHTML = `
     <div class="page-header">
-      <h1 class="page-title">Revisión — ${exercise.title}</h1>
+      <h1 class="page-title">Review — ${exercise.title}</h1>
     </div>
-    <button class="btn" id="btn-back" style="margin-bottom:1.5rem">← Volver a resultados</button>
+    <button class="btn" id="btn-back" style="margin-bottom:1.5rem">← Back to Results</button>
     <div id="review-list" style="display:flex;flex-direction:column;gap:1rem"></div>
   `;
   document.getElementById('btn-back').addEventListener('click', () => finishQuiz(exercises));
@@ -154,13 +154,13 @@ function showReview(exercises) {
     div.style.borderLeft = `4px solid ${ok ? '#22c55e' : '#ef4444'}`;
     div.innerHTML = `
       <div class="card-title" style="color:${ok ? '#22c55e' : '#ef4444'}">
-        Pregunta ${i + 1}: ${ok ? '✅ Correcta' : '❌ Incorrecta'}
+        Question ${i + 1}: ${ok ? '✅ Correct' : '❌ Incorrect'}
       </div>
       <p style="margin-bottom:.5rem">${q.text}</p>
-      <p><strong>Tu respuesta:</strong> ${userAns !== undefined ? `${String.fromCharCode(65 + userAns)}. ${q.options[userAns]}` : '<em>Sin responder</em>'}</p>
-      <p><strong>Correcta:</strong> <span style="color:#22c55e;font-weight:600">${String.fromCharCode(65 + q.answer)}. ${q.options[q.answer]}</span></p>
+      <p><strong>Your answer:</strong> ${userAns !== undefined ? `${String.fromCharCode(65 + userAns)}. ${q.options[userAns]}` : '<em>Not answered</em>'}</p>
+      <p><strong>Correct answer:</strong> <span style="color:#22c55e;font-weight:600">${String.fromCharCode(65 + q.answer)}. ${q.options[q.answer]}</span></p>
       <p style="border-top:1px solid var(--color-border);padding-top:.75rem;margin-top:.75rem">
-        <strong>Explicación:</strong> ${q.explanation}
+        <strong>Explanation:</strong> ${q.explanation}
       </p>
     `;
     list.appendChild(div);

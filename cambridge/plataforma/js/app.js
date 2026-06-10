@@ -370,11 +370,11 @@ async function renderResultados() {
         <table class="table">
           <thead>
             <tr>
-              <th>Fecha</th>
-              <th>Examen</th>
+              <th>Date</th>
+              <th>Exam</th>
               <th>Part</th>
-              <th>Ejercicio</th>
-              <th>Puntuación</th>
+              <th>Exercise</th>
+              <th>Score</th>
             </tr>
           </thead>
           <tbody>

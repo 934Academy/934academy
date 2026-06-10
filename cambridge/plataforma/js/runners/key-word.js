@@ -18,14 +18,14 @@ function renderSelector(exercises) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Part 4 — Key Word Transformations</h1>
-      <p class="page-subtitle">${exercises.length} ejercicios disponibles</p>
+      <p class="page-subtitle">${exercises.length} exercises available</p>
     </div>
     <div class="skill-grid">
       ${exercises.map((ex, i) => `
         <div class="skill-card" data-i="${i}">
           <div class="skill-icon">🔑</div>
           <div class="skill-name">${ex.title}</div>
-          <div class="skill-desc">6 transformaciones con palabra clave</div>
+          <div class="skill-desc">6 sentences with keyword transformations</div>
           <div class="skill-arrow">Start →</div>
         </div>
       `).join('')}
@@ -45,19 +45,19 @@ function renderExercise(exercises) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Part 4 — ${exercise.title}</h1>
-      <p class="page-subtitle">Completa la segunda frase usando la palabra clave (2-5 palabras)</p>
+      <p class="page-subtitle">Complete the second sentence using the keyword (2-5 words)</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:1.25rem" id="questions-list"></div>
     <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
       <button class="btn" id="btn-sel">← Selector</button>
-      <button class="btn btn-primary" id="btn-check">Corregir</button>
+      <button class="btn btn-primary" id="btn-check">Check answers</button>
     </div>
   `;
 
   const list = document.getElementById('questions-list');
   exercise.questions.forEach((q, i) => {
     const inputHTML = `<input type="text" data-id="${q.id}"
-      placeholder="2-5 palabras"
+      placeholder="2-5 words"
       style="min-width:200px;padding:6px 10px;border-radius:6px;border:2px solid var(--color-border);
       background:var(--color-surface);color:var(--color-text)"
       value="${answers[q.id] || ''}"/>`;
@@ -65,7 +65,7 @@ function renderExercise(exercises) {
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `
-      <div class="card-title">Pregunta ${i + 25}</div>
+      <div class="card-title">Question ${i + 25}</div>
       <p style="margin-bottom:.5rem">${q.original}</p>
       <p style="margin-bottom:.75rem">
         <span style="display:inline-block;background:var(--color-primary);color:#fff;
@@ -111,23 +111,23 @@ async function finishQuiz(exercises) {
   const c = document.getElementById('ejercicio-content');
   c.innerHTML = `
     <div class="page-header">
-      <h1 class="page-title">Corrección — ${exercise.title}</h1>
-      <p class="page-subtitle">Comprueba tu respuesta con la solución</p>
+      <h1 class="page-title">Correction — ${exercise.title}</h1>
+      <p class="page-subtitle">Check your answers</p>
     </div>
     <div class="stat-grid">
       <div class="stat-card">
-        <div class="stat-label">Aproximadas</div>
+        <div class="stat-label">Approximate</div>
         <div class="stat-value">${correct} / ${total}</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Puntuación</div>
+        <div class="stat-label">Score</div>
         <div class="stat-value" style="color:${color}">${pct}%</div>
       </div>
     </div>
     <div id="review-list" style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem"></div>
     <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
-      <button class="btn" id="btn-repeat">Repetir</button>
-      <button class="btn" id="btn-sel">Elegir otro</button>
+      <button class="btn" id="btn-repeat">Repeat</button>
+      <button class="btn" id="btn-sel">Choose another</button>
       <button class="btn" id="btn-destreza">← Use of English</button>
     </div>
   `;
@@ -142,14 +142,14 @@ async function finishQuiz(exercises) {
     div.style.borderLeft = `4px solid ${ok ? '#22c55e' : '#ef4444'}`;
     div.innerHTML  = `
       <div class="card-title" style="color:${ok ? '#22c55e' : '#ef4444'}">
-        Pregunta ${i + 25}: ${ok ? '✅ Correcta' : '❌ Incorrecta'}
+        Question ${i + 25}: ${ok ? '✅ Correct' : '❌ Incorrect'}
       </div>
       <p><strong>Original:</strong> ${q.original}</p>
-      <p><strong>Tu respuesta:</strong> <em>${userAns || 'Sin responder'}</em></p>
-      <p><strong>Solución:</strong> <span style="color:#22c55e;font-weight:700">${q.answer}</span></p>
-      <p><strong>Frase completa:</strong> ${q.full_answer}</p>
+      <p><strong>Your answer:</strong> <em>${userAns || 'Not answered'}</em></p>
+      <p><strong>Solution:</strong> <span style="color:#22c55e;font-weight:700">${q.answer}</span></p>
+      <p><strong>Complete sentence:</strong> ${q.full_answer}</p>
       <p style="border-top:1px solid var(--color-border);padding-top:.75rem;margin-top:.75rem">
-        <strong>Explicación:</strong> ${q.explanation}
+        <strong>Explanation:</strong> ${q.explanation}
       </p>
     `;
     list.appendChild(div);

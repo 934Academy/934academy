@@ -18,7 +18,7 @@ function renderSelector(exercises) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Part 2 — Open Cloze</h1>
-      <p class="page-subtitle">${exercises.length} ejercicios disponibles</p>
+      <p class="page-subtitle">${exercises.length} exercises available</p>
     </div>
     <div class="skill-grid">
       ${exercises.map((ex, i) => `
@@ -59,12 +59,12 @@ function renderExercise(exercises) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Part 2 — ${exercise.title}</h1>
-      <p class="page-subtitle">Escribe una sola palabra en cada hueco</p>
+      <p class="page-subtitle">Write a single word in each gap</p>
     </div>
     <div class="card" style="line-height:2.4;margin-bottom:1.5rem">${buildGappedText()}</div>
     <div style="display:flex;gap:1rem;flex-wrap:wrap">
       <button class="btn" id="btn-sel">← Selector</button>
-      <button class="btn btn-primary" id="btn-check">Corregir</button>
+      <button class="btn btn-primary" id="btn-check">Check</button>
     </div>
   `;
 
@@ -106,18 +106,18 @@ async function finishQuiz(exercises) {
     </div>
     <div class="stat-grid">
       <div class="stat-card">
-        <div class="stat-label">Correctas</div>
+        <div class="stat-label">Correct</div>
         <div class="stat-value">${correct} / ${total}</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Puntuación</div>
+        <div class="stat-label">Score</div>
         <div class="stat-value" style="color:${color}">${pct}%</div>
       </div>
     </div>
     <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
-      <button class="btn btn-primary" id="btn-review">Revisar respuestas</button>
-      <button class="btn" id="btn-repeat">Repetir</button>
-      <button class="btn" id="btn-sel">Elegir otro</button>
+      <button class="btn btn-primary" id="btn-review">Review Answers</button>
+      <button class="btn" id="btn-repeat">Repeat</button>
+      <button class="btn" id="btn-sel">Choose Another</button>
       <button class="btn" id="btn-destreza">← Use of English</button>
     </div>
   `;
@@ -132,9 +132,9 @@ function showReview(exercises) {
   const c = document.getElementById('ejercicio-content');
   c.innerHTML = `
     <div class="page-header">
-      <h1 class="page-title">Revisión — ${exercise.title}</h1>
+      <h1 class="page-title">Review — ${exercise.title}</h1>
     </div>
-    <button class="btn" id="btn-back" style="margin-bottom:1.5rem">← Volver a resultados</button>
+    <button class="btn" id="btn-back" style="margin-bottom:1.5rem">← Back to Results</button>
     <div id="review-list" style="display:flex;flex-direction:column;gap:1rem"></div>
   `;
   document.getElementById('btn-back').addEventListener('click', () => finishQuiz(exercises));
@@ -150,12 +150,12 @@ function showReview(exercises) {
     div.style.borderLeft = `4px solid ${ok ? '#22c55e' : '#ef4444'}`;
     div.innerHTML = `
       <div class="card-title" style="color:${ok ? '#22c55e' : '#ef4444'}">
-        Hueco ${num}: ${ok ? '✅ Correcto' : '❌ Incorrecto'}
+        Gap ${num}: ${ok ? '✅ Correct' : '❌ Incorrect'}
       </div>
-      <p><strong>Tu respuesta:</strong> ${userAns || '<em>Sin responder</em>'}</p>
-      <p><strong>Correcta:</strong> <span style="color:#22c55e;font-weight:600">${q.answer}</span></p>
+      <p><strong>Your answer:</strong> ${userAns || '<em>Not answered</em>'}</p>
+      <p><strong>Correct:</strong> <span style="color:#22c55e;font-weight:600">${q.answer}</span></p>
       <p style="border-top:1px solid var(--color-border);padding-top:.75rem;margin-top:.75rem">
-        <strong>Explicación:</strong> ${q.explanation}
+        <strong>Explanation:</strong> ${q.explanation}
       </p>
     `;
     list.appendChild(div);

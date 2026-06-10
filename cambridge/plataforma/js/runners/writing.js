@@ -12,7 +12,7 @@ function renderTypeSelector(prompts) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Writing — B2 First</h1>
-      <p class="page-subtitle">Selecciona el tipo de texto que quieres practicar</p>
+      <p class="page-subtitle">Select the type of text you want to practice</p>
     </div>
     <div class="skill-grid">
       ${prompts.map((type, i) => `
@@ -20,7 +20,7 @@ function renderTypeSelector(prompts) {
           <div class="skill-icon">${type.icon}</div>
           <div class="skill-name">${type.type}</div>
           <div class="skill-desc">${type.desc}</div>
-          <div class="skill-arrow">${type.prompts.length} enunciados →</div>
+          <div class="skill-arrow">${type.prompts.length} prompts →</div>
         </div>
       `).join('')}
     </div>
@@ -37,15 +37,15 @@ function renderPromptSelector(allPrompts, type) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">${type.icon} ${type.type}</h1>
-      <p class="page-subtitle">Elige un enunciado para practicar</p>
+      <p class="page-subtitle">Choose a prompt to practice</p>
     </div>
-    <button class="btn" id="btn-back" style="margin-bottom:1.5rem">← Tipos de texto</button>
+    <button class="btn" id="btn-back" style="margin-bottom:1.5rem">← Text Types</button>
     <div class="skill-grid">
       ${type.prompts.map((p, i) => `
         <div class="skill-card" data-i="${i}">
           <div class="skill-icon">${type.icon}</div>
           <div class="skill-name">${p.title}</div>
-          <div class="skill-arrow">Practicar →</div>
+          <div class="skill-arrow">Practice →</div>
         </div>
       `).join('')}
     </div>
@@ -63,34 +63,34 @@ function renderWritingTask(allPrompts, type, prompt) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">${type.icon} ${prompt.title}</h1>
-      <p class="page-subtitle">${type.type} — 140–190 palabras</p>
+      <p class="page-subtitle">${type.type} — 140–190 words</p>
     </div>
     <div class="card" style="margin-bottom:1.5rem">
-      <div class="card-title">📋 Enunciado</div>
+      <div class="card-title">📋 Prompt</div>
       <p style="white-space:pre-line;line-height:1.8">${prompt.task}</p>
     </div>
     <div class="card" style="margin-bottom:1.5rem">
-      <div class="card-title">💡 Consejos</div>
+      <div class="card-title">💡 Tips</div>
       <ul style="padding-left:1.25rem;display:flex;flex-direction:column;gap:.4rem">
         ${prompt.tips.map(t => `<li>${t}</li>`).join('')}
       </ul>
     </div>
     <div class="card" style="margin-bottom:1.5rem">
-      <div class="card-title">✍️ Tu respuesta</div>
-      <textarea id="writing-input" placeholder="Escribe aquí tu texto (140–190 palabras)..."
+      <div class="card-title">✍️ Your Answer</div>
+      <textarea id="writing-input" placeholder="Write your text here (140–190 words)..."
         style="width:100%;min-height:220px;padding:1rem;border-radius:8px;
         border:2px solid var(--color-border);background:var(--color-surface);
         color:var(--color-text);font-size:1rem;line-height:1.7;resize:vertical;
         font-family:inherit;box-sizing:border-box"></textarea>
       <div style="margin-top:.5rem;font-size:.85rem;color:var(--color-text-muted)">
-        Palabras: <strong id="word-count">0</strong>
+        Words: <strong id="word-count">0</strong>
         <span id="wc-status" style="margin-left:.5rem"></span>
       </div>
     </div>
     <div style="display:flex;gap:1rem;flex-wrap:wrap">
-      <button class="btn" id="btn-back">← Enunciados</button>
-      <button class="btn" id="btn-clear">Borrar texto</button>
-      <button class="btn btn-primary" id="btn-rubric">Ver rúbrica de corrección</button>
+      <button class="btn" id="btn-back">← Prompts</button>
+      <button class="btn" id="btn-clear">Clear Text</button>
+      <button class="btn btn-primary" id="btn-rubric">View Grading Rubric</button>
     </div>
     <div id="rubric-panel" style="display:none;margin-top:1.5rem"></div>
   `;
@@ -103,20 +103,20 @@ function renderWritingTask(allPrompts, type, prompt) {
     const words = textarea.value.trim().split(/\s+/).filter(w => w.length > 0).length;
     wcDisplay.textContent = words;
     if (words < 140) {
-      wcStatus.textContent = `(${140 - words} palabras menos del mínimo)`;
+      wcStatus.textContent = `(${140 - words} words less than the minimum)`;
       wcStatus.style.color = '#ef4444';
     } else if (words > 190) {
-      wcStatus.textContent = `(${words - 190} palabras por encima del máximo)`;
+      wcStatus.textContent = `(${words - 190} words above the maximum)`;
       wcStatus.style.color = '#f59e0b';
     } else {
-      wcStatus.textContent = '✓ Dentro del límite';
+      wcStatus.textContent = '✓ Within the limit';
       wcStatus.style.color = '#22c55e';
     }
   });
 
   document.getElementById('btn-back').addEventListener('click', () => renderPromptSelector(allPrompts, type));
   document.getElementById('btn-clear').addEventListener('click', () => {
-    if (confirm('¿Borrar todo el texto?')) {
+    if (confirm('Clear all text?')) {
       textarea.value = '';
       wcDisplay.textContent = '0';
       wcStatus.textContent = '';
@@ -129,13 +129,13 @@ function renderWritingTask(allPrompts, type, prompt) {
     panel.style.display = 'block';
     panel.innerHTML = `
       <div class="card">
-        <div class="card-title">📐 Rúbrica de corrección B2 First</div>
+        <div class="card-title">📐 Grading Rubric B2 First</div>
         <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1rem">
           ${[
-            { label: 'Content', desc: '¿Has respondido al enunciado? ¿Cubres todos los puntos pedidos? ¿Es relevante y desarrollado?' },
-            { label: 'Communicative Achievement', desc: '¿El registro es adecuado (formal/informal)? ¿Impacta al lector? ¿Es apropiado para el tipo de texto?' },
-            { label: 'Organisation', desc: '¿Hay introducción, desarrollo y conclusión? ¿Usas conectores? ¿La estructura es clara y lógica?' },
-            { label: 'Language', desc: '¿Usas vocabulario variado y preciso? ¿La gramática es correcta? ¿Hay variedad en las estructuras?' },
+            { label: 'Content', desc: 'Have you answered the prompt? Do you cover all the requested points? Is it relevant and well-developed?' },
+            { label: 'Communicative Achievement', desc: 'Is the register appropriate (formal/informal)? Does it impact the reader? Is it suitable for the type of text?' },
+            { label: 'Organisation', desc: 'Is there an introduction, development, and conclusion? Do you use connectors? Is the structure clear and logical?' },
+            { label: 'Language', desc: 'Are you using varied and precise vocabulary? Is the grammar correct? Is there diversity in the structures?' },
           ].map(r => `
             <div style="padding:.75rem;background:var(--color-surface);border-radius:8px;
               border:1px solid var(--color-border)">
@@ -145,7 +145,7 @@ function renderWritingTask(allPrompts, type, prompt) {
           `).join('')}
         </div>
         <p style="margin-top:1rem;font-size:.85rem;color:var(--color-text-muted)">
-          Cada criterio se puntúa de 0 a 5. La nota máxima es 20 puntos.
+          Each criterion is scored from 0 to 5. The maximum grade is 20 points.
         </p>
       </div>
     `;
