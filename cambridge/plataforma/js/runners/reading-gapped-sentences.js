@@ -18,7 +18,7 @@ function renderSelector(exercises) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Part 4 — Gapped Sentences</h1>
-      <p class="page-subtitle">${exercises.length} ejercicios disponibles</p>
+      <p class="page-subtitle">${exercises.length} exercises available</p>
     </div>
     <div class="skill-grid">
       ${exercises.map((ex, i) => `
@@ -54,7 +54,7 @@ function renderExercise(exercises) {
           data-gap="${gapNum}">[${gapNum}: ${assigned.id} ✓]</span>`
       : `<span style="display:inline-block;background:var(--color-border);color:var(--color-text);
           padding:2px 10px;border-radius:20px;font-weight:700;font-size:.85rem;cursor:pointer;margin:0 4px"
-          data-gap="${gapNum}">[Hueco ${gapNum}]</span>`;
+          data-gap="${gapNum}">[Gap ${gapNum}]</span>`;
     textWithGaps = textWithGaps.replace(`[${gapNum}]`, label);
   });
 
@@ -64,29 +64,29 @@ function renderExercise(exercises) {
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">Part 4 — ${exercise.title}</h1>
-      <p class="page-subtitle">Elige la frase que encaja en cada hueco [16]–[20]</p>
+      <p class="page-subtitle">Choose the sentence that fits in each gap [16]–[20]</p>
     </div>
     <div class="card" style="line-height:1.8;margin-bottom:1.5rem">${textWithGaps}</div>
     <div class="card" style="margin-bottom:1.5rem">
-      <div class="card-title">Frases disponibles</div>
+      <div class="card-title">Sentences</div>
       <div style="display:flex;flex-direction:column;gap:.75rem;margin-top:.75rem" id="sent-list">
         ${available.map(s => `
           <div class="card" data-sent-id="${s.id}" style="cursor:pointer;border:2px solid var(--color-border)">
             <strong style="color:var(--color-primary)">${s.id}.</strong> ${s.text}
           </div>
         `).join('')}
-        ${available.length === 0 ? '<p style="color:var(--color-text-muted)">Todas las frases han sido asignadas.</p>' : ''}
+        ${available.length === 0 ? '<p style="color:var(--color-text-muted)">All sentences have been assigned.</p>' : ''}
       </div>
     </div>
     <div style="margin-bottom:1rem;padding:1rem;background:var(--color-surface);border-radius:8px;
       border:1px solid var(--color-border);font-size:.85rem;color:var(--color-text-muted)">
-      💡 Haz clic en un hueco del texto para seleccionarlo, luego haz clic en la frase que quieres asignarle.
-      Hay 3 frases extra que no se usan.
+      💡 Click on a gap in the text to select it, then click on the sentence you want to assign to it.
+      There are 3 extra sentences that are not used.
     </div>
     <div style="display:flex;gap:1rem;flex-wrap:wrap">
       <button class="btn" id="btn-sel">← Selector</button>
-      <button class="btn" id="btn-clear">Limpiar</button>
-      <button class="btn btn-primary" id="btn-check">Corregir</button>
+      <button class="btn" id="btn-clear">Clear</button>
+      <button class="btn btn-primary" id="btn-check">Check</button>
     </div>
   `;
 
@@ -140,22 +140,22 @@ async function finishQuiz(exercises) {
   const c = document.getElementById('ejercicio-content');
   c.innerHTML = `
     <div class="page-header">
-      <h1 class="page-title">Resultados — ${exercise.title}</h1>
+      <h1 class="page-title">Results — ${exercise.title}</h1>
     </div>
     <div class="stat-grid">
       <div class="stat-card">
-        <div class="stat-label">Correctas</div>
+        <div class="stat-label">Correct</div>
         <div class="stat-value">${correct} / ${total}</div>
       </div>
       <div class="stat-card">
-        <div class="stat-label">Puntuación</div>
+        <div class="stat-label">Score</div>
         <div class="stat-value" style="color:${color}">${pct}%</div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem" id="review-list"></div>
     <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
-      <button class="btn" id="btn-repeat">Repetir</button>
-      <button class="btn" id="btn-sel">Elegir otro</button>
+      <button class="btn" id="btn-repeat">Repeat</button>
+      <button class="btn" id="btn-sel">Choose another</button>
       <button class="btn" id="btn-destreza">← Reading</button>
     </div>
   `;
@@ -172,12 +172,12 @@ async function finishQuiz(exercises) {
     div.style.borderLeft = `4px solid ${ok ? '#22c55e' : '#ef4444'}`;
     div.innerHTML = `
       <div class="card-title" style="color:${ok ? '#22c55e' : '#ef4444'}">
-        Hueco ${gapNum}: ${ok ? '✅ Correcto' : '❌ Incorrecto'}
+        Gap ${gapNum}: ${ok ? '✅ Correct' : '❌ Incorrect'}
       </div>
-      <p><strong>Tu respuesta:</strong> ${userSent ? `${userSent.id}. ${userSent.text}` : '<em>Sin responder</em>'}</p>
-      <p><strong>Correcta:</strong> <span style="color:#22c55e;font-weight:600">${correctSent.id}. ${correctSent.text}</span></p>
+      <p><strong>Your answer:</strong> ${userSent ? `${userSent.id}. ${userSent.text}` : '<em>Not answered</em>'}</p>
+      <p><strong>Correct:</strong> <span style="color:#22c55e;font-weight:600">${correctSent.id}. ${correctSent.text}</span></p>
       <p style="border-top:1px solid var(--color-border);padding-top:.75rem;margin-top:.75rem">
-        <strong>Explicación:</strong> ${exercise.explanations[gapNum]}
+        <strong>Explanation:</strong> ${exercise.explanations[gapNum]}
       </p>
     `;
     list.appendChild(div);

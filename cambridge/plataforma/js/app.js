@@ -8,6 +8,9 @@ import { initOpenCloze }               from './runners/open-cloze.js';
 import { initWordFormation }           from './runners/word-formation.js';
 import { initKeyWord }                 from './runners/key-word.js';
 import { initReadingMultipleChoice }   from './runners/reading-multiple-choice.js';
+import { initReadingB1Part1 }          from './runners/readinb_b1_part1.js';
+import { initReadingOpenCloze }         from './runners/reading_b1_part6.js';
+import { initReadingB1Part5 }          from './runners/reading_b1_part5.js';
 import { initReadingGappedText }       from './runners/reading-gapped-text.js';
 import { initReadingMultipleMatching } from './runners/reading-multiple-matching.js';
 import { initReadingMatching }         from './runners/reading-matching.js';
@@ -124,20 +127,10 @@ function showApp() {
 // SIDEBAR SEGÚN NIVEL
 // ════════════════════════════════════════════════════════════
 function updateSidebarForLevel() {
-  const isB1 = currentUser?.level === 'B1';
+  const isB1    = currentUser?.level === 'B1';
   const uoeItem = document.querySelector('.nav-item[data-skill="use-of-english"]');
   if (uoeItem) {
-    if (isB1) {
-      uoeItem.classList.add('disabled');
-      uoeItem.removeAttribute('data-page');
-      uoeItem.style.pointerEvents = 'none';
-      uoeItem.style.opacity = '0.4';
-    } else {
-      uoeItem.classList.remove('disabled');
-      uoeItem.setAttribute('data-page', 'destreza');
-      uoeItem.style.pointerEvents = '';
-      uoeItem.style.opacity = '';
-    }
+    uoeItem.style.display = isB1 ? 'none' : '';
   }
 }
 
@@ -180,7 +173,6 @@ function renderDashboard() {
   const isB1 = currentUser?.level === 'B1';
 
   const skills = [
-    { id: 'use-of-english', icon: '✏️', name: 'Use of English', desc: 'Vocabulary, grammar, word formation', available: !isB1 },
     { id: 'reading',        icon: '📖', name: 'Reading',        desc: 'Reading comprehension',                 available: true  },
     { id: 'writing',        icon: '📝', name: 'Writing',        desc: 'Writing production',                  available: true  },
     { id: 'listening',      icon: '🎧', name: 'Listening',      desc: 'Listening comprehension',                available: false },
@@ -327,12 +319,12 @@ function launchExercise(params = {}) {
 
   // ── B1 Reading ──
   if (level === 'B1' && skill === 'reading') {
-    if (part === 'part1') initReadingMultipleChoice(exercises, skill, part);
+    if (part === 'part1') initReadingB1Part1(exercises, skill, part);
     if (part === 'part2') initReadingMatching(exercises, skill, part);
     if (part === 'part3') initReadingMultipleChoice(exercises, skill, part);
     if (part === 'part4') initReadingGappedSentences(exercises, skill, part);
-    if (part === 'part5') initMultipleChoice(exercises, skill, part);
-    if (part === 'part6') initOpenCloze(exercises, skill, part);
+    if (part === 'part5') initReadingB1Part5(exercises, skill, part);
+    if (part === 'part6') initReadingOpenCloze(exercises, skill, part);
     return;
   }
 }
