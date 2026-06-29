@@ -16,6 +16,11 @@ import { initReadingMultipleMatching } from './runners/reading-multiple-matching
 import { initReadingMatching }         from './runners/reading-matching.js';
 import { initReadingGappedSentences }  from './runners/reading-gapped-sentences.js';
 import { initWriting }                 from './runners/writing.js';
+import { initListeningB1Part1 }        from './runners/listening_b1_p1.js';
+import { initListeningB1Part2 }        from './runners/listening_b1_p2.js';
+import { initListeningB1Part3 }        from './runners/listening_b1_p3.js';
+import { initListeningB1Part4 } from './runners/listening_b1_p4.js';
+import { initListeningB2Part1 }        from './runners/listening_b2_p1.js';
 
 // Datos B2
 import { EXERCISES_B2_UOE_P1 }     from './data/B2/use-of-english/part1.js';
@@ -26,6 +31,7 @@ import { EXERCISES_B2_READING_P5 } from './data/B2/reading/part5.js';
 import { EXERCISES_B2_READING_P6 } from './data/B2/reading/part6.js';
 import { EXERCISES_B2_READING_P7 } from './data/B2/reading/part7.js';
 import { WRITING_PROMPTS_B2 }       from './data/B2/writing/prompts.js';
+import { EXERCISES_B2_LISTENING_P1 } from './data/B2/listening/part1.js';
 
 // Datos B1
 import { EXERCISES_B1_READING_P1 } from './data/B1/reading/part1.js';
@@ -34,6 +40,11 @@ import { EXERCISES_B1_READING_P3 } from './data/B1/reading/part3.js';
 import { EXERCISES_B1_READING_P4 } from './data/B1/reading/part4.js';
 import { EXERCISES_B1_READING_P5 } from './data/B1/reading/part5.js';
 import { EXERCISES_B1_READING_P6 } from './data/B1/reading/part6.js';
+import { WRITING_PROMPTS_B1 }       from './data/B1/writing/prompts.js';
+import { EXERCISES_B1_LISTENING_P1 } from './data/B1/listening/part1.js';
+import { EXERCISES_B1_LISTENING_P2 } from './data/B1/listening/part2.js';
+import { EXERCISES_B1_LISTENING_P3 } from './data/B1/listening/part3.js';
+import { EXERCISES_B1_LISTENING_P4 } from './data/B1/listening/part4.js';
 
 const DATA = {
   B2: {
@@ -49,6 +60,12 @@ const DATA = {
       part7: EXERCISES_B2_READING_P7,
     },
     'writing': { prompts: WRITING_PROMPTS_B2 },
+    'listening': {
+      part1: EXERCISES_B2_LISTENING_P1,
+      //part2: EXERCISES_B2_LISTENING_P2,
+      //part3: EXERCISES_B2_LISTENING_P3,
+      //part4: EXERCISES_B2_LISTENING_P4
+    }
   },
   B1: {
     'reading': {
@@ -59,8 +76,15 @@ const DATA = {
       part5: EXERCISES_B1_READING_P5,
       part6: EXERCISES_B1_READING_P6,
     },
-    'writing': { prompts: WRITING_PROMPTS_B2 },
+    'writing': { prompts: WRITING_PROMPTS_B1 },
+    'listening': {
+      part1: EXERCISES_B1_LISTENING_P1,
+      part2: EXERCISES_B1_LISTENING_P2,
+      part3: EXERCISES_B1_LISTENING_P3,
+      part4: EXERCISES_B1_LISTENING_P4
+    }
   },
+  
 };
 
 let currentUser = null;
@@ -175,7 +199,7 @@ function renderDashboard() {
   const skills = [
     { id: 'reading',        icon: '📖', name: 'Reading',        desc: 'Reading comprehension',                 available: true  },
     { id: 'writing',        icon: '📝', name: 'Writing',        desc: 'Writing production',                  available: true  },
-    { id: 'listening',      icon: '🎧', name: 'Listening',      desc: 'Listening comprehension',                available: false },
+    { id: 'listening',      icon: '🎧', name: 'Listening',      desc: 'Listening comprehension',                available: true },
   ];
 
   const grid = document.getElementById('skill-grid');
@@ -213,6 +237,12 @@ const PartS = {
       { id: 'part6', num: 'Part 6', name: 'Gapped Text',       desc: 'Choose the sentence that fits in each gap' },
       { id: 'part7', num: 'Part 7', name: 'Multiple Matching', desc: 'Match questions with sections of the text' },
     ],
+    'listening': [
+    { id: 'part1', num: 'Part 1', name: 'Multiple Choice',         desc: 'Listen to 8 short extracts and answer multiple-choice questions' },
+    { id: 'part2', num: 'Part 2', name: 'Sentence Completion',     desc: 'Listen to a monologue and complete 10 sentences' },
+    { id: 'part3', num: 'Part 3', name: 'Multiple Matching',       desc: 'Listen to 5 short related monologues and match each to an option' },
+    { id: 'part4', num: 'Part 4', name: 'Multiple Choice',         desc: 'Listen to a long interview and answer 7 multiple-choice questions' }
+  ]
   },
   B1: {
     'reading': [
@@ -222,6 +252,12 @@ const PartS = {
       { id: 'part4', num: 'Part 4', name: 'Gapped Text',            desc: 'Choose the sentence that fits in each gap of the text' },
       { id: 'part5', num: 'Part 5', name: 'Multiple Choice Cloze',  desc: 'Choose the correct word to complete the text' },
       { id: 'part6', num: 'Part 6', name: 'Open Cloze',             desc: 'Complete the gaps with a single word' },
+    ],
+    'listening': [
+      { id: 'part1', num: 'Part 1', name: 'Short Recordings',       desc: 'Listen to short recordings and choose the correct image' },
+      { id: 'part2', num: 'Part 2', name: 'Longer Recordings',      desc: 'Listen to longer recordings and answer questions' },
+      { id: 'part3', num: 'Part 3', name: 'Conversations & Talks',  desc: 'Listen to conversations and For each question, write the correct answer in the gap.Write one or two words or a number or a date or a time' },
+      { id: 'part4', num: 'Part 4', name: 'Interview', desc: 'Listen to an interview and answer questions' }
     ],
   },
 };
@@ -256,6 +292,7 @@ function renderDestreza(params = {}) {
     `;
     return;
   }
+  
 
   const Parts = PartS[level]?.[skill] || PartS['B2']?.[skill] || [];
 
@@ -315,6 +352,16 @@ function launchExercise(params = {}) {
     if (part === 'part6') initReadingGappedText(exercises, skill, part);
     if (part === 'part7') initReadingMultipleMatching(exercises, skill, part);
     return;
+  } 
+
+   // ── B2 Listening ──
+  if (level === 'B2' && skill === 'listening') {
+    if (part === 'part1') initListeningB2Part1(exercises, skill, part);
+    if (part === 'part2') initListeningB2Part2(exercises, skill, part);
+    if (part === 'part3') initListeningB2Part3(exercises, skill, part);
+    if (part === 'part4') initListeningB2Part4(exercises, skill, part);
+
+    return;
   }
 
   // ── B1 Reading ──
@@ -325,6 +372,15 @@ function launchExercise(params = {}) {
     if (part === 'part4') initReadingGappedSentences(exercises, skill, part);
     if (part === 'part5') initReadingB1Part5(exercises, skill, part);
     if (part === 'part6') initReadingOpenCloze(exercises, skill, part);
+    return;
+  }
+
+  // ── B1 Listening ──
+  if (level === 'B1' && skill === 'listening') {
+    if (part === 'part1') initListeningB1Part1(exercises, skill, part);
+    if (part === 'part2') initListeningB1Part2(exercises, skill, part);
+    if (part === 'part3') initListeningB1Part3(exercises, skill, part);
+    if (part === 'part4') initListeningB1Part4(exercises, skill, part);
     return;
   }
 }
