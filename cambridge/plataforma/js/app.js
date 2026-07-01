@@ -21,6 +21,9 @@ import { initListeningB1Part2 }        from './runners/listening_b1_p2.js';
 import { initListeningB1Part3 }        from './runners/listening_b1_p3.js';
 import { initListeningB1Part4 } from './runners/listening_b1_p4.js';
 import { initListeningB2Part1 }        from './runners/listening_b2_p1.js';
+import { initListeningB2Part2 }        from './runners/listening_b2_p2.js';
+import { initListeningB2Part3 }        from './runners/listening_b2_p3.js';
+import { initListeningB2Part4 }        from './runners/listening_b2_p4.js';
 
 // Datos B2
 import { EXERCISES_B2_UOE_P1 }     from './data/B2/use-of-english/part1.js';
@@ -32,6 +35,9 @@ import { EXERCISES_B2_READING_P6 } from './data/B2/reading/part6.js';
 import { EXERCISES_B2_READING_P7 } from './data/B2/reading/part7.js';
 import { WRITING_PROMPTS_B2 }       from './data/B2/writing/prompts.js';
 import { EXERCISES_B2_LISTENING_P1 } from './data/B2/listening/part1.js';
+import { EXERCISES_B2_LISTENING_P2 } from './data/B2/listening/part2.js';
+import { EXERCISES_B2_LISTENING_P3 } from './data/B2/listening/part3.js';
+import { EXERCISES_B2_LISTENING_P4 } from './data/B2/listening/part4.js';
 
 // Datos B1
 import { EXERCISES_B1_READING_P1 } from './data/B1/reading/part1.js';
@@ -62,9 +68,9 @@ const DATA = {
     'writing': { prompts: WRITING_PROMPTS_B2 },
     'listening': {
       part1: EXERCISES_B2_LISTENING_P1,
-      //part2: EXERCISES_B2_LISTENING_P2,
-      //part3: EXERCISES_B2_LISTENING_P3,
-      //part4: EXERCISES_B2_LISTENING_P4
+      part2: EXERCISES_B2_LISTENING_P2,
+      part3: EXERCISES_B2_LISTENING_P3,
+      part4: EXERCISES_B2_LISTENING_P4
     }
   },
   B1: {

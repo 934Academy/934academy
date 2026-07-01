@@ -13,40 +13,169 @@ export function initListeningB2Part1(exercises, skill, part) {
   renderSelector(exercises);
 }
 
-// ... (Reutiliza la lógica de renderSelector de tus runners anteriores) ...
+function renderSelector(exercises) {
+  const c = document.getElementById('ejercicio-content');
+  c.innerHTML = `
+    <div class="page-header">
+      <h1 class="page-title">Listening Part 1</h1>
+      <p class="page-subtitle">${exercises.length} exercises available</p>
+    </div>
+    <div class="skill-grid">
+      ${exercises.map((ex, i) => `
+        <div class="skill-card" data-i="${i}">
+          <div class="skill-icon">🎧</div>
+          <div class="skill-name">${ex.title}</div>
+          <div class="skill-desc">${ex.text_preview}</div>
+          <div class="skill-arrow">Start →</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  c.querySelectorAll('.skill-card[data-i]').forEach(card => {
+    card.addEventListener('click', () => {
+      exercise = exercises[parseInt(card.dataset.i, 10)];
+      answers = {};
+      renderExercise(exercises);
+    });
+  });
+}
 
 function renderExercise(exercises) {
   const c = document.getElementById('ejercicio-content');
   c.innerHTML = `
     <div class="page-header">
-      <h1 class="page-title">Part 1 — ${exercise.title}</h1>
-      <audio controls src="${exercise.audio}" style="width:100%; margin-top:1rem;"></audio>
+      <h1 class="page-title">Listening Part 1 — ${exercise.title}</h1>
+      <p class="page-subtitle">Listen and choose the correct answer (A, B or C)</p>
     </div>
-    <div id="questions-list"></div>
-    <button class="btn btn-primary" id="btn-check" style="margin-top:1rem">Check Answers</button>
+    <audio controls preload="metadata" style="width:100%;margin-bottom:1.5rem;border-radius:8px">
+      <source src="${exercise.audio}" type="audio/mpeg">
+    </audio>
+    <div style="display:flex;flex-direction:column;gap:1.25rem" id="questions-list"></div>
+    <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
+      <button class="btn" id="btn-sel">← Selector</button>
+      <button class="btn btn-primary" id="btn-check">Check Answers</button>
+    </div>
   `;
 
   const list = document.getElementById('questions-list');
+
   exercise.questions.forEach((q) => {
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `
-      <p><strong>${q.num}. ${q.question}</strong></p>
-      ${q.options.map((opt, j) => `
-        <label style="display:block; margin: 0.5rem 0; cursor:pointer">
-          <input type="radio" name="q_${q.id}" value="${j}"> ${opt}
-        </label>
-      `).join('')}
+      <div class="card-title">Question ${q.num}</div>
+      ${q.context ? `<p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 0.5rem;">${q.context}</p>` : ''}
+      <p style="margin-bottom:.75rem"><strong>${q.question}</strong></p>
+      <div style="display:flex;flex-direction:column;gap:.5rem">
+        ${q.options.map((opt, j) => `
+          <label style="display:flex;align-items:center;gap:.75rem;cursor:pointer;padding:.5rem;
+            border-radius:8px;border:2px solid var(--color-border);background:var(--color-surface)">
+            <input type="radio" name="q_${q.id}" value="${j}"
+              style="accent-color:var(--color-primary)"/>
+            <span>${String.fromCharCode(65 + j)}. ${opt}</span>
+          </label>
+        `).join('')}
+      </div>
     `;
     list.appendChild(div);
   });
-  
+
+  document.getElementById('btn-sel').addEventListener('click', () => renderSelector(exercises));
   document.getElementById('btn-check').addEventListener('click', () => {
     exercise.questions.forEach(q => {
-        const selected = document.querySelector(`input[name="q_${q.id}"]:checked`);
-        answers[q.id] = selected ? parseInt(selected.value) : -1;
+      const selected = document.querySelector(`input[name="q_${q.id}"]:checked`);
+      answers[q.id] = selected ? parseInt(selected.value) : -1;
     });
-    // Llama a tu función de corrección (puedes usar la misma estructura de la Part 2/3)
     finishQuiz(exercises);
+  });
+}
+
+async function finishQuiz(exercises) {
+  let correct = 0;
+  exercise.questions.forEach(q => {
+    if (answers[q.id] === q.answer) correct++;
+  });
+
+  const total = exercise.questions.length;
+  const pct = Math.round((correct / total) * 100);
+  const color = pct >= 75 ? '#22c55e' : pct >= 50 ? '#f59e0b' : '#ef4444';
+
+  try {
+    await saveResult({
+      exam: _skill,
+      part: parseInt(String(_part).replace('part', ''), 10),
+      exerciseId: exercise.title,
+      score: pct,
+    });
+  } catch (e) {
+    console.warn('Error guardando resultado:', e);
+  }
+
+  const c = document.getElementById('ejercicio-content');
+  c.innerHTML = `
+    <div class="page-header">
+      <h1 class="page-title">Results — ${exercise.title}</h1>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">Correct</div>
+        <div class="stat-value">${correct} / ${total}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Score</div>
+        <div class="stat-value" style="color:${color}">${pct}%</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap">
+      <button class="btn btn-primary" id="btn-review">Review Answers</button>
+      <button class="btn" id="btn-repeat">Repeat</button>
+      <button class="btn" id="btn-sel">Choose Another</button>
+      <button class="btn" id="btn-back">← Listening</button>
+    </div>
+  `;
+
+  document.getElementById('btn-review').addEventListener('click', () => showReview(exercises));
+  document.getElementById('btn-repeat').addEventListener('click', () => { answers = {}; renderExercise(exercises); });
+  document.getElementById('btn-sel').addEventListener('click', () => renderSelector(exercises));
+  document.getElementById('btn-back').addEventListener('click', () => window.navigate('destreza', { skill: _skill }));
+}
+
+function showReview(exercises) {
+  const c = document.getElementById('ejercicio-content');
+  c.innerHTML = `
+    <div class="page-header">
+      <h1 class="page-title">Review — ${exercise.title}</h1>
+    </div>
+    <audio controls preload="metadata" style="width:100%;margin-bottom:1.5rem;border-radius:8px">
+      <source src="${exercise.audio}" type="audio/mpeg">
+    </audio>
+    <button class="btn" id="btn-back" style="margin-bottom:1.5rem">← Back to Results</button>
+    <div id="review-list" style="display:flex;flex-direction:column;gap:1rem"></div>
+  `;
+
+  document.getElementById('btn-back').addEventListener('click', () => finishQuiz(exercises));
+
+  const list = document.getElementById('review-list');
+  exercise.questions.forEach((q) => {
+    const userAns = answers[q.id];
+    const ok = userAns === q.answer;
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.style.borderLeft = `4px solid ${ok ? '#22c55e' : '#ef4444'}`;
+
+    div.innerHTML = `
+      <div class="card-title" style="color:${ok ? '#22c55e' : '#ef4444'}">
+        Question ${q.num}: ${ok ? '✅ Correct' : '❌ Incorrect'}
+      </div>
+      ${q.context ? `<p style="font-style: italic; color: var(--color-text-muted); margin-bottom: 0.5rem;">${q.context}</p>` : ''}
+      <p style="margin-bottom:.5rem"><strong>${q.question}</strong></p>
+      <p><strong>Your answer:</strong> ${userAns >= 0 ? `${String.fromCharCode(65 + userAns)}. ${q.options[userAns]}` : '<em>Not answered</em>'}</p>
+      <p><strong>Correct answer:</strong> <span style="color:#22c55e;font-weight:600">${String.fromCharCode(65 + q.answer)}. ${q.options[q.answer]}</span></p>
+      <p style="border-top:1px solid var(--color-border);padding-top:.75rem;margin-top:.75rem">
+        <strong>Explanation:</strong> ${q.explanation}
+      </p>
+    `;
+    list.appendChild(div);
   });
 }
