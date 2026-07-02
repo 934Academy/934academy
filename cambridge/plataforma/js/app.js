@@ -24,6 +24,21 @@ import { initListeningB2Part1 }        from './runners/listening_b2_p1.js';
 import { initListeningB2Part2 }        from './runners/listening_b2_p2.js';
 import { initListeningB2Part3 }        from './runners/listening_b2_p3.js';
 import { initListeningB2Part4 }        from './runners/listening_b2_p4.js';
+import { initMultipleChoiceC1 } from './runners/multiple-choice-c1.js';
+import { initOpenClozeC1 } from './runners/open-cloze-c1.js';
+import { initWordFormationC1 } from './runners/word-formation-c1.js';
+import { initKeyWordC1 } from './runners/key-word-c1.js';
+import { initReadingMultipleChoiceC1 } from './runners/reading-multiple-choice-c1.js';
+import { initReadingMultipleMatchingC1 } from './runners/reading-multiple-matching-c1.js';
+
+
+// Datos C1
+import { EXERCISES_C1_READING_UOE_P1 } from './data/C1/reading_uoe/part1.js';
+import { EXERCISES_C1_READING_UOE_P2 } from './data/C1/reading_uoe/part2.js';
+import { EXERCISES_C1_READING_UOE_P3 } from './data/C1/reading_uoe/part3.js';
+import { EXERCISES_C1_READING_UOE_P4 } from './data/C1/reading_uoe/part4.js';
+import { EXERCISES_C1_READING_UOE_P5 } from './data/C1/reading_uoe/part5.js';
+import { EXERCISES_C1_READING_UOE_P6 } from './data/C1/reading_uoe/part6.js';
 
 // Datos B2
 import { EXERCISES_B2_UOE_P1 }     from './data/B2/use-of-english/part1.js';
@@ -53,6 +68,19 @@ import { EXERCISES_B1_LISTENING_P3 } from './data/B1/listening/part3.js';
 import { EXERCISES_B1_LISTENING_P4 } from './data/B1/listening/part4.js';
 
 const DATA = {
+  C1: {
+    'use-of-english': {
+      part1: EXERCISES_C1_READING_UOE_P1,
+      part2: EXERCISES_C1_READING_UOE_P2,
+      part3: EXERCISES_C1_READING_UOE_P3,
+      part4: EXERCISES_C1_READING_UOE_P4,
+    },
+    'reading': {
+      part5: EXERCISES_C1_READING_UOE_P5,
+      part6: EXERCISES_C1_READING_UOE_P6,
+      //part7: EXERCISES_C1_READING_P7,
+    },
+  },
   B2: {
     'use-of-english': {
       part1: EXERCISES_B2_UOE_P1,
@@ -157,9 +185,10 @@ function showApp() {
 // SIDEBAR SEGÚN NIVEL
 // ════════════════════════════════════════════════════════════
 function updateSidebarForLevel() {
-  const isB1    = currentUser?.level === 'B1';
+  const isB1 = currentUser?.level === 'B1';
   const uoeItem = document.querySelector('.nav-item[data-skill="use-of-english"]');
   if (uoeItem) {
+    // Si es B1, lo ocultamos. Si es B2 o C1, lo mostramos.
     uoeItem.style.display = isB1 ? 'none' : '';
   }
 }
@@ -202,11 +231,20 @@ document.addEventListener('navigate', async ({ detail }) => {
 function renderDashboard() {
   const isB1 = currentUser?.level === 'B1';
 
-  const skills = [
+  // Creamos el array de destrezas vacío para armarlo dinámicamente
+  const skills = [];
+
+  // Si NO es B1 (es decir, es B2 o C1), añadimos la tarjeta de Use of English al inicio
+  if (!isB1) {
+    skills.push({ id: 'use-of-english', icon: '🔤', name: 'Use of English', desc: 'Grammar and vocabulary practice', available: true });
+  }
+
+  // Añadimos el resto de las destrezas comunes para todos los niveles
+  skills.push(
     { id: 'reading',        icon: '📖', name: 'Reading',        desc: 'Reading comprehension',                 available: true  },
     { id: 'writing',        icon: '📝', name: 'Writing',        desc: 'Writing production',                  available: true  },
-    { id: 'listening',      icon: '🎧', name: 'Listening',      desc: 'Listening comprehension',                available: true },
-  ];
+    { id: 'listening',      icon: '🎧', name: 'Listening',      desc: 'Listening comprehension',                available: true }
+  );
 
   const grid = document.getElementById('skill-grid');
   if (!grid) return;
@@ -231,6 +269,19 @@ function renderDashboard() {
 // DESTREZA
 // ════════════════════════════════════════════════════════════
 const PartS = {
+  C1: {
+    'use-of-english': [
+      { id: 'part1', num: 'Part 1', name: 'Multiple Choice Cloze', desc: 'Choose the correct word to complete the text' },
+      { id: 'part2', num: 'Part 2', name: 'Open Cloze', desc: 'Complete the gaps without options' },
+      { id: 'part3', num: 'Part 3', name: 'Word Formation', desc: 'Form the correct word from the root' },
+      { id: 'part4', num: 'Part 4', name: 'Key Word Transformations', desc: 'Rewrite the sentence using the key word' },
+    ],
+    'reading': [
+      { id: 'part5', num: 'Part 5', name: 'Multiple Choice',   desc: 'Questions about reading comprehension with a long text' },
+      { id: 'part6', num: 'Part 6', name: 'Gapped Text',       desc: 'Choose the sentence that fits in each gap' },
+      { id: 'part7', num: 'Part 7', name: 'Multiple Matching', desc: 'Match questions with sections of the text' },
+    ],
+  },
   B2: {
     'use-of-english': [
       { id: 'part1', num: 'Part 1', name: 'Multiple Choice Cloze',    desc: 'Choose the correct word to complete the text' },
@@ -342,6 +393,21 @@ function launchExercise(params = {}) {
     `;
     return;
   }
+  
+  // ── C1 Use of English ──
+  if (level === 'C1' && skill === 'use-of-english') {
+    if (part === 'part1') initMultipleChoiceC1(exercises, skill, part);
+    if (part === 'part2') initOpenClozeC1(exercises, skill, part);
+    if (part === 'part3') initWordFormationC1(exercises, skill, part);
+    if (part === 'part4') initKeyWordC1(exercises, skill, part);
+    return;
+  }
+   if (level === 'C1' && skill === 'reading') {
+    if (part === 'part5') initReadingMultipleChoiceC1(exercises, skill, part);
+    //if (part === 'part6') initReadingGappedTextC1(exercises, skill, part);
+    //if (part === 'part7') initReadingMultipleMatchingC1(exercises, skill, part);
+    return;
+  } 
 
   // ── B2 Use of English ──
   if (level === 'B2' && skill === 'use-of-english') {
