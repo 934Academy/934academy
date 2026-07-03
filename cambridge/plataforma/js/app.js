@@ -28,17 +28,32 @@ import { initMultipleChoiceC1 } from './runners/multiple-choice-c1.js';
 import { initOpenClozeC1 } from './runners/open-cloze-c1.js';
 import { initWordFormationC1 } from './runners/word-formation-c1.js';
 import { initKeyWordC1 } from './runners/key-word-c1.js';
-import { initReadingMultipleChoiceC1 } from './runners/reading-multiple-choice-c1.js';
-import { initReadingMultipleMatchingC1 } from './runners/reading-multiple-matching-c1.js';
+import { initReadingC1Part5 } from './runners/reading_c1_part5.js';
+import { initReadingC1Part6 } from './runners/reading_c1_part6.js';
+import { initReadingC1Part7 } from './runners/reading_c1_part7.js';
+import { initReadingC1Part8 } from './runners/reading_c1_part8.js'
+import { initListeningC1Part1 } from './runners/listening_c1_p1.js';
+import { initListeningC1Part2 } from './runners/listening_c1_p2.js';
+import { initListeningC1Part3 } from './runners/listening_c1_p3.js';
+import { initListeningC1Part4 } from './runners/listening_c1_p4.js';
+
 
 
 // Datos C1
-import { EXERCISES_C1_READING_UOE_P1 } from './data/C1/reading_uoe/part1.js';
-import { EXERCISES_C1_READING_UOE_P2 } from './data/C1/reading_uoe/part2.js';
-import { EXERCISES_C1_READING_UOE_P3 } from './data/C1/reading_uoe/part3.js';
-import { EXERCISES_C1_READING_UOE_P4 } from './data/C1/reading_uoe/part4.js';
-import { EXERCISES_C1_READING_UOE_P5 } from './data/C1/reading_uoe/part5.js';
-import { EXERCISES_C1_READING_UOE_P6 } from './data/C1/reading_uoe/part6.js';
+import { EXERCISES_C1_READING_UOE_P1 } from './data/C1/uoe/part1.js';
+import { EXERCISES_C1_READING_UOE_P2 } from './data/C1/uoe/part2.js';
+import { EXERCISES_C1_READING_UOE_P3 } from './data/C1/uoe/part3.js';
+import { EXERCISES_C1_READING_UOE_P4 } from './data/C1/uoe/part4.js';
+import { EXERCISES_C1_READING_P5 } from './data/C1/reading/part5.js';
+import { EXERCISES_C1_READING_P6 } from './data/C1/reading/part6.js';
+import { EXERCISES_C1_READING_P7 } from './data/C1/reading/part7.js';
+import { EXERCISES_C1_READING_P8 } from './data/C1/reading/part8.js';
+import { WRITING_PROMPTS_C1 }       from './data/C1/writing/prompts.js';
+import { EXERCISES_C1_LISTENING_P1 } from './data/C1/listening/part1.js';
+import { EXERCISES_C1_LISTENING_P2 } from './data/C1/listening/part2.js';
+import { EXERCISES_C1_LISTENING_P3 } from './data/C1/listening/part3.js';
+import { EXERCISES_C1_LISTENING_P4 } from './data/C1/listening/part4.js';
+
 
 // Datos B2
 import { EXERCISES_B2_UOE_P1 }     from './data/B2/use-of-english/part1.js';
@@ -69,18 +84,26 @@ import { EXERCISES_B1_LISTENING_P4 } from './data/B1/listening/part4.js';
 
 const DATA = {
   C1: {
-    'use-of-english': {
-      part1: EXERCISES_C1_READING_UOE_P1,
-      part2: EXERCISES_C1_READING_UOE_P2,
-      part3: EXERCISES_C1_READING_UOE_P3,
-      part4: EXERCISES_C1_READING_UOE_P4,
-    },
-    'reading': {
-      part5: EXERCISES_C1_READING_UOE_P5,
-      part6: EXERCISES_C1_READING_UOE_P6,
-      //part7: EXERCISES_C1_READING_P7,
-    },
+  'use-of-english': {
+    part1: EXERCISES_C1_READING_UOE_P1,
+    part2: EXERCISES_C1_READING_UOE_P2,
+    part3: EXERCISES_C1_READING_UOE_P3,
+    part4: EXERCISES_C1_READING_UOE_P4,
   },
+  'reading': {
+    part5: EXERCISES_C1_READING_P5,
+    part6: EXERCISES_C1_READING_P6,
+    part7: EXERCISES_C1_READING_P7,
+    part8: EXERCISES_C1_READING_P8,
+  },
+  'writing': { prompts: WRITING_PROMPTS_C1 },
+  'listening': {
+    part1: EXERCISES_C1_LISTENING_P1,
+    part2: EXERCISES_C1_LISTENING_P2,
+    part3: EXERCISES_C1_LISTENING_P3,
+    part4: EXERCISES_C1_LISTENING_P4,
+  }
+},
   B2: {
     'use-of-english': {
       part1: EXERCISES_B2_UOE_P1,
@@ -277,9 +300,16 @@ const PartS = {
       { id: 'part4', num: 'Part 4', name: 'Key Word Transformations', desc: 'Rewrite the sentence using the key word' },
     ],
     'reading': [
-      { id: 'part5', num: 'Part 5', name: 'Multiple Choice',   desc: 'Questions about reading comprehension with a long text' },
-      { id: 'part6', num: 'Part 6', name: 'Gapped Text',       desc: 'Choose the sentence that fits in each gap' },
-      { id: 'part7', num: 'Part 7', name: 'Multiple Matching', desc: 'Match questions with sections of the text' },
+      { id: 'part5', num: 'Part 5', name: 'Multiple Choice', desc: 'Questions about reading comprehension with a long text' },
+      { id: 'part6', num: 'Part 6', name: 'Cross-text Multiple Matching', desc: 'Match opinions across four related texts' },
+      { id: 'part7', num: 'Part 7', name: 'Gapped Text', desc: 'Choose the paragraph that fits each gap' },
+      { id: 'part8', num: 'Part 8', name: 'Multiple Matching', desc: 'Match questions with the correct text' },
+    ],
+    'listening': [
+      { id: 'part1', num: 'Part 1', name: 'Multiple Choice (Short)', desc: 'Listen to 3 short extracts and answer 2 questions each' },
+      { id: 'part2', num: 'Part 2', name: 'Sentence Completion',     desc: 'Listen to a monologue and complete 8 sentences' },
+      { id: 'part3', num: 'Part 3', name: 'Multiple Choice (Long)',  desc: 'Listen to an interview and answer 6 multiple-choice questions' },
+      { id: 'part4', num: 'Part 4', name: 'Multiple Matching',       desc: 'Listen to 5 speakers and match them to two different tasks' }
     ],
   },
   B2: {
@@ -378,7 +408,8 @@ function launchExercise(params = {}) {
   if (skill === 'writing') {
     const prompts = DATA[level]?.['writing']?.prompts || DATA['B2']?.['writing']?.prompts;
     if (!prompts) return;
-    initWriting(prompts, skill, part);
+    // PASO CLAVE: Añadimos 'level' al final
+    initWriting(prompts, skill, part, level);
     return;
   }
 
@@ -403,11 +434,20 @@ function launchExercise(params = {}) {
     return;
   }
    if (level === 'C1' && skill === 'reading') {
-    if (part === 'part5') initReadingMultipleChoiceC1(exercises, skill, part);
-    //if (part === 'part6') initReadingGappedTextC1(exercises, skill, part);
-    //if (part === 'part7') initReadingMultipleMatchingC1(exercises, skill, part);
+    if (part === 'part5') initReadingC1Part5(exercises, skill, part);
+    if (part === 'part6') initReadingC1Part6(exercises, skill, part);
+    if (part === 'part7') initReadingC1Part7(exercises, skill, part);
+    if (part === 'part8') initReadingC1Part8(exercises, skill, part);
     return;
   } 
+  // ── C1 Listening ──
+  if (level === 'C1' && skill === 'listening') {
+    if (part === 'part1') initListeningC1Part1(exercises, skill, part);
+    if (part === 'part2') initListeningC1Part2(exercises, skill, part);
+    if (part === 'part3') initListeningC1Part3(exercises, skill, part);
+    if (part === 'part4') initListeningC1Part4(exercises, skill, part);
+    return;
+  }
 
   // ── B2 Use of English ──
   if (level === 'B2' && skill === 'use-of-english') {

@@ -1,9 +1,11 @@
 let _skill = '';
 let _part  = '';
+let _level = 'B2'; // Guardamos el nivel actual
 
-export function initWriting(prompts, skill, part) {
+export function initWriting(prompts, skill, part, level = 'B2') {
   _skill = skill;
   _part  = part;
+  _level = level;
   renderTypeSelector(prompts);
 }
 
@@ -11,7 +13,7 @@ function renderTypeSelector(prompts) {
   const c = document.getElementById('ejercicio-content');
   c.innerHTML = `
     <div class="page-header">
-      <h1 class="page-title">Writing — B2 First</h1>
+      <h1 class="page-title">Writing — ${_level}</h1>
       <p class="page-subtitle">Select the type of text you want to practice</p>
     </div>
     <div class="skill-grid">
@@ -27,7 +29,7 @@ function renderTypeSelector(prompts) {
   `;
   c.querySelectorAll('.skill-card[data-i]').forEach(card => {
     card.addEventListener('click', () => {
-      renderPromptSelector(prompts, prompts[parseInt(card.dataset.i)]);
+      renderPromptSelector(prompts, prompts[parseInt(card.dataset.i, 10)]);
     });
   });
 }
@@ -53,17 +55,36 @@ function renderPromptSelector(allPrompts, type) {
   document.getElementById('btn-back').addEventListener('click', () => renderTypeSelector(allPrompts));
   c.querySelectorAll('.skill-card[data-i]').forEach(card => {
     card.addEventListener('click', () => {
-      renderWritingTask(allPrompts, type, type.prompts[parseInt(card.dataset.i)]);
+      renderWritingTask(allPrompts, type, type.prompts[parseInt(card.dataset.i, 10)]);
     });
   });
 }
 
 function renderWritingTask(allPrompts, type, prompt) {
+  // Lógica dinámica para calcular las palabras basándose en el nivel o el prompt
+  let minWords = 140;
+  let maxWords = 190;
+  
+  if (_level === 'C1') { minWords = 220; maxWords = 260; }
+  else if (_level === 'B1') { minWords = 100; maxWords = 120; }
+
+  // Extraemos automáticamente los números del texto del prompt (ej. "Write 220-260 words")
+  const rangeMatch = prompt.task.match(/(\d+)[\s\-–]+(\d+)\s*words/i);
+  const exactMatch = prompt.task.match(/about\s*(\d+)\s*words/i) || prompt.task.match(/(\d+)\s*words/i);
+
+  if (rangeMatch) {
+    minWords = parseInt(rangeMatch[1], 10);
+    maxWords = parseInt(rangeMatch[2], 10);
+  } else if (exactMatch) {
+    minWords = parseInt(exactMatch[1], 10);
+    maxWords = minWords + 30; // Margen superior si solo dan un número
+  }
+
   const c = document.getElementById('ejercicio-content');
   c.innerHTML = `
     <div class="page-header">
       <h1 class="page-title">${type.icon} ${prompt.title}</h1>
-      <p class="page-subtitle">${type.type} — 140–190 words</p>
+      <p class="page-subtitle">${type.type} — ${minWords}–${maxWords} words</p>
     </div>
     <div class="card" style="margin-bottom:1.5rem">
       <div class="card-title">📋 Prompt</div>
@@ -77,7 +98,7 @@ function renderWritingTask(allPrompts, type, prompt) {
     </div>
     <div class="card" style="margin-bottom:1.5rem">
       <div class="card-title">✍️ Your Answer</div>
-      <textarea id="writing-input" placeholder="Write your text here (140–190 words)..."
+      <textarea id="writing-input" placeholder="Write your text here (${minWords}–${maxWords} words)..."
         style="width:100%;min-height:220px;padding:1rem;border-radius:8px;
         border:2px solid var(--color-border);background:var(--color-surface);
         color:var(--color-text);font-size:1rem;line-height:1.7;resize:vertical;
@@ -99,14 +120,15 @@ function renderWritingTask(allPrompts, type, prompt) {
   const wcDisplay = document.getElementById('word-count');
   const wcStatus  = document.getElementById('wc-status');
 
+  // Lógica de contador usando las variables dinámicas calculadas arriba
   textarea.addEventListener('input', () => {
     const words = textarea.value.trim().split(/\s+/).filter(w => w.length > 0).length;
     wcDisplay.textContent = words;
-    if (words < 140) {
-      wcStatus.textContent = `(${140 - words} words less than the minimum)`;
+    if (words < minWords) {
+      wcStatus.textContent = `(${minWords - words} words less than the minimum)`;
       wcStatus.style.color = '#ef4444';
-    } else if (words > 190) {
-      wcStatus.textContent = `(${words - 190} words above the maximum)`;
+    } else if (words > maxWords) {
+      wcStatus.textContent = `(${words - maxWords} words above the maximum)`;
       wcStatus.style.color = '#f59e0b';
     } else {
       wcStatus.textContent = '✓ Within the limit';
@@ -129,7 +151,7 @@ function renderWritingTask(allPrompts, type, prompt) {
     panel.style.display = 'block';
     panel.innerHTML = `
       <div class="card">
-        <div class="card-title">📐 Grading Rubric B2 First</div>
+        <div class="card-title">📐 Grading Rubric ${_level}</div>
         <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1rem">
           ${[
             { label: 'Content', desc: 'Have you answered the prompt? Do you cover all the requested points? Is it relevant and well-developed?' },
