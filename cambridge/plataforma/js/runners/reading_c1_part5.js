@@ -60,7 +60,7 @@ function renderExercise(exercises) {
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `
-      <div class="card-title">Question ${i + 1}</div>
+      <div class="card-title">Question ${i + 31}</div>
       <p style="margin-bottom:.75rem"><strong>${q.question}</strong></p>
       <div style="display:flex;flex-direction:column;gap:.5rem">
         ${q.options.map((opt, j) => `
@@ -167,7 +167,7 @@ function showReview(exercises) {
     div.style.borderLeft = `4px solid ${ok ? '#22c55e' : '#ef4444'}`;
     div.innerHTML = `
       <div class="card-title" style="color:${ok ? '#22c55e' : '#ef4444'}">
-        Question ${i + 1}: ${ok ? '✅ Correct' : '❌ Incorrect'}
+        Question ${i + 31}: ${ok ? '✅ Correct' : '❌ Incorrect'}
       </div>
       <p><strong>Your answer:</strong> ${(sel !== undefined && sel !== -1) ? q.options[sel] : '<em>Not answered</em>'}</p>
       <p><strong>Correct:</strong> <span style="color:#22c55e;font-weight:600">${q.options[q.answer]}</span></p>

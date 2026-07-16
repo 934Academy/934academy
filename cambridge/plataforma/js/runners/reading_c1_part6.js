@@ -55,7 +55,7 @@ function renderExercise(exercises) {
   const questionsHtml = exercise.questions.map((q, i) => {
     return `
       <div class="card" style="margin-bottom: 1rem;">
-        <div class="card-title">Question ${i + 1}</div>
+        <div class="card-title">Question ${i + 37}</div>
         <p style="margin-bottom:.75rem"><strong>${q.question}</strong></p>
         <div style="display:flex; gap:1.5rem; flex-wrap: wrap;">
           ${['A', 'B', 'C', 'D'].map(letter => `
@@ -183,7 +183,7 @@ function showReview(exercises) {
     
     div.innerHTML = `
       <div class="card-title" style="color:${ok ? '#22c55e' : '#ef4444'}">
-        Question ${i + 1}: ${ok ? '✅ Correct' : '❌ Incorrect'}
+        Question ${i + 37}: ${ok ? '✅ Correct' : '❌ Incorrect'}
       </div>
       <p style="margin-bottom: 0.5rem"><strong>${q.question}</strong></p>
       <p><strong>Your answer:</strong> ${sel ? `Text ${sel}` : '<em>Not answered</em>'}</p>
