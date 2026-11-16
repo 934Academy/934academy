@@ -58,6 +58,7 @@ export async function renderProgress(params = {}) {
       + '<option value="__all">Todos mis alumnos</option>';
     groupSelect.value = groups.some(g => g.id === wanted) || wanted === '__all' ? wanted : (groups[0]?.id ?? '__all');
 
+    if (params.period !== undefined) periodSelect.value = String(params.period);
     const groupId  = groupSelect.value;
     const students = profiles
       .filter(p => p.role === 'student' && (groupId === '__all' || p.group_id === groupId))

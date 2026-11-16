@@ -187,7 +187,10 @@ export async function renderUsers() {
           : '<span style="font-size:0.75rem;color:#aaa">Tú</span>'}</td>
       </tr>`).join('');
   } catch (err) {
-    showToast(err.message, 'error');
+    // El error se queda visible en la tabla (antes solo salía 3 s abajo
+    // y la tabla se quedaba en "Cargando...")
+    tbody.innerHTML = `<tr><td colspan="7"><div class="alert alert-error visible">
+      No se han podido cargar los usuarios: ${escapeHtml(err.message)}</div></td></tr>`;
   }
 }
 

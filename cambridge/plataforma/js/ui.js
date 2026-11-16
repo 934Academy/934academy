@@ -34,7 +34,9 @@ export function setUserUI(profile) {
   const level   = document.getElementById('user-level');
   const greeting = document.getElementById('dash-greeting');
   const greetingName = document.getElementById('dash-greeting-name');
-  const firstName = (profile.full_name || profile.username).split(' ')[0];
+  // "Teacher Alejandra" → "Alejandra" (el saludo usa el nombre de pila)
+  const words     = (profile.full_name || profile.username).trim().split(/\s+/);
+  const firstName = (words.length > 1 && /^(teacher|profe|profesora|miss|mrs?|ms)\.?$/i.test(words[0])) ? words[1] : words[0];
 
   if (avatar)   avatar.textContent  = initial;
   if (name)     name.textContent    = profile.full_name || profile.username;

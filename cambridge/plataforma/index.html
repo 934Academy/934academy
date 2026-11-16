@@ -113,7 +113,7 @@
 
         <!-- EXÁMENES -->
         <div class="nav-section">
-          <div class="nav-label">Mis exámenes</div>
+          <div class="nav-label"><span class="role-student">Mis exámenes</span><span class="role-staff">Ejercicios</span></div>
 
           <div class="nav-item" data-page="destreza" data-skill="use-of-english">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -205,9 +205,17 @@
       <main class="page active" id="page-dashboard">
         <div class="page-header">
           <h1 class="page-title">Welcome, <span id="dash-greeting-name"></span> 👋</h1>
-          <p class="page-subtitle">Selecciona una destreza para practicar</p>
+          <p class="page-subtitle">
+            <span class="role-student">Selecciona una destreza para practicar</span>
+            <span class="role-staff">Resumen de tus clases</span>
+          </p>
         </div>
-        <div class="stat-grid">
+
+        <!-- Teachers y admin: resumen de sus clases (home-view.js) -->
+        <div id="staff-home" class="role-staff"></div>
+
+        <!-- Alumnos: su nivel -->
+        <div class="stat-grid role-student">
           <div class="stat-card">
             <div class="stat-label">Tu nivel</div>
             <div class="stat-value" id="stat-level">–</div>
@@ -220,7 +228,19 @@
           </div>
         </div>
         <div>
-          <div class="section-title">Destrezas disponibles</div>
+          <div class="section-title-row">
+            <div class="section-title" style="margin:0">
+              <span class="role-student">Destrezas disponibles</span>
+              <span class="role-staff">Ver ejercicios</span>
+            </div>
+            <label class="role-staff preview-level-label">Nivel
+              <select class="form-select" id="preview-level" aria-label="Nivel de los ejercicios">
+                <option value="B1">B1 Preliminary</option>
+                <option value="B2">B2 First</option>
+                <option value="C1">C1 Advanced</option>
+              </select>
+            </label>
+          </div>
           <div class="skill-grid" id="skill-grid"></div>
         </div>
       </main>

@@ -1,5 +1,6 @@
 import { login, logout, getSession, touchLastSeen } from './auth.js';
 import { renderProgress, renderStudentReport } from './views/progress-view.js';
+import { renderStaffHome } from './views/home-view.js';
 import { navigate } from './router.js';
 import { initSidebar, setUserUI, closeSidebar, escapeHtml, formatDate } from './ui.js';
 import { renderMyWritings, renderWritingsList, renderWritingDetail, refreshPendingBadge } from './views/writings-view.js';
@@ -221,7 +222,7 @@ const canOpen = (pageId) => !PAGE_ROLES[pageId] || PAGE_ROLES[pageId].includes(c
 // SIDEBAR SEGÚN NIVEL
 // ════════════════════════════════════════════════════════════
 function updateSidebarForLevel() {
-  const isB1 = currentUser?.level === 'B1';
+  const isB1 = practiceLevel() === 'B1';
   const uoeItem = document.querySelector('.nav-item[data-skill="use-of-english"]');
   if (uoeItem) {
     // Si es B1, lo ocultamos. Si es B2 o C1, lo mostramos.
@@ -274,9 +275,23 @@ document.addEventListener('navigate', async ({ detail }) => {
 // ════════════════════════════════════════════════════════════
 // Nivel con el que se practica: el del alumno. Teachers y admin no tienen
 // nivel, así que ven B2 para poder revisar los ejercicios.
-function practiceLevel() {
-  return currentUser?.role === 'student' ? currentUser.level : 'B2';
+// Teachers y admin eligen en Inicio qué nivel quieren ver (se recuerda en su navegador).
+const PREVIEW_LEVELS = ['B1', 'B2', 'C1'];
+function previewLevel() {
+  let saved = null;
+  try { saved = localStorage.getItem('previewLevel'); } catch {}
+  return PREVIEW_LEVELS.includes(saved) ? saved : 'B2';
 }
+function practiceLevel() {
+  return currentUser?.role === 'student' ? currentUser.level : previewLevel();
+}
+
+const previewSelect = document.getElementById('preview-level');
+previewSelect?.addEventListener('change', () => {
+  try { localStorage.setItem('previewLevel', previewSelect.value); } catch {}
+  updateSidebarForLevel();
+  renderSkillGrid();
+});
 const hasContent = (level) => Boolean(DATA[level]);
 
 function comingSoonHtml(level) {
@@ -288,13 +303,26 @@ function comingSoonHtml(level) {
 }
 
 function renderDashboard() {
-  const isB1 = currentUser?.level === 'B1';
-  if (!hasContent(practiceLevel())) {
-    document.getElementById('skill-grid').innerHTML = comingSoonHtml(currentUser.level);
-    document.getElementById('stat-level').textContent = currentUser.level || '—';
-    document.getElementById('stat-name').textContent  = currentUser.full_name;
+  document.getElementById('stat-level').textContent = currentUser.level || '—';
+  document.getElementById('stat-name').textContent  = currentUser.full_name;
+
+  // Teachers y admin: resumen de sus clases + ejercicios del nivel que elijan
+  if (currentUser.role !== 'student') {
+    if (previewSelect) previewSelect.value = previewLevel();
+    renderStaffHome(currentUser);
+  }
+  renderSkillGrid();
+}
+
+// Tarjetas de destrezas (alumno: su nivel · teacher/admin: el nivel elegido)
+function renderSkillGrid() {
+  const level = practiceLevel();
+  const isB1  = level === 'B1';
+  if (!hasContent(level)) {
+    document.getElementById('skill-grid').innerHTML = comingSoonHtml(level);
     return;
   }
+  const isStaff = currentUser.role !== 'student';
 
   // Creamos el array de destrezas vacío para armarlo dinámicamente
   const skills = [];
@@ -321,13 +349,10 @@ function renderDashboard() {
       <div class="skill-name">${s.name}</div>
       <div class="skill-desc">${s.desc}</div>
       ${s.available
-        ? `<div class="skill-arrow">Start →</div>`
+        ? `<div class="skill-arrow">${isStaff ? `Ver ejercicios ${level} →` : 'Start →'}</div>`
         : `<span class="badge badge-soon">Próximamente</span>`}
     </div>
   `).join('');
-
-  document.getElementById('stat-level').textContent = currentUser.level || '—';
-  document.getElementById('stat-name').textContent  = currentUser.full_name;
 }
 
 // ════════════════════════════════════════════════════════════
