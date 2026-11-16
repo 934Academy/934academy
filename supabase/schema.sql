@@ -274,6 +274,18 @@ revoke insert, delete         on public.profiles from anon, authenticated;
 revoke all                    on public.groups   from anon;
 revoke all                    on public.writings from anon;
 
+-- Permisos de tabla. Este proyecto NO da permisos automáticamente a las
+-- tablas nuevas, así que se dan aquí. Qué filas ve o cambia cada uno lo
+-- siguen decidiendo las políticas RLS de arriba.
+grant usage on schema public to authenticated, service_role;
+grant select, update                 on public.profiles to authenticated;
+grant select, insert                 on public.results  to authenticated;
+grant select, insert, update, delete on public.groups   to authenticated;
+grant select                         on public.writings to authenticated;
+grant all on public.profiles, public.results, public.groups, public.writings to service_role;  -- Edge Function
+grant execute on function public.is_admin(), public.is_teacher_of(uuid),
+                          public.is_my_teacher(uuid), public.my_group_id() to authenticated;
+
 
 -- ────────────────────────────────────────────────────────────
 -- 7. FUNCIONES DE WRITING (las llama la web con supabase.rpc)
