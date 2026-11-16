@@ -1,0 +1,23 @@
+# ════════════════════════════════════════════════════════════
+# DATOS PRIVADOS: NUNCA SE SUBEN A GITHUB (protección de datos)
+# ════════════════════════════════════════════════════════════
+
+# Excel con las cuentas y contraseñas de la plataforma
+Cuentas*.xlsx
+
+# Cualquier hoja de cálculo o exportación de datos que se deje en el proyecto
+*.xlsx
+*.xls
+*.xlsm
+*.csv
+
+# Archivos temporales que crea Excel mientras el archivo está abierto
+~$*
+
+# Carpeta para cualquier otro documento privado
+privado/
+
+# Archivos del sistema
+Thumbs.db
+desktop.ini
+.DS_Store
