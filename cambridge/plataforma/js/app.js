@@ -1,6 +1,8 @@
-import { login, logout, getSession, createStudent, getAllProfiles, deleteStudent, getResults } from './auth.js';
-import { navigate, getCurrentPage } from './router.js';
-import { initSidebar, setUserUI, showToast, closeSidebar } from './ui.js';
+import { login, logout, getSession, getResults, touchLastSeen } from './auth.js';
+import { navigate } from './router.js';
+import { initSidebar, setUserUI, closeSidebar, escapeHtml, formatDate } from './ui.js';
+import { renderMyWritings, renderWritingsList, renderWritingDetail, refreshPendingBadge } from './views/writings-view.js';
+import { renderGroups, renderUsers, setAdminUser } from './views/admin-view.js';
 
 // Runners
 import { initMultipleChoice }          from './runners/multiple-choice.js';
@@ -192,17 +194,24 @@ function showApp() {
   document.getElementById('app').style.display        = 'flex';
 
   setUserUI(currentUser);
+  setAdminUser(currentUser);
   updateSidebarForLevel();
 
-  if (currentUser.role === 'admin') {
-    document.querySelectorAll('.admin-only').forEach(el => el.style.display = '');
-    renderAdmin();
-    navigate('admin');
-  } else {
-    renderDashboard();
-    navigate('dashboard');
-  }
+  // navigate() dispara el evento 'navigate', que ya pinta la página
+  const role = currentUser.role;
+  if (role === 'teacher' || role === 'admin') refreshPendingBadge();
+  navigate({ admin: 'admin', teacher: 'writings' }[role] || 'dashboard');
 }
+
+// Páginas a las que puede entrar cada rol (las demás son para todos)
+const PAGE_ROLES = {
+  admin:          ['admin'],
+  grupos:         ['teacher', 'admin'],
+  writings:       ['teacher', 'admin'],
+  resultados:     ['student'],
+  'mis-writings': ['student'],
+};
+const canOpen = (pageId) => !PAGE_ROLES[pageId] || PAGE_ROLES[pageId].includes(currentUser?.role);
 
 // ════════════════════════════════════════════════════════════
 // SIDEBAR SEGÚN NIVEL
@@ -229,7 +238,7 @@ document.getElementById('btn-logout')?.addEventListener('click', async () => {
 // ════════════════════════════════════════════════════════════
 document.querySelectorAll('.nav-item[data-page]').forEach(item => {
   item.addEventListener('click', () => {
-    if (item.dataset.page === 'admin' && currentUser?.role !== 'admin') return;
+    if (!canOpen(item.dataset.page)) return;
     navigate(item.dataset.page, { skill: item.dataset.skill });
     closeSidebar();
   });
@@ -240,12 +249,18 @@ document.querySelectorAll('.nav-item[data-page]').forEach(item => {
 // ════════════════════════════════════════════════════════════
 document.addEventListener('navigate', async ({ detail }) => {
   const { pageId, params } = detail;
+  if (!currentUser || !canOpen(pageId)) return;
+  touchLastSeen();
 
-  if (pageId === 'dashboard')  renderDashboard();
-  if (pageId === 'destreza')   renderDestreza(params);
-  if (pageId === 'admin')      await renderAdmin();
-  if (pageId === 'ejercicio')  launchExercise(params);
-  if (pageId === 'resultados') await renderResultados();
+  if (pageId === 'dashboard')    renderDashboard();
+  if (pageId === 'destreza')     renderDestreza(params);
+  if (pageId === 'admin')        await renderUsers();
+  if (pageId === 'grupos')       await renderGroups();
+  if (pageId === 'ejercicio')    launchExercise(params);
+  if (pageId === 'resultados')   await renderResultados();
+  if (pageId === 'mis-writings') await renderMyWritings();
+  if (pageId === 'writings')     await renderWritingsList(params);
+  if (pageId === 'writing')      await renderWritingDetail(params, currentUser);
 });
 
 // ════════════════════════════════════════════════════════════
@@ -284,7 +299,7 @@ function renderDashboard() {
     </div>
   `).join('');
 
-  document.getElementById('stat-level').textContent = currentUser.level;
+  document.getElementById('stat-level').textContent = currentUser.level || '—';
   document.getElementById('stat-name').textContent  = currentUser.full_name;
 }
 
@@ -401,15 +416,18 @@ function renderDestreza(params = {}) {
 // LANZAR EJERCICIO
 // ════════════════════════════════════════════════════════════
 function launchExercise(params = {}) {
-  const level = currentUser.level;
+  // El admin no tiene nivel: igual que en renderDestreza, usamos B2
+  const level = currentUser?.level || 'B2';
   const skill = params.skill;
   const part  = params.part;
 
   if (skill === 'writing') {
     const prompts = DATA[level]?.['writing']?.prompts || DATA['B2']?.['writing']?.prompts;
     if (!prompts) return;
-    // PASO CLAVE: Añadimos 'level' al final
-    initWriting(prompts, skill, part, level);
+    initWriting(prompts, skill, part, level, {
+      canSubmit:   currentUser?.role === 'student',
+      onSubmitted: () => navigate('mis-writings'),
+    });
     return;
   }
 
@@ -539,14 +557,14 @@ async function renderResultados() {
           </thead>
           <tbody>
             ${results.map(r => {
-              const date  = new Date(r.completed_at).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' });
+              const date  = formatDate(r.completed_at);
               const color = r.score >= 75 ? '#22c55e' : r.score >= 50 ? '#f59e0b' : '#ef4444';
               return `
                 <tr>
                   <td style="color:var(--color-text-muted);font-size:0.85rem">${date}</td>
-                  <td>${r.exam}</td>
-                  <td>${PART_NAMES[r.part] || 'Part ' + r.part}</td>
-                  <td>${r.exercise_id}</td>
+                  <td>${escapeHtml(r.exam)}</td>
+                  <td>${PART_NAMES[r.part] || 'Part ' + escapeHtml(r.part)}</td>
+                  <td>${escapeHtml(r.exercise_id)}</td>
                   <td><span style="color:${color};font-weight:700">${r.score}%</span></td>
                 </tr>`;
             }).join('')}
@@ -554,71 +572,8 @@ async function renderResultados() {
         </table>
       </div>`;
   } catch (err) {
-    content.innerHTML = `<div class="alert alert-error">${err.message}</div>`;
+    content.innerHTML = `<div class="alert alert-error visible">${escapeHtml(err.message)}</div>`;
   }
 }
-
-// ════════════════════════════════════════════════════════════
-// ADMIN
-// ════════════════════════════════════════════════════════════
-async function renderAdmin() {
-  const tbody = document.getElementById('students-tbody');
-  if (!tbody) return;
-
-  try {
-    const students = await getAllProfiles();
-    tbody.innerHTML = students.map(s => `
-      <tr>
-        <td><code>${s.username}</code></td>
-        <td>${s.full_name}</td>
-        <td><span class="badge badge-level">${s.level}</span></td>
-        <td><span class="badge badge-${s.role}">${s.role === 'admin' ? 'Admin' : 'Alumno'}</span></td>
-        <td>
-          ${s.id !== currentUser.id
-            ? `<button class="btn btn-danger" style="padding:4px 12px;font-size:0.75rem"
-                onclick="handleDeleteStudent('${s.id}', '${s.full_name}')">Eliminar</button>`
-            : '<span style="font-size:0.75rem;color:#aaa">Tú</span>'}
-        </td>
-      </tr>
-    `).join('');
-  } catch (err) {
-    showToast(err.message, 'error');
-  }
-}
-
-document.getElementById('add-student-form')?.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type=submit]');
-  btn.disabled    = true;
-  btn.textContent = 'Guardando...';
-
-  try {
-    await createStudent({
-      username: document.getElementById('new-username').value,
-      fullName: document.getElementById('new-name').value,
-      password: document.getElementById('new-password').value,
-      level:    document.getElementById('new-level').value,
-    });
-    showToast('Alumno añadido correctamente');
-    e.target.reset();
-    await renderAdmin();
-  } catch (err) {
-    showToast(err.message, 'error');
-  } finally {
-    btn.disabled    = false;
-    btn.textContent = 'Añadir alumno';
-  }
-});
-
-window.handleDeleteStudent = async (userId, name) => {
-  if (!confirm(`¿Eliminar a ${name}? Esta acción no se puede deshacer.`)) return;
-  try {
-    await deleteStudent(userId);
-    showToast('Alumno eliminado');
-    await renderAdmin();
-  } catch (err) {
-    showToast(err.message, 'error');
-  }
-};
 
 window.navigate = navigate;

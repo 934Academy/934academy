@@ -1,11 +1,18 @@
+import { submitWriting } from '../writings.js';
+import { showToast } from '../ui.js';
+
 let _skill = '';
 let _part  = '';
 let _level = 'B2'; // Guardamos el nivel actual
+let _canSubmit   = false;      // solo los alumnos envían a su profesora
+let _onSubmitted = () => {};
 
-export function initWriting(prompts, skill, part, level = 'B2') {
+export function initWriting(prompts, skill, part, level = 'B2', { canSubmit = false, onSubmitted } = {}) {
   _skill = skill;
   _part  = part;
   _level = level;
+  _canSubmit   = canSubmit;
+  _onSubmitted = onSubmitted || (() => {});
   renderTypeSelector(prompts);
 }
 
@@ -111,7 +118,8 @@ function renderWritingTask(allPrompts, type, prompt) {
     <div style="display:flex;gap:1rem;flex-wrap:wrap">
       <button class="btn" id="btn-back">← Prompts</button>
       <button class="btn" id="btn-clear">Clear Text</button>
-      <button class="btn btn-primary" id="btn-rubric">View Grading Rubric</button>
+      <button class="btn btn-ghost" id="btn-rubric">View Grading Rubric</button>
+      ${_canSubmit ? `<button class="btn btn-primary" id="btn-submit">Send to my teacher ✉️</button>` : ''}
     </div>
     <div id="rubric-panel" style="display:none;margin-top:1.5rem"></div>
   `;
@@ -142,6 +150,34 @@ function renderWritingTask(allPrompts, type, prompt) {
       textarea.value = '';
       wcDisplay.textContent = '0';
       wcStatus.textContent = '';
+    }
+  });
+
+  document.getElementById('btn-submit')?.addEventListener('click', async (e) => {
+    const btn     = e.currentTarget;
+    const content = textarea.value.trim();
+    const words   = content.split(/\s+/).filter(w => w.length > 0).length;
+
+    if (!content) { showToast('Write your text before sending it.', 'error'); return; }
+    const warning = words < minWords ? `\n\nYour text has ${words} words (minimum ${minWords}).` : '';
+    if (!confirm(`Send this writing to your teacher? You won't be able to edit it afterwards.${warning}`)) return;
+
+    btn.disabled    = true;
+    btn.textContent = 'Sending...';
+    try {
+      await submitWriting({
+        taskType:    type.type,
+        promptId:    prompt.id,
+        promptTitle: prompt.title,
+        promptText:  prompt.task,
+        content,
+      });
+      showToast('Writing sent to your teacher ✓');
+      _onSubmitted();
+    } catch (err) {
+      showToast(err.message, 'error');
+      btn.disabled    = false;
+      btn.textContent = 'Send to my teacher ✉️';
     }
   });
 

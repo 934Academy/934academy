@@ -30,8 +30,12 @@ function updateBreadcrumb(pageId, params) {
     dashboard:  ['Inicio'],
     destreza:   ['Inicio', SKILL_NAMES[params.skill] || params.skill || 'Destreza'],
     ejercicio:  ['Inicio', SKILL_NAMES[params.skill] || params.skill || 'Destreza', params.part || 'Ejercicio'],
-    resultados: ['Inicio', 'Mis resultados'],
-    admin:      ['Inicio', 'Gestión de alumnos'],
+    resultados:     ['Inicio', 'Mis resultados'],
+    'mis-writings': ['Inicio', 'Mis writings'],
+    writings:       ['Inicio', 'Corregir writings'],
+    writing:        ['Inicio', 'Writing'],
+    grupos:         ['Inicio', 'Grupos'],
+    admin:          ['Inicio', 'Gestión de usuarios'],
   };
 
   const crumbs = labels[pageId] || ['Inicio'];

@@ -11,5 +11,5 @@ const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 // ════════════════════════════════════════════════════════════
 // NO TOQUES NADA A PARTIR DE AQUÍ
 // ════════════════════════════════════════════════════════════
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm';
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON);

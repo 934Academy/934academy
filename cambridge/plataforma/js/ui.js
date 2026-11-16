@@ -33,16 +33,53 @@ export function setUserUI(profile) {
   const name    = document.getElementById('user-name');
   const level   = document.getElementById('user-level');
   const greeting = document.getElementById('dash-greeting');
+  const greetingName = document.getElementById('dash-greeting-name');
+  const firstName = (profile.full_name || profile.username).split(' ')[0];
 
   if (avatar)   avatar.textContent  = initial;
   if (name)     name.textContent    = profile.full_name || profile.username;
-  if (level)    level.textContent   = profile.role === 'admin' ? 'Administrador' : `Nivel ${profile.level}`;
-  if (greeting) greeting.textContent = (profile.full_name || profile.username).split(' ')[0];
+  if (level)    level.textContent   = ROLE_LABELS[profile.role] || `Nivel ${profile.level}`;
+  if (greeting) greeting.textContent = firstName;
+  if (greetingName) greetingName.textContent = firstName;
 
-  // Mostrar sección admin en el nav si es admin
-  if (profile.role === 'admin') {
-    document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'block');
-  }
+  // El CSS muestra/oculta .role-student, .role-staff y .admin-only según esto
+  document.body.dataset.role = profile.role;
+}
+
+const ROLE_LABELS = { admin: 'Administración', teacher: 'Profesora' };
+
+// Último acceso como etiqueta de color: verde ≤2 días, naranja ≤7, rojo más o nunca
+export function lastSeenBadge(value) {
+  if (!value) return '<span class="seen seen-old" title="Nunca ha entrado">Nunca</span>';
+
+  const date = new Date(value);
+  const days = Math.floor((startOfDay(new Date()) - startOfDay(date)) / 86400000);
+  const text = days <= 0 ? 'Hoy'
+             : days === 1 ? 'Ayer'
+             : days < 30 ? `Hace ${days} días`
+             : formatDate(date);
+  const cls  = days <= 2 ? 'seen-ok' : days <= 7 ? 'seen-warn' : 'seen-old';
+  const full = date.toLocaleString('es-ES', { dateStyle: 'medium', timeStyle: 'short' });
+  return `<span class="seen ${cls}" title="Último acceso: ${full}">${text}</span>`;
+}
+
+function startOfDay(d) { return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+
+// Fecha corta en español: "16 nov 2026"
+export function formatDate(value) {
+  return new Date(value).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+
+// ─────────────────────────────────────────────
+// Escapar texto antes de meterlo en innerHTML
+// ─────────────────────────────────────────────
+export function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 // ─────────────────────────────────────────────

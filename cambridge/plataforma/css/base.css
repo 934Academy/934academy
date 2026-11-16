@@ -27,3 +27,6 @@ p { line-height: 1.6; }
 ::selection {
   background: rgba(211, 47, 47, 0.15);
 }
+
+/* El atributo hidden siempre gana a display de las clases */
+[hidden] { display: none !important; }
