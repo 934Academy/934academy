@@ -38,6 +38,20 @@ export function touchLastSeen() {
 }
 
 // ─────────────────────────────────────────────
+// RESULTADOS DE VARIOS ALUMNOS (profesora/admin; la RLS filtra)
+// ─────────────────────────────────────────────
+export async function getResultsForUsers(userIds) {
+  if (!userIds.length) return [];
+  const { data, error } = await supabase
+    .from('results')
+    .select('user_id, exam, part, exercise_id, score, completed_at')
+    .in('user_id', userIds)
+    .order('completed_at', { ascending: false });
+  if (error) throw new Error(error.message);
+  return data;
+}
+
+// ─────────────────────────────────────────────
 // ACTIVIDAD RECIENTE: nº de ejercicios por alumno en los últimos N días
 // (la RLS limita a los alumnos que puede ver cada uno)
 // ─────────────────────────────────────────────
@@ -162,16 +176,3 @@ export async function saveResult({ exam, part, exerciseId, score }) {
   if (error) throw new Error(error.message);
 }
 
-// ─────────────────────────────────────────────
-// OBTENER RESULTADOS DEL USUARIO ACTUAL
-// ─────────────────────────────────────────────
-export async function getResults() {
-  const { data, error } = await supabase
-    .from('results')
-    .select('exam, part, exercise_id, score, completed_at')
-    .eq('user_id', requireUserId())
-    .order('completed_at', { ascending: false });
-
-  if (error) throw new Error(error.message);
-  return data;
-}

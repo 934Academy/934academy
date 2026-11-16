@@ -35,6 +35,8 @@ function updateBreadcrumb(pageId, params) {
     writings:       ['Inicio', 'Corregir writings'],
     writing:        ['Inicio', 'Writing'],
     grupos:         ['Inicio', 'Grupos'],
+    progreso:       ['Inicio', 'Progreso'],
+    alumno:         ['Inicio', 'Progreso', 'Alumno'],
     admin:          ['Inicio', 'Gestión de usuarios'],
   };
 

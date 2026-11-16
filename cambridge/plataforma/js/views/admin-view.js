@@ -78,7 +78,7 @@ export async function renderGroups() {
             ? `<table class="group-students">
                  <thead><tr><th>Alumno</th><th>Último acceso</th><th title="Ejercicios hechos en los últimos ${ACTIVITY_DAYS} días">Ejerc. ${ACTIVITY_DAYS}d</th></tr></thead>
                  <tbody>${students.map(s => `
-                   <tr>
+                   <tr class="row-link" data-student-id="${escapeHtml(s.id)}" title="Ver progreso de ${escapeHtml(s.full_name)}">
                      <td>${escapeHtml(s.full_name)}<div class="group-username">${escapeHtml(s.username)}</div></td>
                      <td>${lastSeenBadge(s.last_seen_at)}</td>
                      <td class="num">${activity.get(s.id) || 0}</td>
@@ -87,6 +87,7 @@ export async function renderGroups() {
                </table>`
             : '<p style="font-size:var(--text-sm);color:var(--color-text-faint)">Sin alumnos todavía.</p>'}
           <div class="group-actions">
+            <button class="btn btn-primary btn-sm" data-action="progress">Ver progreso</button>
             <button class="btn btn-ghost btn-sm" data-action="writings">Ver writings</button>
             ${isAdmin ? '<button class="btn btn-danger btn-sm" data-action="delete">Eliminar grupo</button>' : ''}
           </div>
@@ -100,11 +101,15 @@ export async function renderGroups() {
 const groupsContent = document.getElementById('grupos-content');
 
 groupsContent?.addEventListener('click', async (e) => {
+  const studentRow = e.target.closest('tr[data-student-id]');
+  if (studentRow) { navigate('alumno', { id: studentRow.dataset.studentId, from: 'grupos' }); return; }
+
   const btn  = e.target.closest('button[data-action]');
   const card = e.target.closest('[data-group-id]');
   if (!btn || !card) return;
   const groupId = card.dataset.groupId;
 
+  if (btn.dataset.action === 'progress') navigate('progreso', { groupId });
   if (btn.dataset.action === 'writings') {
     navigate('writings', { groupId });
   }

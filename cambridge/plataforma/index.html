@@ -94,6 +94,12 @@
             Corregir writings
             <span class="nav-badge" id="pending-badge" hidden></span>
           </div>
+          <div class="nav-item" data-page="progreso">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+            Progreso
+          </div>
           <div class="nav-item" data-page="grupos">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -237,9 +243,31 @@
       <main class="page" id="page-resultados">
         <div class="page-header">
           <h1 class="page-title">Mis resultados</h1>
-          <p class="page-subtitle">Historial de ejercicios completados</p>
+          <p class="page-subtitle">Cómo vas en cada destreza y qué te conviene reforzar</p>
         </div>
         <div id="resultados-content"></div>
+      </main>
+
+      <!-- PROGRESO DEL GRUPO (profesora / admin) -->
+      <main class="page" id="page-progreso">
+        <div class="page-header">
+          <h1 class="page-title">Progreso</h1>
+          <p class="page-subtitle">Porcentaje de aciertos de cada alumno por destreza</p>
+        </div>
+        <div class="filter-bar">
+          <select class="form-select" id="progreso-group" aria-label="Grupo"></select>
+          <select class="form-select" id="progreso-period" aria-label="Periodo">
+            <option value="">Todo el curso</option>
+            <option value="30">Últimos 30 días</option>
+            <option value="7">Últimos 7 días</option>
+          </select>
+        </div>
+        <div id="progreso-content"></div>
+      </main>
+
+      <!-- FICHA DE UN ALUMNO (profesora / admin) -->
+      <main class="page" id="page-alumno">
+        <div id="alumno-content"></div>
       </main>
 
       <!-- MIS WRITINGS (alumno) -->

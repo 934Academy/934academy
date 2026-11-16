@@ -1,8 +1,10 @@
-import { login, logout, getSession, getResults, touchLastSeen } from './auth.js';
+import { login, logout, getSession, touchLastSeen } from './auth.js';
+import { renderProgress, renderStudentReport } from './views/progress-view.js';
 import { navigate } from './router.js';
 import { initSidebar, setUserUI, closeSidebar, escapeHtml, formatDate } from './ui.js';
 import { renderMyWritings, renderWritingsList, renderWritingDetail, refreshPendingBadge } from './views/writings-view.js';
 import { renderGroups, renderUsers, setAdminUser } from './views/admin-view.js';
+import { PartS, SKILL_NAMES } from './exam-structure.js';
 
 // Runners
 import { initMultipleChoice }          from './runners/multiple-choice.js';
@@ -208,6 +210,8 @@ const PAGE_ROLES = {
   admin:          ['admin'],
   grupos:         ['teacher', 'admin'],
   writings:       ['teacher', 'admin'],
+  progreso:       ['teacher', 'admin'],
+  alumno:         ['teacher', 'admin'],
   resultados:     ['student'],
   'mis-writings': ['student'],
 };
@@ -257,7 +261,9 @@ document.addEventListener('navigate', async ({ detail }) => {
   if (pageId === 'admin')        await renderUsers();
   if (pageId === 'grupos')       await renderGroups();
   if (pageId === 'ejercicio')    launchExercise(params);
-  if (pageId === 'resultados')   await renderResultados();
+  if (pageId === 'resultados')   await renderStudentReport({ studentId: currentUser.id, currentUser, containerId: 'resultados-content' });
+  if (pageId === 'progreso')     await renderProgress(params);
+  if (pageId === 'alumno')       await renderStudentReport({ studentId: params.id, currentUser, containerId: 'alumno-content', backTo: params.from });
   if (pageId === 'mis-writings') await renderMyWritings();
   if (pageId === 'writings')     await renderWritingsList(params);
   if (pageId === 'writing')      await renderWritingDetail(params, currentUser);
@@ -306,71 +312,6 @@ function renderDashboard() {
 // ════════════════════════════════════════════════════════════
 // DESTREZA
 // ════════════════════════════════════════════════════════════
-const PartS = {
-  C1: {
-    'use-of-english': [
-      { id: 'part1', num: 'Part 1', name: 'Multiple Choice Cloze', desc: 'Choose the correct word to complete the text' },
-      { id: 'part2', num: 'Part 2', name: 'Open Cloze', desc: 'Complete the gaps without options' },
-      { id: 'part3', num: 'Part 3', name: 'Word Formation', desc: 'Form the correct word from the root' },
-      { id: 'part4', num: 'Part 4', name: 'Key Word Transformations', desc: 'Rewrite the sentence using the key word' },
-    ],
-    'reading': [
-      { id: 'part5', num: 'Part 5', name: 'Multiple Choice', desc: 'Questions about reading comprehension with a long text' },
-      { id: 'part6', num: 'Part 6', name: 'Cross-text Multiple Matching', desc: 'Match opinions across four related texts' },
-      { id: 'part7', num: 'Part 7', name: 'Gapped Text', desc: 'Choose the paragraph that fits each gap' },
-      { id: 'part8', num: 'Part 8', name: 'Multiple Matching', desc: 'Match questions with the correct text' },
-    ],
-    'listening': [
-      { id: 'part1', num: 'Part 1', name: 'Multiple Choice (Short)', desc: 'Listen to 3 short extracts and answer 2 questions each' },
-      { id: 'part2', num: 'Part 2', name: 'Sentence Completion',     desc: 'Listen to a monologue and complete 8 sentences' },
-      { id: 'part3', num: 'Part 3', name: 'Multiple Choice (Long)',  desc: 'Listen to an interview and answer 6 multiple-choice questions' },
-      { id: 'part4', num: 'Part 4', name: 'Multiple Matching',       desc: 'Listen to 5 speakers and match them to two different tasks' }
-    ],
-  },
-  B2: {
-    'use-of-english': [
-      { id: 'part1', num: 'Part 1', name: 'Multiple Choice Cloze',    desc: 'Choose the correct word to complete the text' },
-      { id: 'part2', num: 'Part 2', name: 'Open Cloze',               desc: 'Complete the gaps without options' },
-      { id: 'part3', num: 'Part 3', name: 'Word Formation',           desc: 'Form the correct word from the root' },
-      { id: 'part4', num: 'Part 4', name: 'Key Word Transformations', desc: 'Rewrite the sentence using the key word' },
-    ],
-    'reading': [
-      { id: 'part5', num: 'Part 5', name: 'Multiple Choice',   desc: 'Questions about reading comprehension with a long text' },
-      { id: 'part6', num: 'Part 6', name: 'Gapped Text',       desc: 'Choose the sentence that fits in each gap' },
-      { id: 'part7', num: 'Part 7', name: 'Multiple Matching', desc: 'Match questions with sections of the text' },
-    ],
-    'listening': [
-    { id: 'part1', num: 'Part 1', name: 'Multiple Choice',         desc: 'Listen to 8 short extracts and answer multiple-choice questions' },
-    { id: 'part2', num: 'Part 2', name: 'Sentence Completion',     desc: 'Listen to a monologue and complete 10 sentences' },
-    { id: 'part3', num: 'Part 3', name: 'Multiple Matching',       desc: 'Listen to 5 short related monologues and match each to an option' },
-    { id: 'part4', num: 'Part 4', name: 'Multiple Choice',         desc: 'Listen to a long interview and answer 7 multiple-choice questions' }
-  ]
-  },
-  B1: {
-    'reading': [
-      { id: 'part1', num: 'Part 1', name: 'Short Texts',            desc: 'Read notices and short messages and choose the correct option' },
-      { id: 'part2', num: 'Part 2', name: 'Matching',               desc: 'Match people with descriptive texts' },
-      { id: 'part3', num: 'Part 3', name: 'Long Text',              desc: 'Read a long text and answer comprehension questions' },
-      { id: 'part4', num: 'Part 4', name: 'Gapped Text',            desc: 'Choose the sentence that fits in each gap of the text' },
-      { id: 'part5', num: 'Part 5', name: 'Multiple Choice Cloze',  desc: 'Choose the correct word to complete the text' },
-      { id: 'part6', num: 'Part 6', name: 'Open Cloze',             desc: 'Complete the gaps with a single word' },
-    ],
-    'listening': [
-      { id: 'part1', num: 'Part 1', name: 'Short Recordings',       desc: 'Listen to short recordings and choose the correct image' },
-      { id: 'part2', num: 'Part 2', name: 'Longer Recordings',      desc: 'Listen to longer recordings and answer questions' },
-      { id: 'part3', num: 'Part 3', name: 'Conversations & Talks',  desc: 'Listen to conversations and For each question, write the correct answer in the gap.Write one or two words or a number or a date or a time' },
-      { id: 'part4', num: 'Part 4', name: 'Interview', desc: 'Listen to an interview and answer questions' }
-    ],
-  },
-};
-
-const SKILL_NAMES = {
-  'use-of-english': 'Use of English',
-  'reading':        'Reading',
-  'listening':      'Listening',
-  'writing':        'Writing',
-};
-
 function renderDestreza(params = {}) {
   const skill = params.skill || 'use-of-english';
   const level = currentUser?.level || 'B2';
@@ -514,66 +455,4 @@ function launchExercise(params = {}) {
     return;
   }
 }
-
-// ════════════════════════════════════════════════════════════
-// RESULTADOS
-// ════════════════════════════════════════════════════════════
-async function renderResultados() {
-  const content = document.getElementById('resultados-content');
-  content.innerHTML = `<p style="color:var(--color-text-muted)">Cargando...</p>`;
-
-  const PART_NAMES = {
-    1: 'Part 1',
-    2: 'Part 2',
-    3: 'Part 3',
-    4: 'Part 4',
-    5: 'Part 5',
-    6: 'Part 6',
-    7: 'Part 7',
-  };
-
-  try {
-    const results = await getResults();
-
-    if (results.length === 0) {
-      content.innerHTML = `
-        <div class="card" style="text-align:center;padding:3rem;color:var(--color-text-muted)">
-          Todavía no has completado ningún ejercicio.
-        </div>`;
-      return;
-    }
-
-    content.innerHTML = `
-      <div style="overflow-x:auto">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Exam</th>
-              <th>Part</th>
-              <th>Exercise</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${results.map(r => {
-              const date  = formatDate(r.completed_at);
-              const color = r.score >= 75 ? '#22c55e' : r.score >= 50 ? '#f59e0b' : '#ef4444';
-              return `
-                <tr>
-                  <td style="color:var(--color-text-muted);font-size:0.85rem">${date}</td>
-                  <td>${escapeHtml(r.exam)}</td>
-                  <td>${PART_NAMES[r.part] || 'Part ' + escapeHtml(r.part)}</td>
-                  <td>${escapeHtml(r.exercise_id)}</td>
-                  <td><span style="color:${color};font-weight:700">${r.score}%</span></td>
-                </tr>`;
-            }).join('')}
-          </tbody>
-        </table>
-      </div>`;
-  } catch (err) {
-    content.innerHTML = `<div class="alert alert-error visible">${escapeHtml(err.message)}</div>`;
-  }
-}
-
 window.navigate = navigate;

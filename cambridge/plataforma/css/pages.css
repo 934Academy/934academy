@@ -308,3 +308,69 @@ body:not([data-role="admin"]) .admin-only { display: none !important; }
 .seen-ok   { background: var(--color-success-bg); color: var(--color-success); }
 .seen-warn { background: var(--color-warning-bg); color: var(--color-warning); }
 .seen-old  { background: var(--color-error-bg);   color: var(--color-error); }
+
+/* ══════════════════════════════
+   PROGRESO
+══════════════════════════════ */
+.muted { color: var(--color-text-faint); }
+.table .num, .table th.num, .mini-table .num { text-align: right; white-space: nowrap; }
+.table-help { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-3); line-height: 1.5; }
+
+.score-pill {
+  display: inline-block; min-width: 46px; padding: 2px 8px; text-align: center;
+  border-radius: var(--radius-full); font-size: var(--text-xs); font-weight: 700;
+}
+.score-ok   { background: var(--color-success-bg); color: var(--color-success); }
+.score-mid  { background: var(--color-warning-bg); color: var(--color-warning); }
+.score-low  { background: var(--color-error-bg);   color: var(--color-error); }
+.score-none { background: var(--color-surface-2);  color: var(--color-text-faint); }
+.score-ok-text   { color: var(--color-success); }
+.score-mid-text  { color: var(--color-warning); }
+.score-low-text  { color: var(--color-error); }
+.score-none-text { color: var(--color-text-faint); }
+
+.progress-table tfoot td { background: var(--color-surface-2); border-top: 2px solid var(--color-border); }
+.progress-table tr.row-inactive td { opacity: .55; }
+
+.trend { font-size: var(--text-xs); font-weight: 700; margin-right: var(--space-2); }
+.trend-up   { color: var(--color-success); }
+.trend-down { color: var(--color-error); }
+.trend-flat { color: var(--color-text-faint); }
+
+.insights { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-6); }
+.insight {
+  padding: var(--space-3) var(--space-4); border-radius: var(--radius-md);
+  font-size: var(--text-sm); line-height: 1.5; margin-bottom: var(--space-4);
+}
+.insights .insight { margin-bottom: 0; }
+.insight-warn { background: var(--color-warning-bg); border-left: 3px solid var(--color-warning); }
+.insight-ok   { background: var(--color-success-bg); border-left: 3px solid var(--color-success); }
+
+.skill-report-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-4); margin-bottom: var(--space-8);
+}
+.skill-report { display: flex; flex-direction: column; gap: var(--space-3); }
+.skill-report-head { display: flex; justify-content: space-between; align-items: center; gap: var(--space-2); }
+.skill-report-name { font-weight: 700; }
+.score-big { font-size: var(--text-xl); font-weight: 700; }
+.skill-report-meta { font-size: var(--text-xs); color: var(--color-text-muted); }
+
+.bar { height: 8px; background: var(--color-surface-2); border: 1px solid var(--color-divider); border-radius: var(--radius-full); overflow: hidden; }
+.bar-fill { height: 100%; border-radius: var(--radius-full); }
+.bar-fill.score-ok  { background: var(--color-success); }
+.bar-fill.score-mid { background: var(--color-warning); }
+.bar-fill.score-low { background: var(--color-error); }
+
+.mini-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); }
+.mini-table th {
+  text-align: left; font-size: var(--text-xs); color: var(--color-text-muted); font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; padding-bottom: var(--space-1);
+}
+.mini-table td { padding: var(--space-1) 0; border-top: 1px solid var(--color-divider); }
+.stat-value small { font-size: var(--text-base); color: var(--color-text-muted); }
+.page-subtitle .seen, .page-subtitle .badge { vertical-align: middle; }
+.page .section-title { margin-top: var(--space-2); }
+.mini-table th + th, .mini-table td + td { padding-left: var(--space-3); }
+.mini-table td:first-child { line-height: 1.35; }
+.progress-table td:first-child { white-space: nowrap; }
