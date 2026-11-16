@@ -142,7 +142,7 @@ export const EXERCISES_B1_READING_P6 = [
     text_preview: "An open cloze text about the advantages of choosing train journeys over flying...",
     reading_text: `<h2>Traveling by Train</h2>
     <p>Traveling by train is becoming more popular than ever before. Many commuters prefer it because it is much (27)___ eco-friendly than flying or driving a car. Trains release less carbon dioxide, which is better (28)___ the environment.</p>
-    <p>Another major advantage is comfort. Unlike airplanes, (22)___ seats are often cramped, trains offer spacious legroom and the freedom to walk around. You can look out of the window and admire the scenery, (30)___ you can use the free Wi-Fi to get some work done.</p>
+    <p>Another major advantage is comfort. Unlike airplanes, (29)___ seats are often cramped, trains offer spacious legroom and the freedom to walk around. You can look out of the window and admire the scenery, (30)___ you can use the free Wi-Fi to get some work done.</p>
     <p>If you book your tickets well (31)___ advance, you can usually find fantastic discounts. So, the next time you plan a holiday, why (32)___ consider taking a train? It might turn out to be the best part of your trip.</p>`,
     questions: [
       {
@@ -264,7 +264,7 @@ export const EXERCISES_B1_READING_P6 = [
       {
         id: "b1_r_p6_e6_q31",
         text: "...skipping it can make you feel tired (31) ___ the morning...",
-        answer: "in",
+        answer: "in/during",
         explanation: "'In the morning' is the standard prepositional phrase used for parts of the day."
       },
       {
@@ -278,7 +278,7 @@ export const EXERCISES_B1_READING_P6 = [
   {
     title: "Life in the Arctic",
     text_preview: "An open cloze text describing the extreme adaptations of humans and animals in the cold...",
-    reading_text: `<h2>Life in a Medieval Castle</h2>
+    reading_text: `<h2>Life in the Arctic</h2>
     <p>The Arctic is one of the coldest and most extreme environments on Earth. (27)___ the freezing temperatures and thick ice, several animal species manage to live there comfortably. Polar bears, for example, have thick white fur (28)___ keeps them warm and helps them hide in the snow.</p>
     <p>Humans have also lived in the Arctic region for thousands of years. The Inuit people learned how to hunt seals and build shelters called igloos out of blocks of hard snow. They relied on teams of strong dogs (29)___ pull their heavy wooden sledges across the frozen tracks.</p>
     <p>In recent years, the Arctic has begun to change rapidly due to global warming. The ice is melting faster (30)___ ever before, making it difficult for polar bears to hunt for food. Scientists are monitoring the situation closely to see (31)___ can be done to protect (32)___ fragile ecosystem.</p>`,
@@ -316,7 +316,7 @@ export const EXERCISES_B1_READING_P6 = [
       {
         id: "b1_r_p6_e7_q32",
         text: "...to protect (32) ___ fragile ecosystem.",
-        answer: "this/the",
+        answer: "this/the/its",
         explanation: "The demonstrative 'this' or definite article 'the' is used to specify the exact ecosystem discussed throughout the text."
       }
     ]
@@ -384,7 +384,7 @@ export const EXERCISES_B1_READING_P6 = [
       {
         id: "b1_r_p6_e9_q28",
         text: "It took several centuries (28) ___ humans realized...",
-        answer: "before",
+        answer: "before/until",
         explanation: "The conjunction 'before' denotes the passage of time leading up to a specific historical realization."
       },
       {
@@ -414,7 +414,7 @@ export const EXERCISES_B1_READING_P6 = [
     ]
   },
   {
-    title: "Dolphins: Intelligents Pods",
+    title: "Dolphins: Intelligent Pods",
     text_preview: "An open cloze text analyzing the sharp communication and packing skills of dolphins...",
     reading_text: `<h2>Dolphins: Intelligent Pods</h2>
     <p>Dolphins are legendary for being some of the friendliest mammals in the ocean. They are highly social creatures (27)___ live in large family groups called pods. Within these pods, they work together to catch fish and protect each (28)___ from dangerous predators like sharks.</p>
@@ -470,7 +470,7 @@ export const EXERCISES_B1_READING_P6 = [
       {
         id: "b1_r_p6_e11_q27",
         text: "...from all (27) ___ the globe to watch new movies.",
-        answer: "over/around",
+        answer: "over/around/across",
         explanation: "The idiomatic phrases 'all over the globe' or 'all around the globe' translate to worldwide."
       },
       {
@@ -546,7 +546,7 @@ export const EXERCISES_B1_READING_P6 = [
       {
         id: "b1_r_p6_e12_q32",
         text: "...you don't need a car to (32) ___ active and free.",
-        answer: "be/stay/remain",
+        answer: "be/stay/remain/keep",
         explanation: "An infinitive verb like 'be', 'stay', or 'remain' is needed after 'to' to connect with the predicate adjectives."
       }
     ]

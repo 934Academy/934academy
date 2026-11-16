@@ -30,28 +30,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "A four-bedroom, semi-detached house with a garage and extra parking is available from September. Large garden. Pets welcome. Easy access to the motorway and town centre. Close to several outstanding schools." },
-      { id: "B", text: "A shared house with four students who like to party. The room is inexpensive and situated in Dobberton, just ten miles from Cambridge. You'll need a car, but we have lots of space for parking." },
-      { id: "C", text: "Fully furnished luxury flat available for short-term lease. One bedroom, shower and bath, elevator and underground parking. All the modern conveniences. Owners prefer a single person." },
+      { id: "A", text: "A shared house with four students who like to party. The room is inexpensive and situated in Dobberton, just ten miles from Cambridge. You'll need a car, but we have lots of space for parking." },
+      { id: "B", text: "A detached four-bedroom home is available near the old St Andrew's school site, located on the edge of town. Good access to all parts of town using the motorway. A family preferred. No pets though." },
+      { id: "C", text: "Attic-type apartment available in the city centre. Large, quiet, open-plan space. Located just beside Coldham's park. Minimum 12-month contract." },
       { id: "D", text: "Room available in a flat with one other person. The room is spacious and airy, and inexpensive for its location, a two-minute walk from a bus stop and five minutes from the train station." },
-      { id: "E", text: "A detached four-bedroom home is available near the old St Andrew's school site, located on the edge of town. Good access to all parts of town using the motorway. A family preferred. No pets though." },
-      { id: "F", text: "A country cottage surrounded by tranquil countryside. Two bedrooms and one studio for home-working or study. Large garden. Pets welcome. Pre-installed security system and a good internet connection." },
-      { id: "G", text: "Double room available in a small house with off-street parking. To share with studious 3rd year uni student who is often away at the weekend." },
-      { id: "H", text: "Attic-type apartment available in the city centre. Large, quiet, open-plan space. Located just beside Coldham's park. Minimum 12-month contract." }
+      { id: "E", text: "A four-bedroom, semi-detached house with a garage and extra parking is available from September. Large garden. Pets welcome. Easy access to the motorway and town centre. Close to several outstanding schools." },
+      { id: "F", text: "Double room available in a small house with off-street parking. To share with studious 3rd year uni student who is often away at the weekend." },
+      { id: "G", text: "A country cottage surrounded by tranquil countryside. Two bedrooms and one studio for home-working or study. Large garden. Pets welcome. Pre-installed security system and a good internet connection." },
+      { id: "H", text: "Fully furnished luxury flat available for short-term lease. One bedroom, shower and bath, elevator and underground parking. All the modern conveniences. Owners prefer a single person." }
     ],
     answers: {
-      "b1_r_p2_e1_p6": "D",
-      "b1_r_p2_e1_p7": "F",
-      "b1_r_p2_e1_p8": "G",
-      "b1_r_p2_e1_p9": "C",
-      "b1_r_p2_e1_p10": "A"
+      b1_r_p2_e1_p6: "D",
+      b1_r_p2_e1_p7: "G",
+      b1_r_p2_e1_p8: "F",
+      b1_r_p2_e1_p9: "H",
+      b1_r_p2_e1_p10: "E"
     },
     explanations: {
-      "b1_r_p2_e1_p6": "D — cheap, near public transport (bus stop + train station), shared flat with one other person.",
-      "b1_r_p2_e1_p7": "F — rural, quiet, studio for home-working, pets welcome, large garden.",
-      "b1_r_p2_e1_p8": "G — shares with one responsible student, has parking, girlfriend can visit at weekends when the other person is often away.",
-      "b1_r_p2_e1_p9": "C — short-term lease, one bedroom (single person), fully furnished (no decorating needed), close to town.",
-      "b1_r_p2_e1_p10": "A — family house, garage + extra parking for two cars, pets welcome, close to schools, available from September."
+      b1_r_p2_e1_p6: "D — cheap, near public transport (bus stop + train station), shared flat with one other person.",
+      b1_r_p2_e1_p7: "G — rural, quiet, studio for home-working, pets welcome, large garden.",
+      b1_r_p2_e1_p8: "F — shares with one responsible student, has parking, girlfriend can visit at weekends when the other person is often away.",
+      b1_r_p2_e1_p9: "H — short-term lease, one bedroom (single person), fully furnished (no decorating needed), close to town.",
+      b1_r_p2_e1_p10: "E — family house, garage + extra parking for two cars, pets welcome, close to schools, available from September."
     }
   },
   {
@@ -85,28 +85,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "Mediterranean Sunshine: A budget-friendly resort just a two-hour flight away. Enjoy beautiful sandy beaches with all breakfast and dinner options fully covered in the price." },
-      { id: "B", text: "Alpine Luxury Trek: Stay in five-star mountain lodges, enjoy daily guided hikes through dramatic peaks, and visit traditional villages to experience regional customs." },
-      { id: "C", text: "Green Forest Cabins: Remote, solar-powered cabins perfect for families. Located next to a nature reserve with excellent opportunities to see animals. Includes a fully equipped kitchen." },
-      { id: "D", text: "Metropolis Pulse: A stylish boutique hotel located right downtown, surrounded by high-end fashion stores, top-rated restaurants, and the city’s best clubs." },
-      { id: "E", text: "Ancient Wonders Tour: A premium package featuring daily guided excursions to historical ruins, private coach travel, and full board at top-rated historic hotels." },
-      { id: "F", text: "Tropical Safari Adventure: A long-haul trip to Africa. Stay in tents, cook your own food on campfires, and see lions and elephants up close. Great for singles." },
-      { id: "G", text: "City Explorer Hostel: Cheap shared accommodation in the city suburbs. Perfect for budget students who want to explore museums and historical buildings on foot." },
-      { id: "H", text: "Mountain Backpackers: Cheap hostel rooms high up in the Alps. Bring your own food and gear. Ideal for young hikers who want to save money." }
+      { id: "A", text: "Green Forest Cabins: Remote, solar-powered cabins perfect for families. Located next to a nature reserve with excellent opportunities to see animals. Includes a fully equipped kitchen." },
+      { id: "B", text: "Tropical Safari Adventure: A long-haul trip to Africa. Stay in tents, cook your own food on campfires, and see lions and elephants up close. Great for singles." },
+      { id: "C", text: "Ancient Wonders Tour: A premium package featuring daily guided excursions to historical ruins, private coach travel, and full board at top-rated historic hotels." },
+      { id: "D", text: "City Explorer Hostel: Cheap shared accommodation in the city suburbs. Perfect for budget students who want to explore museums and historical buildings on foot." },
+      { id: "E", text: "Alpine Luxury Trek: Stay in five-star mountain lodges, enjoy daily guided hikes through dramatic peaks, and visit traditional villages to experience regional customs." },
+      { id: "F", text: "Mediterranean Sunshine: A budget-friendly resort just a two-hour flight away. Enjoy beautiful sandy beaches with all breakfast and dinner options fully covered in the price." },
+      { id: "G", text: "Mountain Backpackers: Cheap hostel rooms high up in the Alps. Bring your own food and gear. Ideal for young hikers who want to save money." },
+      { id: "H", text: "Metropolis Pulse: A stylish boutique hotel located right downtown, surrounded by high-end fashion stores, top-rated restaurants, and the city’s best clubs." }
     ],
     answers: {
-      "b1_r_p2_e2_p6": "A",
-      "b1_r_p2_e2_p7": "B",
-      "b1_r_p2_e2_p8": "C",
-      "b1_r_p2_e2_p9": "D",
-      "b1_r_p2_e2_p10": "E"
+      b1_r_p2_e2_p6: "F",
+      b1_r_p2_e2_p7: "E",
+      b1_r_p2_e2_p8: "A",
+      b1_r_p2_e2_p9: "H",
+      b1_r_p2_e2_p10: "C"
     },
     explanations: {
-      "b1_r_p2_e2_p6": "A — budget-friendly, short flight (two hours), beach resort, meals included (breakfast and dinner covered).",
-      "b1_r_p2_e2_p7": "B — mountain location, hiking, local culture (regional customs), luxury accommodation (five-star lodges).",
-      "b1_r_p2_e2_p8": "C — eco-friendly (solar-powered), wildlife (nature reserve/animals), quiet/remote, cooking facilities (fully equipped kitchen).",
-      "b1_r_p2_e2_p9": "D — city break (downtown), shopping (fashion stores), fine dining (top-rated restaurants), nightlife (best clubs).",
-      "b1_r_p2_e2_p10": "E — history (historical ruins), guided tours, comfortable transport (private coach), all-inclusive (full board at hotels)."
+      b1_r_p2_e2_p6: "F — budget-friendly, short flight (two hours), beach resort, meals included (breakfast and dinner covered).",
+      b1_r_p2_e2_p7: "E — mountain location, hiking, local culture (regional customs), luxury accommodation (five-star lodges).",
+      b1_r_p2_e2_p8: "A — eco-friendly (solar-powered), wildlife (nature reserve/animals), quiet/remote, cooking facilities (fully equipped kitchen).",
+      b1_r_p2_e2_p9: "H — city break (downtown), shopping (fashion stores), fine dining (top-rated restaurants), nightlife (best clubs).",
+      b1_r_p2_e2_p10: "C — history (historical ruins), guided tours, comfortable transport (private coach), all-inclusive (full board at hotels)."
     }
   },
   {
@@ -140,28 +140,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "The Red Planet: A thrilling, action-packed sci-fi story about a race against time on Mars. At just 150 pages, it is a brilliant, quick read." },
-      { id: "B", text: "A Life in the Shadows: A comprehensive 600-page biography of Queen Isabella, filled with rich historical detail, primary documents, and original portraits." },
-      { id: "C", text: "Love and Laughter: A hilarious and charming romantic comedy about two chefs. It’s a gentle, entertaining read that will put a smile on your face." },
-      { id: "D", text: "Midnight in Paris: Inspector Dupont hunts a clever thief through the dark streets of France. A gripping noir mystery with an unpredictable twist ending." },
-      { id: "E", text: "The Organized Mind: A practical guide filled with actionable advice on how to structure your workday, beat procrastination, and boost your professional efficiency." },
-      { id: "F", text: "Galaxy of Stars: An epic, 800-page science fiction masterpiece spanning generations and multiple galaxies. A complex read for dedicated fans." },
-      { id: "G", text: "The Last King: A historical fiction novel set in ancient Rome. It focuses on battles and political drama but contains no real photos or factual biographies." },
-      { id: "H", text: "Deep Water: A psychological thriller set in a small town in Canada. It focuses on family secrets and has a very slow, dramatic pace." }
+      { id: "A", text: "The Organized Mind: A practical guide filled with actionable advice on how to structure your workday, beat procrastination, and boost your professional efficiency." },
+      { id: "B", text: "The Last King: A historical fiction novel set in ancient Rome. It focuses on battles and political drama but contains no real photos or factual biographies." },
+      { id: "C", text: "Deep Water: A psychological thriller set in a small town in Canada. It focuses on family secrets and has a very slow, dramatic pace." },
+      { id: "D", text: "Galaxy of Stars: An epic, 800-page science fiction masterpiece spanning generations and multiple galaxies. A complex read for dedicated fans." },
+      { id: "E", text: "A Life in the Shadows: A comprehensive 600-page biography of Queen Isabella, filled with rich historical detail, primary documents, and original portraits." },
+      { id: "F", text: "Love and Laughter: A hilarious and charming romantic comedy about two chefs. It’s a gentle, entertaining read that will put a smile on your face." },
+      { id: "G", text: "Midnight in Paris: Inspector Dupont hunts a clever thief through the dark streets of France. A gripping noir mystery with an unpredictable twist ending." },
+      { id: "H", text: "The Red Planet: A thrilling, action-packed sci-fi story about a race against time on Mars. At just 150 pages, it is a brilliant, quick read." }
     ],
     answers: {
-      "b1_r_p2_e3_p6": "A",
-      "b1_r_p2_e3_p7": "B",
-      "b1_r_p2_e3_p8": "C",
-      "b1_r_p2_e3_p9": "D",
-      "b1_r_p2_e3_p10": "E"
+      b1_r_p2_e3_p6: "H",
+      b1_r_p2_e3_p7: "E",
+      b1_r_p2_e3_p8: "F",
+      b1_r_p2_e3_p9: "G",
+      b1_r_p2_e3_p10: "A"
     },
     explanations: {
-      "b1_r_p2_e3_p6": "A — fast-paced sci-fi (action-packed sci-fi), short/quick read (150 pages).",
-      "b1_r_p2_e3_p7": "B — biography, historical figure (Queen Isabella), long/detailed (600 pages), real photos (original portraits).",
-      "b1_r_p2_e3_p8": "C — romantic comedy, funny (hilarious), light-hearted/relaxing (gentle, entertaining read).",
-      "b1_r_p2_e3_p9": "D — dark crime thriller (noir mystery), detective (Inspector Dupont), European city (Paris), unpredictable twist ending.",
-      "b1_r_p2_e3_p10": "E — business/self-help (professional efficiency), practical tips (actionable advice), time management/productivity (structure your workday, beat procrastination)."
+      b1_r_p2_e3_p6: "H — fast-paced sci-fi (action-packed sci-fi), short/quick read (150 pages).",
+      b1_r_p2_e3_p7: "E — biography, historical figure (Queen Isabella), long/detailed (600 pages), real photos (original portraits).",
+      b1_r_p2_e3_p8: "F — romantic comedy, funny (hilarious), light-hearted/relaxing (gentle, entertaining read).",
+      b1_r_p2_e3_p9: "G — dark crime thriller (noir mystery), detective (Inspector Dupont), European city (Paris), unpredictable twist ending.",
+      b1_r_p2_e3_p10: "A — business/self-help (professional efficiency), practical tips (actionable advice), time management/productivity (structure your workday, beat procrastination)."
     }
   },
   {
@@ -195,28 +195,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "TechLab World: Perfect for teens and adults, this space features interactive physics experiments, virtual reality zones, and mechanical workshops where you build things yourself." },
-      { id: "B", text: "The Neon Gallery: Showcasing contemporary paintings and 21st-century photography. Open until 10:00 PM every Friday night, making it ideal for after-work visits." },
-      { id: "C", text: "The Town Chronicles: Located just a 2-minute walk from the railway station, this museum details the history of our city. Admission is completely free for all visitors." },
+      { id: "A", text: "The Town Chronicles: Located just a 2-minute walk from the railway station, this museum details the history of our city. Admission is completely free for all visitors." },
+      { id: "B", text: "Antiquity Hub: Explore spectacular artifacts from ancient Egypt and Rome. Offers cheap group tickets for families and features a lovely cafeteria serving hot lunches." },
+      { id: "C", text: "Modern Visions: A gallery displaying modern sculptures. It closes daily at 5:00 PM and does not allow photography inside the exhibition rooms." },
       { id: "D", text: "Threads of Time: A spectacular display of royal fashion from the 18th century to the present. Every ticket includes a detailed headset audio tour exploring the garments." },
-      { id: "E", text: "Antiquity Hub: Explore spectacular artifacts from ancient Egypt and Rome. Offers cheap group tickets for families and features a lovely cafeteria serving hot lunches." },
-      { id: "F", text: "The Space Pavilion: A history of rocket science with old spacecraft on display. It contains a small gift shop but no interactive areas or hands-on activities." },
-      { id: "G", text: "Nature Walk Museum: Filled with stuffed animals and dinosaur bones. It is located outside the city, requires a car to get there, and tickets must be bought in advance." },
-      { id: "H", text: "Modern Visions: A gallery displaying modern sculptures. It closes daily at 5:00 PM and does not allow photography inside the exhibition rooms." }
+      { id: "E", text: "The Neon Gallery: Showcasing contemporary paintings and 21st-century photography. Open until 10:00 PM every Friday night, making it ideal for after-work visits." },
+      { id: "F", text: "Nature Walk Museum: Filled with stuffed animals and dinosaur bones. It is located outside the city, requires a car to get there, and tickets must be bought in advance." },
+      { id: "G", text: "TechLab World: Perfect for teens and adults, this space features interactive physics experiments, virtual reality zones, and mechanical workshops where you build things yourself." },
+      { id: "H", text: "The Space Pavilion: A history of rocket science with old spacecraft on display. It contains a small gift shop but no interactive areas or hands-on activities." }
     ],
     answers: {
-      "b1_r_p2_e4_p6": "A",
-      "b1_r_p2_e4_p7": "B",
-      "b1_r_p2_e4_p8": "C",
-      "b1_r_p2_e4_p9": "D",
-      "b1_r_p2_e4_p10": "E"
+      b1_r_p2_e4_p6: "G",
+      b1_r_p2_e4_p7: "E",
+      b1_r_p2_e4_p8: "A",
+      b1_r_p2_e4_p9: "D",
+      b1_r_p2_e4_p10: "B"
     },
     explanations: {
-      "b1_r_p2_e4_p6": "A — interactive science (interactive physics experiments, workshops), good for teenagers (perfect for teens).",
-      "b1_r_p2_e4_p7": "B — modern art and photography (contemporary paintings, photography), late on Friday (open until 10:00 PM every Friday night).",
-      "b1_r_p2_e4_p8": "C — local history (history of our city), free entry (completely free), near train station (2-minute walk from railway station).",
-      "b1_r_p2_e4_p9": "D — fashion/costumes (royal fashion, garments), audio guide included (headset audio tour included).",
-      "b1_r_p2_e4_p10": "E — ancient civilizations (ancient Egypt and Rome), family discount (cheap group tickets for families), on-site café (cafeteria serving hot lunches)."
+      b1_r_p2_e4_p6: "G — interactive science (interactive physics experiments, workshops), good for teenagers (perfect for teens).",
+      b1_r_p2_e4_p7: "E — modern art and photography (contemporary paintings, photography), late on Friday (open until 10:00 PM every Friday night).",
+      b1_r_p2_e4_p8: "A — local history (history of our city), free entry (completely free), near train station (2-minute walk from railway station).",
+      b1_r_p2_e4_p9: "D — fashion/costumes (royal fashion, garments), audio guide included (headset audio tour included).",
+      b1_r_p2_e4_p10: "B — ancient civilizations (ancient Egypt and Rome), family discount (cheap group tickets for families), on-site café (cafeteria serving hot lunches)."
     }
   },
   {
@@ -250,28 +250,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "Sunrise HIIT: A high-intensity circuit class starting at 6:30 AM. No weights or machines needed—just pure bodyweight movements like pushups and jumps." },
-      { id: "B", text: "Saturday Zen: An introductory, slow-paced yoga class designed specifically for beginners. Sessions run every Saturday and Sunday from 3:00 PM to 4:30 PM." },
-      { id: "C", text: "Salsa Socials: Learn the steps of Latin dance in a friendly group environment. Classes take place every Tuesday and Thursday night from 7:30 PM to 9:00 PM." },
-      { id: "D", text: "AquaFit Care: A gentle pool-based exercise class held Tuesdays at 11:00 AM. Perfect for anyone needing low-impact movement for joint recovery." },
-      { id: "E", text: "Park Endurance: An intensive outdoor running and fitness program. Features expert trainers who provide personalized feedback on running style and stamina." },
-      { id: "F", text: "Morning Spin: An intense indoor cycling class using high-tech exercise bikes. Starts at 7:00 AM on weekdays. Heavy equipment is used throughout." },
-      { id: "G", text: "Advanced Pilates: A highly demanding core strength class for experienced fitness enthusiasts. Held on Wednesday evenings at 6:00 PM." },
-      { id: "H", text: "Sunday Football Club: A casual outdoor football league that meets every Sunday morning at 9:00 AM. No professional coaching provided." }
+      { id: "A", text: "Sunday Football Club: A casual outdoor football league that meets every Sunday morning at 9:00 AM. No professional coaching provided." },
+      { id: "B", text: "Advanced Pilates: A highly demanding core strength class for experienced fitness enthusiasts. Held on Wednesday evenings at 6:00 PM." },
+      { id: "C", text: "Morning Spin: An intense indoor cycling class using high-tech exercise bikes. Starts at 7:00 AM on weekdays. Heavy equipment is used throughout." },
+      { id: "D", text: "Park Endurance: An intensive outdoor running and fitness program. Features expert trainers who provide personalized feedback on running style and stamina." },
+      { id: "E", text: "Saturday Zen: An introductory, slow-paced yoga class designed specifically for beginners. Sessions run every Saturday and Sunday from 3:00 PM to 4:30 PM." },
+      { id: "F", text: "AquaFit Care: A gentle pool-based exercise class held Tuesdays at 11:00 AM. Perfect for anyone needing low-impact movement for joint recovery." },
+      { id: "G", text: "Sunrise HIIT: A high-intensity circuit class starting at 6:30 AM. No weights or machines needed—just pure bodyweight movements like pushups and jumps." },
+      { id: "H", text: "Salsa Socials: Learn the steps of Latin dance in a friendly group environment. Classes take place every Tuesday and Thursday night from 7:30 PM to 9:00 PM." }
     ],
     answers: {
-      "b1_r_p2_e5_p6": "A",
-      "b1_r_p2_e5_p7": "B",
-      "b1_r_p2_e5_p8": "C",
-      "b1_r_p2_e5_p9": "D",
-      "b1_r_p2_e5_p10": "E"
+      b1_r_p2_e5_p6: "G",
+      b1_r_p2_e5_p7: "E",
+      b1_r_p2_e5_p8: "H",
+      b1_r_p2_e5_p9: "F",
+      b1_r_p2_e5_p10: "D"
     },
     explanations: {
-      "b1_r_p2_e5_p6": "A — high-intensity (HIIT), early morning (6:30 AM), body weight/no equipment (no weights or machines needed, pure bodyweight movements).",
-      "b1_r_p2_e5_p7": "B — yoga/pilates (yoga), beginners (introductory, for beginners), weekend afternoons (Saturday and Sunday, 3:00 PM).",
-      "b1_r_p2_e5_p8": "C — social/dance (Salsa, friendly group), weekday evenings (Tuesday and Thursday night), after 7:00 PM (7:30 PM).",
-      "b1_r_p2_e5_p9": "D — injury recovery/low impact (joint recovery), water-based (pool-based), daytime during the week (Tuesdays at 11:00 AM).",
-      "b1_r_p2_e5_p10": "E — outdoor/running (park endurance, outdoor running), personal coach (expert trainers, personalized feedback), technique (running style)."
+      b1_r_p2_e5_p6: "G — high-intensity (HIIT), early morning (6:30 AM), body weight/no equipment (no weights or machines needed, pure bodyweight movements).",
+      b1_r_p2_e5_p7: "E — yoga/pilates (yoga), beginners (introductory, for beginners), weekend afternoons (Saturday and Sunday, 3:00 PM).",
+      b1_r_p2_e5_p8: "H — social/dance (Salsa, friendly group), weekday evenings (Tuesday and Thursday night), after 7:00 PM (7:30 PM).",
+      b1_r_p2_e5_p9: "F — injury recovery/low impact (joint recovery), water-based (pool-based), daytime during the week (Tuesdays at 11:00 AM).",
+      b1_r_p2_e5_p10: "D — outdoor/running (park endurance, outdoor running), personal coach (expert trainers, personalized feedback), technique (running style)."
     }
   },
   {
@@ -305,28 +305,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "The Green Terrace: A 100% plant-based diner offering inexpensive meals, lightning-fast service, and a beautiful outdoor garden seating area." },
-      { id: "B", text: "Bangkok Nights: Serving spicy, authentic Thai curries in a beautiful candlelit setting. Couples love our private tables and famous handmade sweet treats." },
-      { id: "C", text: "The Heritage Inn: Famous for historic regional recipes. Features large banquet tables perfect for big parties, and traditional live musicians playing every evening." },
-      { id: "D", text: "Ocean Pearl: An upscale seafood restaurant situated on the cliffside, offering panoramic views of the coast and an exquisite premium tasting menu." },
-      { id: "E", text: "Family Feast: A welcoming spot with a dedicated children's menu and play zone. We are proud to stay open until 11:00 PM every Sunday night." },
-      { id: "F", text: "Burger Express: Fast-food burger restaurant with a kids' menu, but it closes early at 6:00 PM on Sundays and has no outdoor seating." },
-      { id: "G", text: "The Spicy Wok: A busy, loud Asian buffet. Cheap prices and quick self-service, but lacks a romantic atmosphere or a dessert menu." },
+      { id: "A", text: "The Spicy Wok: A busy, loud Asian buffet. Cheap prices and quick self-service, but lacks a romantic atmosphere or a dessert menu." },
+      { id: "B", text: "Burger Express: Fast-food burger restaurant with a kids' menu, but it closes early at 6:00 PM on Sundays and has no outdoor seating." },
+      { id: "C", text: "Ocean Pearl: An upscale seafood restaurant situated on the cliffside, offering panoramic views of the coast and an exquisite premium tasting menu." },
+      { id: "D", text: "The Green Terrace: A 100% plant-based diner offering inexpensive meals, lightning-fast service, and a beautiful outdoor garden seating area." },
+      { id: "E", text: "The Heritage Inn: Famous for historic regional recipes. Features large banquet tables perfect for big parties, and traditional live musicians playing every evening." },
+      { id: "F", text: "Bangkok Nights: Serving spicy, authentic Thai curries in a beautiful candlelit setting. Couples love our private tables and famous handmade sweet treats." },
+      { id: "G", text: "Family Feast: A welcoming spot with a dedicated children's menu and play zone. We are proud to stay open until 11:00 PM every Sunday night." },
       { id: "H", text: "Coastal Catch: A casual beachside fish-and-chip shop. Cheap prices, but very basic seating and no fine-dining options available." }
     ],
     answers: {
-      "b1_r_p2_e6_p6": "A",
-      "b1_r_p2_e6_p7": "B",
-      "b1_r_p2_e6_p8": "C",
-      "b1_r_p2_e6_p9": "D",
-      "b1_r_p2_e6_p10": "E"
+      b1_r_p2_e6_p6: "D",
+      b1_r_p2_e6_p7: "F",
+      b1_r_p2_e6_p8: "E",
+      b1_r_p2_e6_p9: "C",
+      b1_r_p2_e6_p10: "G"
     },
     explanations: {
-      "b1_r_p2_e6_p6": "A — vegetarian (plant-based), cheap (inexpensive), quick service (lightning-fast), outdoor seating (outdoor garden seating area).",
-      "b1_r_p2_e6_p7": "B — spicy Asian food (spicy, authentic Thai), romantic (candlelit, couples), good desserts (handmade sweet treats).",
-      "b1_r_p2_e6_p8": "C — traditional local dishes (historic regional recipes), large groups (large banquet tables, big parties), live music (live musicians).",
-      "b1_r_p2_e6_p9": "D — seafood, sea views (panoramic views of the coast), expensive/luxury (upscale, premium tasting menu).",
-      "b1_r_p2_e6_p10": "E — family-friendly/kids menu (children's menu), open late on Sundays (until 11:00 PM every Sunday night)."
+      b1_r_p2_e6_p6: "D — vegetarian (plant-based), cheap (inexpensive), quick service (lightning-fast), outdoor seating (outdoor garden seating area).",
+      b1_r_p2_e6_p7: "F — spicy Asian food (spicy, authentic Thai), romantic (candlelit, couples), good desserts (handmade sweet treats).",
+      b1_r_p2_e6_p8: "E — traditional local dishes (historic regional recipes), large groups (large banquet tables, big parties), live music (live musicians).",
+      b1_r_p2_e6_p9: "C — seafood, sea views (panoramic views of the coast), expensive/luxury (upscale, premium tasting menu).",
+      b1_r_p2_e6_p10: "G — family-friendly/kids menu (children's menu), open late on Sundays (until 11:00 PM every Sunday night)."
     }
   },
   {
@@ -360,28 +360,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "Mastering the Lens: A intensive Saturday-only seminar for owners of DSLR cameras. Learn advanced lighting and manual settings from a professional photographer." },
-      { id: "B", text: "The Italian Kitchen: Meets every Wednesday at 7:00 PM. Learn to make pasta and risotto from scratch. All graduates receive an accredited cooking certificate." },
-      { id: "C", text: "Spanish Anytime: A fully digital, beginner-friendly Spanish course. Log in whenever you want, watch recorded video lessons, and complete modules at your own speed." },
-      { id: "D", text: "Fiction Workshop: A 3-week summer program focused on story structure. Students submit short chapters and receive weekly evaluation sessions from published authors." },
-      { id: "E", text: "Confident Speech: Designed for business professionals looking to lead meetings. Class sizes are strictly limited to 6 students to ensure everyone gets maximum speaking practice." },
-      { id: "F", text: "Smartphone Snaps: A weekend course teaching how to take great photos using just your mobile phone. Perfect for beginners with no expensive equipment." },
-      { id: "G", text: "Tastes of Europe: A Tuesday night cooking class covering French, Spanish, and Greek food. A casual, fun class with no tests, grades, or certificates." },
-      { id: "H", text: "Advanced Spanish Business: A scheduled live online class on Monday evenings for fluent speakers looking to improve their corporate vocabulary." }
+      { id: "A", text: "Smartphone Snaps: A weekend course teaching how to take great photos using just your mobile phone. Perfect for beginners with no expensive equipment." },
+      { id: "B", text: "Fiction Workshop: A 3-week summer program focused on story structure. Students submit short chapters and receive weekly evaluation sessions from published authors." },
+      { id: "C", text: "Tastes of Europe: A Tuesday night cooking class covering French, Spanish, and Greek food. A casual, fun class with no tests, grades, or certificates." },
+      { id: "D", text: "Advanced Spanish Business: A scheduled live online class on Monday evenings for fluent speakers looking to improve their corporate vocabulary." },
+      { id: "E", text: "Mastering the Lens: A intensive Saturday-only seminar for owners of DSLR cameras. Learn advanced lighting and manual settings from a professional photographer." },
+      { id: "F", text: "Confident Speech: Designed for business professionals looking to lead meetings. Class sizes are strictly limited to 6 students to ensure everyone gets maximum speaking practice." },
+      { id: "G", text: "The Italian Kitchen: Meets every Wednesday at 7:00 PM. Learn to make pasta and risotto from scratch. All graduates receive an accredited cooking certificate." },
+      { id: "H", text: "Spanish Anytime: A fully digital, beginner-friendly Spanish course. Log in whenever you want, watch recorded video lessons, and complete modules at your own speed." }
     ],
     answers: {
-      "b1_r_p2_e7_p6": "A",
-      "b1_r_p2_e7_p7": "B",
-      "b1_r_p2_e7_p8": "C",
-      "b1_r_p2_e7_p9": "D",
-      "b1_r_p2_e7_p10": "E"
+      b1_r_p2_e7_p6: "E",
+      b1_r_p2_e7_p7: "G",
+      b1_r_p2_e7_p8: "H",
+      b1_r_p2_e7_p9: "B",
+      b1_r_p2_e7_p10: "F"
     },
     explanations: {
-      "b1_r_p2_e7_p6": "A — photography (mastering the lens), weekend (Saturday-only), professional DSLR (owners of DSLR cameras, not smartphones).",
-      "b1_r_p2_e7_p7": "B — Italian cooking, weekday evening (Wednesday 7:00 PM), official certificate (accredited cooking certificate).",
-      "b1_r_p2_e7_p8": "C — Spanish from scratch (beginner-friendly), online (fully digital), flexible/own pace (whenever you want, at your own speed).",
-      "b1_r_p2_e7_p9": "D — write a novel (fiction workshop), intensive short course (3-week program), feedback from experts (evaluation from published authors).",
-      "b1_r_p2_e7_p10": "E — public speaking/job (speech, business professionals), small groups (limited to 6 students), practice talking (maximum speaking practice)."
+      b1_r_p2_e7_p6: "E — photography (mastering the lens), weekend (Saturday-only), professional DSLR (owners of DSLR cameras, not smartphones).",
+      b1_r_p2_e7_p7: "G — Italian cooking, weekday evening (Wednesday 7:00 PM), official certificate (accredited cooking certificate).",
+      b1_r_p2_e7_p8: "H — Spanish from scratch (beginner-friendly), online (fully digital), flexible/own pace (whenever you want, at your own speed).",
+      b1_r_p2_e7_p9: "B — write a novel (fiction workshop), intensive short course (3-week program), feedback from experts (evaluation from published authors).",
+      b1_r_p2_e7_p10: "F — public speaking/job (speech, business professionals), small groups (limited to 6 students), practice talking (maximum speaking practice)."
     }
   },
   {
@@ -415,28 +415,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "Green Planet: An award-winning documentary exploring ocean conservation. Uses incredible real-life nature videography to educate viewers on global warming." },
-      { id: "B", text: "Spirit Journey: A beautiful, family-friendly Japanese animated film about a magical forest. Funny and charming, it’s a delight for kids and adults alike." },
-      { id: "C", text: "The Last Emperor: A highly accurate 3-hour historical epic filmed in Mandarin. Shown with English subtitles, it explores the dramatic life of China's final royal leader." },
-      { id: "D", text: "Shadows in the Dark: A low-budget indie horror thriller about a haunted house. This terrifying movie begins its screening exactly at midnight." },
-      { id: "E", text: "Singing in the Rain: A delightful, romantic musical filled with energetic dance routines, catchy feel-good music, and a beautiful love story with a joyful ending." },
-      { id: "F", text: "Nature’s Cry: A short fictional movie about a world destroyed by pollution. It features Hollywood actors and is an action thriller, not a documentary." },
-      { id: "G", text: "Tokyo Detective: A fast-paced Japanese live-action crime movie with English voice dubbing. Contains violent scenes not suitable for children." },
-      { id: "H", text: "Love Notes: A sad romantic drama about two musicians. It features classical music, but it has a tragic ending and contains no singing or dancing." }
+      { id: "A", text: "Singing in the Rain: A delightful, romantic musical filled with energetic dance routines, catchy feel-good music, and a beautiful love story with a joyful ending." },
+      { id: "B", text: "Nature’s Cry: A short fictional movie about a world destroyed by pollution. It features Hollywood actors and is an action thriller, not a documentary." },
+      { id: "C", text: "Shadows in the Dark: A low-budget indie horror thriller about a haunted house. This terrifying movie begins its screening exactly at midnight." },
+      { id: "D", text: "Love Notes: A sad romantic drama about two musicians. It features classical music, but it has a tragic ending and contains no singing or dancing." },
+      { id: "E", text: "Spirit Journey: A beautiful, family-friendly Japanese animated film about a magical forest. Funny and charming, it’s a delight for kids and adults alike." },
+      { id: "F", text: "The Last Emperor: A highly accurate 3-hour historical epic filmed in Mandarin. Shown with English subtitles, it explores the dramatic life of China's final royal leader." },
+      { id: "G", text: "Green Planet: An award-winning documentary exploring ocean conservation. Uses incredible real-life nature videography to educate viewers on global warming." },
+      { id: "H", text: "Tokyo Detective: A fast-paced Japanese live-action crime movie with English voice dubbing. Contains violent scenes not suitable for children." }
     ],
     answers: {
-      "b1_r_p2_e8_p6": "A",
-      "b1_r_p2_e8_p7": "B",
-      "b1_r_p2_e8_p8": "C",
-      "b1_r_p2_e8_p9": "D",
-      "b1_r_p2_e8_p10": "E"
+      b1_r_p2_e8_p6: "G",
+      b1_r_p2_e8_p7: "E",
+      b1_r_p2_e8_p8: "F",
+      b1_r_p2_e8_p9: "C",
+      b1_r_p2_e8_p10: "A"
     },
     explanations: {
-      "b1_r_p2_e8_p6": "A — documentary, environmental (ocean conservation, global warming), award-winning, real footage (real-life nature videography).",
-      "b1_r_p2_e8_p7": "B — animated/Japanese anime (Japanese animated), family-friendly/kids (delight for kids, family-friendly).",
-      "b1_r_p2_e8_p8": "C — historical drama (historical epic), long (3-hour), original language with subtitles (filmed in Mandarin, English subtitles).",
-      "b1_r_p2_e8_p9": "D — independent horror thriller (low-budget indie horror thriller), midnight screening (begins exactly at midnight).",
-      "b1_r_p2_e8_p10": "E — musical (catchy music), uplifting/happy ending (feel-good, joyful ending), romance (romantic, love story)."
+      b1_r_p2_e8_p6: "G — documentary, environmental (ocean conservation, global warming), award-winning, real footage (real-life nature videography).",
+      b1_r_p2_e8_p7: "E — animated/Japanese anime (Japanese animated), family-friendly/kids (delight for kids, family-friendly).",
+      b1_r_p2_e8_p8: "F — historical drama (historical epic), long (3-hour), original language with subtitles (filmed in Mandarin, English subtitles).",
+      b1_r_p2_e8_p9: "C — independent horror thriller (low-budget indie horror thriller), midnight screening (begins exactly at midnight).",
+      b1_r_p2_e8_p10: "A — musical (catchy music), uplifting/happy ending (feel-good, joyful ending), romance (romantic, love story)."
     }
   },
   {
@@ -470,28 +470,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "City Paws Rescue: An animal shelter located right downtown. We need volunteers to walk dogs and clean cages on Saturdays and Sundays. Easy access via metro." },
-      { id: "B", text: "Eco-Shield Volunteers: Join our weekend team in the countryside. We do hard physical labor, including planting native trees and restoring wilderness walking trails." },
-      { id: "C", text: "Summer Teach: Travel to Thailand for July and August to teach English to school kids. Volunteers get free housing in a shared cottage and three daily meals." },
-      { id: "D", text: "Silver Surfers Academy: A program connecting youth with seniors. Meet every Tuesday from 9:30 AM to 11:30 AM to guide older people through using tablets, emails, and apps." },
-      { id: "E", text: "Community Paint & Fix: A 2-week project aiming to renew the old neighborhood youth club. Looking for people to help paint walls, mend doors, and repair furniture." },
-      { id: "F", text: "Wild Woodland Trust: An office-based charity that needs help answering phones and managing their website to raise money for forest conservation." },
-      { id: "G", text: "Global English Link: An online platform where you can tutor children living in South America. All volunteering is done from your own home computer." },
-      { id: "H", text: "Farm Aid: Help out on an organic farm outside the city. Feed cows and horses. Only open for volunteers on weekdays from Monday to Wednesday." }
+      { id: "A", text: "Eco-Shield Volunteers: Join our weekend team in the countryside. We do hard physical labor, including planting native trees and restoring wilderness walking trails." },
+      { id: "B", text: "Community Paint & Fix: A 2-week project aiming to renew the old neighborhood youth club. Looking for people to help paint walls, mend doors, and repair furniture." },
+      { id: "C", text: "City Paws Rescue: An animal shelter located right downtown. We need volunteers to walk dogs and clean cages on Saturdays and Sundays. Easy access via metro." },
+      { id: "D", text: "Global English Link: An online platform where you can tutor children living in South America. All volunteering is done from your own home computer." },
+      { id: "E", text: "Farm Aid: Help out on an organic farm outside the city. Feed cows and horses. Only open for volunteers on weekdays from Monday to Wednesday." },
+      { id: "F", text: "Summer Teach: Travel to Thailand for July and August to teach English to school kids. Volunteers get free housing in a shared cottage and three daily meals." },
+      { id: "G", text: "Wild Woodland Trust: An office-based charity that needs help answering phones and managing their website to raise money for forest conservation." },
+      { id: "H", text: "Silver Surfers Academy: A program connecting youth with seniors. Meet every Tuesday from 9:30 AM to 11:30 AM to guide older people through using tablets, emails, and apps." }
     ],
     answers: {
-      "b1_r_p2_e9_p6": "A",
-      "b1_r_p2_e9_p7": "B",
-      "b1_r_p2_e9_p8": "C",
-      "b1_r_p2_e9_p9": "D",
-      "b1_r_p2_e10_p10": "E"
+      b1_r_p2_e9_p6: "C",
+      b1_r_p2_e9_p7: "A",
+      b1_r_p2_e9_p8: "F",
+      b1_r_p2_e9_p9: "H",
+      b1_r_p2_e10_p10: "B"
     },
     explanations: {
-      "b1_r_p2_e9_p6": "A — animals (animal shelter), weekends (Saturdays and Sundays), city centre (downtown, easy access via metro).",
-      "b1_r_p2_e9_p7": "B — environmental (forest conservation), outdoors/physical (hard physical labor, planting trees, restoring walking trails).",
-      "b1_r_p2_e9_p8": "C — teach kids English abroad (Thailand, school kids), summer (July and August), accommodation/food provided (free housing, three daily meals).",
-      "b1_r_p2_e9_p9": "D — help elderly (seniors, older people), digital skills (tablets, emails, apps), Tuesday mornings (Tuesday from 9:30 AM).",
-      "b1_r_p2_e10_p10": "E — short-term (2-week project), construction/painting (paint walls, mend doors, repair), public facility (neighborhood youth club)."
+      b1_r_p2_e9_p6: "C — animals (animal shelter), weekends (Saturdays and Sundays), city centre (downtown, easy access via metro).",
+      b1_r_p2_e9_p7: "A — environmental (forest conservation), outdoors/physical (hard physical labor, planting trees, restoring walking trails).",
+      b1_r_p2_e9_p8: "F — teach kids English abroad (Thailand, school kids), summer (July and August), accommodation/food provided (free housing, three daily meals).",
+      b1_r_p2_e9_p9: "H — help elderly (seniors, older people), digital skills (tablets, emails, apps), Tuesday mornings (Tuesday from 9:30 AM).",
+      b1_r_p2_e10_p10: "B — short-term (2-week project), construction/painting (paint walls, mend doors, repair), public facility (neighborhood youth club)."
     }
   },
   {
@@ -525,28 +525,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "Thrill Kingdom: London’s biggest amusement park, featuring extreme loops and high-speed rollercoasters. Ticket price covers return luxury coach travel from central London." },
-      { id: "B", text: "Kingston Fortress: A beautifully preserved 12th-century castle. Visitors can explore the ancient towers and enjoy their own packed lunches in the scenic picnic meadows." },
-      { id: "C", text: "River Wetlands Cruise: A peaceful boat tour along the calm River Thames. Ideal for spotting rare water birds and taking stunning wildlife photographs." },
-      { id: "D", text: "Peak Ridge Trail: A demanding 15km mountain hike featuring steep climbs, rocky terrain, and breathtaking views of cascading waterfalls." },
+      { id: "A", text: "Palace Tour: A beautiful 18th-century royal palace. Includes an indoor tour and an elegant café, but outside food and picnics are strictly forbidden." },
+      { id: "B", text: "Thrill Kingdom: London’s biggest amusement park, featuring extreme loops and high-speed rollercoasters. Ticket price covers return luxury coach travel from central London." },
+      { id: "C", text: "Kingston Fortress: A beautifully preserved 12th-century castle. Visitors can explore the ancient towers and enjoy their own packed lunches in the scenic picnic meadows." },
+      { id: "D", text: "River Wetlands Cruise: A peaceful boat tour along the calm River Thames. Ideal for spotting rare water birds and taking stunning wildlife photographs." },
       { id: "E", text: "Valley Wines: A luxury day out for adults. Tour our beautiful vineyards, sample five award-winning wines, and finish with an exclusive three-course gourmet meal." },
-      { id: "F", text: "Fun World Resort: A theme park tailored to small kids with gentle rides. Families must arrange their own transport as there are no train or bus links." },
+      { id: "F", text: "Peak Ridge Trail: A demanding 15km mountain hike featuring steep climbs, rocky terrain, and breathtaking views of cascading waterfalls." },
       { id: "G", text: "Ocean Wave Cruise: A fast speedboat tour on the windy open ocean. Great for seeing dolphins, but the water can get very rough and bumpy." },
-      { id: "H", text: "Palace Tour: A beautiful 18th-century royal palace. Includes an indoor tour and an elegant café, but outside food and picnics are strictly forbidden." }
+      { id: "H", text: "Fun World Resort: A theme park tailored to small kids with gentle rides. Families must arrange their own transport as there are no train or bus links." }
     ],
     answers: {
-      "b1_r_p2_e10_p6": "A",
-      "b1_r_p2_e10_p7": "B",
-      "b1_r_p2_e10_p8": "C",
-      "b1_r_p2_e10_p9": "D",
-      "b1_r_p2_e10_p10": "E"
+      b1_r_p2_e10_p6: "B",
+      b1_r_p2_e10_p7: "C",
+      b1_r_p2_e10_p8: "D",
+      b1_r_p2_e10_p9: "F",
+      b1_r_p2_e10_p10: "E"
     },
     explanations: {
-      "b1_r_p2_e10_p6": "A — theme park/rollercoasters (amusement park, extreme loops), transport included (covers return luxury coach travel).",
-      "b1_r_p2_e10_p7": "B — medieval castle (12th-century castle), picnic area/own food (packed lunches in the scenic picnic meadows).",
-      "b1_r_p2_e10_p8": "C — boat cruise (boat tour), bird watching/photography (spotting rare water birds, wildlife photographs), calm river (calm River Thames).",
-      "b1_r_p2_e10_p9": "D — challenging hike (demanding 15km mountain hike, steep climbs), nature/waterfalls (cascading waterfalls).",
-      "b1_r_p2_e10_p10": "E — vineyards/wine tasting (tour vineyards, sample five wines), adults only (luxury day out for adults), lunch included (three-course gourmet meal)."
+      b1_r_p2_e10_p6: "B — theme park/rollercoasters (amusement park, extreme loops), transport included (covers return luxury coach travel).",
+      b1_r_p2_e10_p7: "C — medieval castle (12th-century castle), picnic area/own food (packed lunches in the scenic picnic meadows).",
+      b1_r_p2_e10_p8: "D — boat cruise (boat tour), bird watching/photography (spotting rare water birds, wildlife photographs), calm river (calm River Thames).",
+      b1_r_p2_e10_p9: "F — challenging hike (demanding 15km mountain hike, steep climbs), nature/waterfalls (cascading waterfalls).",
+      b1_r_p2_e10_p10: "E — vineyards/wine tasting (tour vineyards, sample five wines), adults only (luxury day out for adults), lunch included (three-course gourmet meal)."
     }
   },
   {
@@ -580,28 +580,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "CodeQuest: Learn JavaScript and Python through fun, bite-sized puzzle levels. Earn points and badges with quick daily challenges that take under ten minutes." },
-      { id: "B", text: "StrumMaster: Features hundreds of HD video tutorials teaching guitar chords. Includes an enormous collection of pop and rock song chords to play along with." },
-      { id: "C", text: "SketchShare: A completely free digital art studio. Use digital brushes to paint, upload your finished pieces to the public gallery, and exchange tips with other artists." },
+      { id: "A", text: "SketchShare: A completely free digital art studio. Use digital brushes to paint, upload your finished pieces to the public gallery, and exchange tips with other artists." },
+      { id: "B", text: "CodeQuest: Learn JavaScript and Python through fun, bite-sized puzzle levels. Earn points and badges with quick daily challenges that take under ten minutes." },
+      { id: "C", text: "Guitar Heroes: A text-based manual app explaining music theory and how to fix guitar strings. It does not contain video files or pop music tabs." },
       { id: "D", text: "VeggieGrow: The ultimate application for vegetable gardening. Input your zip code to receive customized notifications about rainfall and temperature drops." },
-      { id: "E", text: "SecurePocket: A top-tier financial tracking web tool using bank-grade encryption. Safely sync your credit cards and bank accounts to manage your monthly budgets." },
-      { id: "F", text: "Guitar Heroes: A text-based manual app explaining music theory and how to fix guitar strings. It does not contain video files or pop music tabs." },
-      { id: "G", text: "ArtMasterclass: A paid app offering professional oil painting video tutorials. It has no community forums or user upload features." },
-      { id: "H", text: "ByteCode: A comprehensive university-style web course for software engineering. Requires 2 hours of study per session and features long text articles." }
+      { id: "E", text: "ByteCode: A comprehensive university-style web course for software engineering. Requires 2 hours of study per session and features long text articles." },
+      { id: "F", text: "ArtMasterclass: A paid app offering professional oil painting video tutorials. It has no community forums or user upload features." },
+      { id: "G", text: "StrumMaster: Features hundreds of HD video tutorials teaching guitar chords. Includes an enormous collection of pop and rock song chords to play along with." },
+      { id: "H", text: "SecurePocket: A top-tier financial tracking web tool using bank-grade encryption. Safely sync your credit cards and bank accounts to manage your monthly budgets." }
     ],
     answers: {
-      "b1_r_p2_e11_p6": "A",
-      "b1_r_p2_e11_p7": "B",
-      "b1_r_p2_e11_p8": "C",
-      "b1_r_p2_e11_p9": "D",
-      "b1_r_p2_e11_p10": "E"
+      b1_r_p2_e11_p6: "B",
+      b1_r_p2_e11_p7: "G",
+      b1_r_p2_e11_p8: "A",
+      b1_r_p2_e11_p9: "D",
+      b1_r_p2_e11_p10: "H"
     },
     explanations: {
-      "b1_r_p2_e11_p6": "A — coding (JavaScript and Python), gamified (fun, bite-sized puzzle levels, earn points), 10-min practice (under ten minutes).",
-      "b1_r_p2_e11_p7": "B — guitar (guitar chords), video lessons (HD video tutorials), library of songs (enormous collection of pop and rock song chords).",
-      "b1_r_p2_e11_p8": "C — drawing/sketching (digital art studio, paint), free (completely free), community feedback (public gallery, exchange tips with other artists).",
-      "b1_r_p2_e11_p9": "D — gardening/vegetables (vegetable gardening), regional weather alerts (zip code, customized notifications about rainfall/temperature).",
-      "b1_r_p2_e11_p10": "E — financial planning/budgeting (financial tracking, budgets), high security (bank-grade encryption, safely sync accounts)."
+      b1_r_p2_e11_p6: "B — coding (JavaScript and Python), gamified (fun, bite-sized puzzle levels, earn points), 10-min practice (under ten minutes).",
+      b1_r_p2_e11_p7: "G — guitar (guitar chords), video lessons (HD video tutorials), library of songs (enormous collection of pop and rock song chords).",
+      b1_r_p2_e11_p8: "A — drawing/sketching (digital art studio, paint), free (completely free), community feedback (public gallery, exchange tips with other artists).",
+      b1_r_p2_e11_p9: "D — gardening/vegetables (vegetable gardening), regional weather alerts (zip code, customized notifications about rainfall/temperature).",
+      b1_r_p2_e11_p10: "H — financial planning/budgeting (financial tracking, budgets), high security (bank-grade encryption, safely sync accounts)."
     }
   },
   {
@@ -635,28 +635,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "Forest Eco-Tours: Seeking full-time outdoor guides to lead hikes through the national park. Must speak both English and French fluently to communicate with visitors." },
-      { id: "B", text: "Camp Active: Looking for energetic sports leaders for our youth camp. Guide groups of children through soccer and tennis games. Free lunch and snacks provided daily." },
-      { id: "C", text: "Grand Plaza Hotel: Hiring an overnight front desk clerk (11:00 PM to 7:00 AM). Offers our highest starting pay rate for student applicants." },
-      { id: "D", text: "Media Pulse: A 100% remote marketing internship. Help create eye-catching social media graphics and images using software like Photoshop." },
-      { id: "E", text: "Daily Grind Café: Busy downtown coffee shop needs a part-time morning barista (6:00 AM to 11:00 AM). Perfect if you love premium coffee and latte art." },
-      { id: "F", text: "Museum Guide: Looking for part-time indoor guides who speak French. Work inside our air-conditioned historical building during weekend afternoons." },
-      { id: "G", text: "Kids Care Center: An indoor daycare looking for helpers to read books and play board games with toddlers. No sports or food perks provided." },
-      { id: "H", text: "City Coffee Hub: Full-time barista position requiring flexible shifts, including late nights and weekends. Experience required." }
+      { id: "A", text: "City Coffee Hub: Full-time barista position requiring flexible shifts, including late nights and weekends. Experience required." },
+      { id: "B", text: "Grand Plaza Hotel: Hiring an overnight front desk clerk (11:00 PM to 7:00 AM). Offers our highest starting pay rate for student applicants." },
+      { id: "C", text: "Camp Active: Looking for energetic sports leaders for our youth camp. Guide groups of children through soccer and tennis games. Free lunch and snacks provided daily." },
+      { id: "D", text: "Forest Eco-Tours: Seeking full-time outdoor guides to lead hikes through the national park. Must speak both English and French fluently to communicate with visitors." },
+      { id: "E", text: "Museum Guide: Looking for part-time indoor guides who speak French. Work inside our air-conditioned historical building during weekend afternoons." },
+      { id: "F", text: "Kids Care Center: An indoor daycare looking for helpers to read books and play board games with toddlers. No sports or food perks provided." },
+      { id: "G", text: "Daily Grind Café: Busy downtown coffee shop needs a part-time morning barista (6:00 AM to 11:00 AM). Perfect if you love premium coffee and latte art." },
+      { id: "H", text: "Media Pulse: A 100% remote marketing internship. Help create eye-catching social media graphics and images using software like Photoshop." }
     ],
     answers: {
-      "b1_r_p2_e12_p6": "A",
-      "b1_r_p2_e12_p7": "B",
-      "b1_r_p2_e12_p8": "C",
-      "b1_r_p2_e12_p9": "D",
-      "b1_r_p2_e12_p10": "E"
+      b1_r_p2_e12_p6: "D",
+      b1_r_p2_e12_p7: "C",
+      b1_r_p2_e12_p8: "B",
+      b1_r_p2_e12_p9: "H",
+      b1_r_p2_e12_p10: "G"
     },
     explanations: {
-      "b1_r_p2_e12_p6": "A — tour guide (outdoor guides), languages (English and French), outdoors (national park), full-time.",
-      "b1_r_p2_e12_p7": "B — camp counselor (youth camp leaders), kids/sports (children, soccer and tennis), meals included (free lunch and snacks provided).",
-      "b1_r_p2_e12_p8": "C — hotel receptionist (front desk clerk), night shift (overnight, 11:00 PM to 7:00 AM), high salary (highest starting pay rate).",
-      "b1_r_p2_e12_p9": "D — social media internship (remote marketing internship), remote/from home (100% remote), graphic design (create social media graphics).",
-      "b1_r_p2_e12_p10": "E — barista (barista), coffee enthusiast (premium coffee, latte art), part-time mornings (part-time morning barista, 6:00 AM to 11:00 AM)."
+      b1_r_p2_e12_p6: "D — tour guide (outdoor guides), languages (English and French), outdoors (national park), full-time.",
+      b1_r_p2_e12_p7: "C — camp counselor (youth camp leaders), kids/sports (children, soccer and tennis), meals included (free lunch and snacks provided).",
+      b1_r_p2_e12_p8: "B — hotel receptionist (front desk clerk), night shift (overnight, 11:00 PM to 7:00 AM), high salary (highest starting pay rate).",
+      b1_r_p2_e12_p9: "H — social media internship (remote marketing internship), remote/from home (100% remote), graphic design (create social media graphics).",
+      b1_r_p2_e12_p10: "G — barista (barista), coffee enthusiast (premium coffee, latte art), part-time mornings (part-time morning barista, 6:00 AM to 11:00 AM)."
     }
   },
   {
@@ -690,28 +690,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "The Bamboo Cup: A sleek, modern coffee travel mug made from sustainable bamboo fiber. Elegant design, spill-proof, and priced at a fantastic £14.99." },
-      { id: "B", text: "Classic Hide Wallet: Crafted from premium full-grain leather, this wallet lasts a lifetime. Includes free custom silver engraving for names or initials at checkout." },
-      { id: "C", text: "HydroTrack Watch: The ultimate sports smartwatch. Monitors heart rate, steps, and calories. Rated for depths up to 50 meters, making it ideal for swimmers." },
-      { id: "D", text: "Empire Builder: A fast-paced strategic board game for 4 to 8 players. With pre-assembled boards, you can unbox it and start playing within two minutes." },
-      { id: "E", text: "The Emerald Pothos: A beautiful houseplant that only needs watering once every two weeks. Arrives fully planted in a gorgeous, modern white ceramic pot." },
-      { id: "F", text: "Eco-Mug Deluxe: A premium glass coffee tumbler with a silicone sleeve. Extremely durable, but priced as a luxury gift item at £35.00." },
-      { id: "G", text: "FitBand Basic: A slim fitness tracker that counts steps and monitors sleep. It is water-resistant against rain, but cannot be worn while swimming or bathing." },
-      { id: "H", text: "Quest for Power: An intense fantasy card game for 2 players. Features complex rules and setup routines that take around thirty minutes before play begins." }
+      { id: "A", text: "Classic Hide Wallet: Crafted from premium full-grain leather, this wallet lasts a lifetime. Includes free custom silver engraving for names or initials at checkout." },
+      { id: "B", text: "Empire Builder: A fast-paced strategic board game for 4 to 8 players. With pre-assembled boards, you can unbox it and start playing within two minutes." },
+      { id: "C", text: "The Emerald Pothos: A beautiful houseplant that only needs watering once every two weeks. Arrives fully planted in a gorgeous, modern white ceramic pot." },
+      { id: "D", text: "Eco-Mug Deluxe: A premium glass coffee tumbler with a silicone sleeve. Extremely durable, but priced as a luxury gift item at £35.00." },
+      { id: "E", text: "HydroTrack Watch: The ultimate sports smartwatch. Monitors heart rate, steps, and calories. Rated for depths up to 50 meters, making it ideal for swimmers." },
+      { id: "F", text: "Quest for Power: An intense fantasy card game for 2 players. Features complex rules and setup routines that take around thirty minutes before play begins." },
+      { id: "G", text: "The Bamboo Cup: A sleek, modern coffee travel mug made from sustainable bamboo fiber. Elegant design, spill-proof, and priced at a fantastic £14.99." },
+      { id: "H", text: "FitBand Basic: A slim fitness tracker that counts steps and monitors sleep. It is water-resistant against rain, but cannot be worn while swimming or bathing." }
     ],
     answers: {
-      "b1_r_p2_e13_p6": "A",
-      "b1_r_p2_e13_p7": "B",
-      "b1_r_p2_e13_p8": "C",
-      "b1_r_p2_e13_p9": "D",
-      "b1_r_p2_e13_p10": "E"
+      b1_r_p2_e13_p6: "G",
+      b1_r_p2_e13_p7: "A",
+      b1_r_p2_e13_p8: "E",
+      b1_r_p2_e13_p9: "B",
+      b1_r_p2_e13_p10: "C"
     },
     explanations: {
-      "b1_r_p2_e13_p6": "A — eco-friendly coffee mug (sustainable bamboo cup), stylish (sleek, modern), under £20 (£14.99).",
-      "b1_r_p2_e13_p7": "B — leather wallet (premium full-grain leather), high quality/durable (lasts a lifetime), personalized (free custom silver engraving for initials).",
-      "b1_r_p2_e13_p8": "C — smartwatch/fitness tracking (sports smartwatch, monitors heart rate), waterproof/swimming (depths up to 50 meters, ideal for swimmers).",
-      "b1_r_p2_e13_p9": "D — strategy board game (strategic board game), 4+ players (4 to 8 players), quick setup (start playing within two minutes).",
-      "b1_r_p2_e13_p10": "E — indoor plant (houseplant), low maintenance (watering once every two weeks), comes with pot (planted in a gorgeous white ceramic pot)."
+      b1_r_p2_e13_p6: "G — eco-friendly coffee mug (sustainable bamboo cup), stylish (sleek, modern), under £20 (£14.99).",
+      b1_r_p2_e13_p7: "A — leather wallet (premium full-grain leather), high quality/durable (lasts a lifetime), personalized (free custom silver engraving for initials).",
+      b1_r_p2_e13_p8: "E — smartwatch/fitness tracking (sports smartwatch, monitors heart rate), waterproof/swimming (depths up to 50 meters, ideal for swimmers).",
+      b1_r_p2_e13_p9: "B — strategy board game (strategic board game), 4+ players (4 to 8 players), quick setup (start playing within two minutes).",
+      b1_r_p2_e13_p10: "C — indoor plant (houseplant), low maintenance (watering once every two weeks), comes with pot (planted in a gorgeous white ceramic pot)."
     }
   },
   {
@@ -745,28 +745,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "Rock Peak Festival: A three-day open-air rock celebration. Tickets include access to our secure campsite fields where you can set up tents right next to the stages." },
-      { id: "B", text: "The Symphony Hall: Experience the national orchestra performing Mozart and Beethoven inside our stunning 19th-century concert hall, designed for perfect sound." },
-      { id: "C", text: "Jazz in the Park: A weekend outdoor festival celebrating smooth jazz. Held at the central city park, there are no ticket fees—it is completely free to enter." },
-      { id: "D", text: "Starlight Pop Arena: Pop icon Clara Vance performs live at the Olympic Stadium. Special VIP packages include front-row seating and a private backstage meeting with Clara." },
-      { id: "E", text: "Ibiza Shoreline Party: Dance to world-class electronic DJs right on the sand. This beach club event kicks off at 10:00 PM and finishes at 6:00 AM as the sun rises." },
-      { id: "F", text: "Rock Arena Tour: A heavy metal band playing inside an indoor basketball arena. Seats are comfortable, but there are no camping zones or multi-day tickets." },
-      { id: "G", text: "Opera under the Stars: A beautiful classical opera performed in an outdoor stone amphitheater during July. It is an outdoor event and requires formal clothes." },
-      { id: "H", text: "Club Electronic: A dark indoor nightclub hosting electronic DJs on Friday nights. Entry is cheap, but it is located in an industrial zone far from the coast." }
+      { id: "A", text: "Opera under the Stars: A beautiful classical opera performed in an outdoor stone amphitheater during July. It is an outdoor event and requires formal clothes." },
+      { id: "B", text: "Rock Peak Festival: A three-day open-air rock celebration. Tickets include access to our secure campsite fields where you can set up tents right next to the stages." },
+      { id: "C", text: "Ibiza Shoreline Party: Dance to world-class electronic DJs right on the sand. This beach club event kicks off at 10:00 PM and finishes at 6:00 AM as the sun rises." },
+      { id: "D", text: "Club Electronic: A dark indoor nightclub hosting electronic DJs on Friday nights. Entry is cheap, but it is located in an industrial zone far from the coast." },
+      { id: "E", text: "The Symphony Hall: Experience the national orchestra performing Mozart and Beethoven inside our stunning 19th-century concert hall, designed for perfect sound." },
+      { id: "F", text: "Jazz in the Park: A weekend outdoor festival celebrating smooth jazz. Held at the central city park, there are no ticket fees—it is completely free to enter." },
+      { id: "G", text: "Rock Arena Tour: A heavy metal band playing inside an indoor basketball arena. Seats are comfortable, but there are no camping zones or multi-day tickets." },
+      { id: "H", text: "Starlight Pop Arena: Pop icon Clara Vance performs live at the Olympic Stadium. Special VIP packages include front-row seating and a private backstage meeting with Clara." }
     ],
     answers: {
-      "b1_r_p2_e14_p6": "A",
-      "b1_r_p2_e14_p7": "B",
-      "b1_r_p2_e14_p8": "C",
-      "b1_r_p2_e14_p9": "D",
-      "b1_r_p2_e14_p10": "E"
+      b1_r_p2_e14_p6: "B",
+      b1_r_p2_e14_p7: "E",
+      b1_r_p2_e14_p8: "F",
+      b1_r_p2_e14_p9: "H",
+      b1_r_p2_e14_p10: "C"
     },
     explanations: {
-      "b1_r_p2_e14_p6": "A — rock music, multi-day/outdoor (three-day open-air rock celebration), camping available (secure campsite fields, set up tents).",
-      "b1_r_p2_e14_p7": "B — classical music (orchestra, Mozart), historical/indoor venue (19th-century concert hall), excellent acoustics (perfect sound).",
-      "b1_r_p2_e14_p8": "C — jazz festival, free entry (no ticket fees, completely free), city park/outdoor (outdoor festival, central city park).",
-      "b1_r_p2_e14_p9": "D — pop music (pop icon), big stadium (Olympic Stadium), meet-and-greet (VIP packages include a private backstage meeting).",
-      "b1_r_p2_e14_p10": "E — electronic music (electronic DJs), beach location (right on the sand, beach club event), night time/sunrise (10:00 PM finishes at 6:00 AM as the sun rises)."
+      b1_r_p2_e14_p6: "B — rock music, multi-day/outdoor (three-day open-air rock celebration), camping available (secure campsite fields, set up tents).",
+      b1_r_p2_e14_p7: "E — classical music (orchestra, Mozart), historical/indoor venue (19th-century concert hall), excellent acoustics (perfect sound).",
+      b1_r_p2_e14_p8: "F — jazz festival, free entry (no ticket fees, completely free), city park/outdoor (outdoor festival, central city park).",
+      b1_r_p2_e14_p9: "H — pop music (pop icon), big stadium (Olympic Stadium), meet-and-greet (VIP packages include a private backstage meeting).",
+      b1_r_p2_e14_p10: "C — electronic music (electronic DJs), beach location (right on the sand, beach club event), night time/sunrise (10:00 PM finishes at 6:00 AM as the sun rises)."
     }
   },
   {
@@ -800,28 +800,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "Grandmasters Hub: A serious chess association focusing on official league matches and rated weekend trophy tournaments. Designed for experienced competitors." },
-      { id: "B", text: "Digital Book Lovers: We read bestselling novels published in the last five years. Discussions take place via Zoom video chat every two weeks, perfect for travelers." },
-      { id: "C", text: "Campus Trailblazers: A nature walking club that arranges scenic mountain treks on the final Sunday of every month. Annual dues are 100% free with a student ID card." },
-      { id: "D", text: "Stage Stars: An introductory acting and drama society for adult beginners. Rehearsals run every Monday and Wednesday evening from 7:00 PM to 9:00 PM." },
-      { id: "E", text: "The Dice Café: A social meet-up group playing cooperative and strategy board games. We meet at the Central Coffee House every Saturday from 2:00 PM to 6:00 PM." },
-      { id: "F", text: "Friendly Chess: A casual group meeting on Tuesday mornings at the library for relaxed games of chess. No tournaments or competitive leaderboards." },
+      { id: "A", text: "Digital Book Lovers: We read bestselling novels published in the last five years. Discussions take place via Zoom video chat every two weeks, perfect for travelers." },
+      { id: "B", text: "The Dice Café: A social meet-up group playing cooperative and strategy board games. We meet at the Central Coffee House every Saturday from 2:00 PM to 6:00 PM." },
+      { id: "C", text: "Stage Stars: An introductory acting and drama society for adult beginners. Rehearsals run every Monday and Wednesday evening from 7:00 PM to 9:00 PM." },
+      { id: "D", text: "Campus Trailblazers: A nature walking club that arranges scenic mountain treks on the final Sunday of every month. Annual dues are 100% free with a student ID card." },
+      { id: "E", text: "Grandmasters Hub: A serious chess association focusing on official league matches and rated weekend trophy tournaments. Designed for experienced competitors." },
+      { id: "F", text: "Wilderness Walkers: A demanding hiking group that travels to remote mountain peaks every Saturday morning. Membership costs £50 per term for all participants." },
       { id: "G", text: "Classic Novel Circle: Meets at a local bookstore on Thursday evenings to discuss historic literature like Shakespeare and Dickens. In-person only." },
-      { id: "H", text: "Wilderness Walkers: A demanding hiking group that travels to remote mountain peaks every Saturday morning. Membership costs £50 per term for all participants." }
+      { id: "H", text: "Friendly Chess: A casual group meeting on Tuesday mornings at the library for relaxed games of chess. No tournaments or competitive leaderboards." }
     ],
     answers: {
-      "b1_r_p2_e15_p6": "A",
-      "b1_r_p2_e15_p7": "B",
-      "b1_r_p2_e15_p8": "C",
-      "b1_r_p2_e15_p9": "D",
-      "b1_r_p2_e15_p10": "E"
+      b1_r_p2_e15_p6: "E",
+      b1_r_p2_e15_p7: "A",
+      b1_r_p2_e15_p8: "D",
+      b1_r_p2_e15_p9: "C",
+      b1_r_p2_e15_p10: "B"
     },
     explanations: {
-      "b1_r_p2_e15_p6": "A — chess club, advanced player (experienced competitors), competitive weekend tournaments (official league matches, weekend trophy tournaments).",
-      "b1_r_p2_e15_p7": "B — book club, contemporary fiction (bestselling novels in last five years), online meetings (via Zoom video chat, perfect for travelers).",
-      "b1_r_p2_e15_p8": "C — hiking club (nature walking), monthly Sunday trips (final Sunday of every month), free for students (100% free with student ID).",
-      "b1_r_p2_e15_p9": "D — theater/acting (acting and drama), beginner (introductory, for adult beginners), evening rehearsals (Monday and Wednesday, 7:00 PM).",
-      "b1_r_p2_e15_p10": "E — board games, meets in café (Central Coffee House), weekend afternoons (every Saturday from 2:00 PM to 6:00 PM)."
+      b1_r_p2_e15_p6: "E — chess club, advanced player (experienced competitors), competitive weekend tournaments (official league matches, weekend trophy tournaments).",
+      b1_r_p2_e15_p7: "A — book club, contemporary fiction (bestselling novels in last five years), online meetings (via Zoom video chat, perfect for travelers).",
+      b1_r_p2_e15_p8: "D — hiking club (nature walking), monthly Sunday trips (final Sunday of every month), free for students (100% free with student ID).",
+      b1_r_p2_e15_p9: "C — theater/acting (acting and drama), beginner (introductory, for adult beginners), evening rehearsals (Monday and Wednesday, 7:00 PM).",
+      b1_r_p2_e15_p10: "B — board games, meets in café (Central Coffee House), weekend afternoons (every Saturday from 2:00 PM to 6:00 PM)."
     }
   },
   {
@@ -855,28 +855,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "SonicBlast Wave: A rugged bluetooth speaker featuring extra-bass technology. It has an IP67 waterproof rating, perfect for the pool, and retails at just £65.00." },
-      { id: "B", text: "PaperGlance E-ink: A lightweight digital reader featuring an anti-glare paper-like display. Includes a warm front-light for nighttime reading on planes." },
-      { id: "C", text: "ClearCall Pro: Over-ear office headphones featuring smart active noise cancellation, a crystal-clear mic for Zoom calls, and an incredible 30-hour battery charge." },
+      { id: "A", text: "PaperGlance E-ink: A lightweight digital reader featuring an anti-glare paper-like display. Includes a warm front-light for nighttime reading on planes." },
+      { id: "B", text: "SonicBlast Wave: A rugged bluetooth speaker featuring extra-bass technology. It has an IP67 waterproof rating, perfect for the pool, and retails at just £65.00." },
+      { id: "C", text: "TabLit 10: A large 10-inch color tablet computer. Great for watching movies and playing video games, but the bright screen causes eye fatigue after an hour." },
       { id: "D", text: "Apex Cam 4K: A tiny, ultra-durable video camera designed for winter sports. Records in stunning 4K and comes with a freeze-proof underwater protective shell." },
-      { id: "E", text: "Sentinel Eye: A compact smart camera that mounts outside your house. Streams HD video straight to a mobile app and uses infrared night vision after dark." },
-      { id: "F", text: "AudioMax Room: A premium, luxury home theater speaker system. Delivers incredible sound and bass, but requires a power cable plug and is not water-resistant." },
-      { id: "G", text: "TabLit 10: A large 10-inch color tablet computer. Great for watching movies and playing video games, but the bright screen causes eye fatigue after an hour." },
+      { id: "E", text: "AudioMax Room: A premium, luxury home theater speaker system. Delivers incredible sound and bass, but requires a power cable plug and is not water-resistant." },
+      { id: "F", text: "ClearCall Pro: Over-ear office headphones featuring smart active noise cancellation, a crystal-clear mic for Zoom calls, and an incredible 30-hour battery charge." },
+      { id: "G", text: "Sentinel Eye: A compact smart camera that mounts outside your house. Streams HD video straight to a mobile app and uses infrared night vision after dark." },
       { id: "H", text: "SecureCam Basic: A cheap webcam that mounts onto your desktop monitor for video calls. Does not connect to mobile apps or work in the dark." }
     ],
     answers: {
-      "b1_r_p2_e16_p6": "A",
-      "b1_r_p2_e16_p7": "B",
-      "b1_r_p2_e16_p8": "C",
-      "b1_r_p2_e16_p9": "D",
-      "b1_r_p2_e16_p10": "E"
+      b1_r_p2_e16_p6: "B",
+      b1_r_p2_e16_p7: "A",
+      b1_r_p2_e16_p8: "F",
+      b1_r_p2_e16_p9: "D",
+      b1_r_p2_e16_p10: "G"
     },
     explanations: {
-      "b1_r_p2_e16_p6": "A — wireless speaker (bluetooth speaker), pool/waterproof (IP67 waterproof, perfect for pool), loud bass (extra-bass), under £80 (£65.00).",
-      "b1_r_p2_e16_p7": "B — e-reader (digital reader), flights/compact (lightweight, on planes), screen light/no strain (anti-glare paper-like display, warm front-light).",
-      "b1_r_p2_e16_p8": "C — noise-cancelling headset (active noise cancellation), microphone (mic for Zoom calls), battery over 20 hours (30-hour battery charge).",
-      "b1_r_p2_e16_p9": "D — action camera/pocket-sized (tiny video camera), skiing/cold (winter sports, freeze-proof shell), 4K resolution (records in 4K).",
-      "b1_r_p2_e16_p10": "E — smart security camera (smart camera), alerts to phone (streams video straight to mobile app), night vision (infrared night vision after dark)."
+      b1_r_p2_e16_p6: "B — wireless speaker (bluetooth speaker), pool/waterproof (IP67 waterproof, perfect for pool), loud bass (extra-bass), under £80 (£65.00).",
+      b1_r_p2_e16_p7: "A — e-reader (digital reader), flights/compact (lightweight, on planes), screen light/no strain (anti-glare paper-like display, warm front-light).",
+      b1_r_p2_e16_p8: "F — noise-cancelling headset (active noise cancellation), microphone (mic for Zoom calls), battery over 20 hours (30-hour battery charge).",
+      b1_r_p2_e16_p9: "D — action camera/pocket-sized (tiny video camera), skiing/cold (winter sports, freeze-proof shell), 4K resolution (records in 4K).",
+      b1_r_p2_e16_p10: "G — smart security camera (smart camera), alerts to phone (streams video straight to mobile app), night vision (infrared night vision after dark)."
     }
   },
   {
@@ -910,28 +910,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "The Baking Board: Learn the science of yeast, sourdough starters, and French croissants. This practical, hands-on workshop runs every Saturday from 9:00 AM to 1:00 PM." },
-      { id: "B", text: "Tokyo Roll Masterclass: An intimate workshop limited to 4 students. Learn the art of slicing raw fish and rolling sushi from Chef Kenji, who spent 20 years cooking in Kyoto." },
-      { id: "C", text: "Purely Plant-Based: Discover how to cook elegant, 100% vegan multi-course dinners. All students receive a printed booklet containing every single recipe covered in class." },
-      { id: "D", text: "Couples Bistro: The perfect romantic night out. Bring your partner, enjoy a complimentary glass of red wine, and learn to pan-sear the ultimate ribeye steak together." },
-      { id: "E", text: "Kitchen Foundations: A beginner-friendly course explaining chopping techniques, boiling, and frying. Cheap pricing with classes running Tuesday nights at 6:30 PM." },
-      { id: "F", text: "Sweet Treats Studio: A specialized afternoon class focusing entirely on chocolate cakes, ice creams, and desserts. Contains dairy, eggs, and gluten." },
-      { id: "G", text: "Asian Fusion Express: A fast-paced lecture style class demonstrating how to cook Thai noodles and Chinese stir-fries. Students watch the teacher but do not cook themselves." },
-      { id: "H", text: "The Meat Academy: An advanced masterclass on preparing pork and lamb roasts. Held on Sunday mornings for professional kitchen workers looking to upgrade skills." }
+      { id: "A", text: "Sweet Treats Studio: A specialized afternoon class focusing entirely on chocolate cakes, ice creams, and desserts. Contains dairy, eggs, and gluten." },
+      { id: "B", text: "Kitchen Foundations: A beginner-friendly course explaining chopping techniques, boiling, and frying. Cheap pricing with classes running Tuesday nights at 6:30 PM." },
+      { id: "C", text: "Couples Bistro: The perfect romantic night out. Bring your partner, enjoy a complimentary glass of red wine, and learn to pan-sear the ultimate ribeye steak together." },
+      { id: "D", text: "Asian Fusion Express: A fast-paced lecture style class demonstrating how to cook Thai noodles and Chinese stir-fries. Students watch the teacher but do not cook themselves." },
+      { id: "E", text: "The Baking Board: Learn the science of yeast, sourdough starters, and French croissants. This practical, hands-on workshop runs every Saturday from 9:00 AM to 1:00 PM." },
+      { id: "F", text: "Purely Plant-Based: Discover how to cook elegant, 100% vegan multi-course dinners. All students receive a printed booklet containing every single recipe covered in class." },
+      { id: "G", text: "The Meat Academy: An advanced masterclass on preparing pork and lamb roasts. Held on Sunday mornings for professional kitchen workers looking to upgrade skills." },
+      { id: "H", text: "Tokyo Roll Masterclass: An intimate workshop limited to 4 students. Learn the art of slicing raw fish and rolling sushi from Chef Kenji, who spent 20 years cooking in Kyoto." }
     ],
     answers: {
-      "b1_r_p2_e17_p6": "A",
-      "b1_r_p2_e17_p7": "B",
-      "b1_r_p2_e17_p8": "C",
-      "b1_r_p2_e17_p9": "D",
-      "b1_r_p2_e17_p10": "E"
+      b1_r_p2_e17_p6: "E",
+      b1_r_p2_e17_p7: "H",
+      b1_r_p2_e17_p8: "F",
+      b1_r_p2_e17_p9: "C",
+      b1_r_p2_e17_p10: "B"
     },
     explanations: {
-      "b1_r_p2_e17_p6": "A — bake bread/pastries (sourdough, croissants), hands-on (practical, hands-on), Saturday mornings (Saturday 9:00 AM).",
-      "b1_r_p2_e17_p7": "B — sushi-making (slicing fish, rolling sushi), small masterclass (limited to 4 students), Japanese chef (Chef Kenji from Kyoto).",
-      "b1_r_p2_e17_p8": "C — vegan (100% vegan, plant-based), dinner recipes (multi-course dinners), copies of recipes (printed booklet containing every recipe).",
-      "b1_r_p2_e17_p9": "D — casual/date night (romantic night out, bring partner), steak and wine (glass of red wine, ribeye steak).",
-      "b1_r_p2_e17_p10": "E — knife skills/fundamentals (chopping techniques, boiling, frying), beginner (beginner-friendly), affordable evening/week (cheap pricing, Tuesday nights)."
+      b1_r_p2_e17_p6: "E — bake bread/pastries (sourdough, croissants), hands-on (practical, hands-on), Saturday mornings (Saturday 9:00 AM).",
+      b1_r_p2_e17_p7: "H — sushi-making (slicing fish, rolling sushi), small masterclass (limited to 4 students), Japanese chef (Chef Kenji from Kyoto).",
+      b1_r_p2_e17_p8: "F — vegan (100% vegan, plant-based), dinner recipes (multi-course dinners), copies of recipes (printed booklet containing every recipe).",
+      b1_r_p2_e17_p9: "C — casual/date night (romantic night out, bring partner), steak and wine (glass of red wine, ribeye steak).",
+      b1_r_p2_e17_p10: "B — knife skills/fundamentals (chopping techniques, boiling, frying), beginner (beginner-friendly), affordable evening/week (cheap pricing, Tuesday nights)."
     }
   },
   {
@@ -965,28 +965,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "Predator Photo Safari: Board our windowless open-top jeeps for an unobstructed view of lions, cheetahs, and leopards. Perfect for photographers wanting crisp action shots." },
-      { id: "B", text: "Little Farmers Yard: A delightful petting zoo where youngsters can hand-feed goats, sheep, and rabbits. Features a massive indoor soft-play barn if weather goes bad." },
-      { id: "C", text: "Keeper Academy: Spend a Wednesday working alongside our staff. Get dirty scrubbing penguin pools, chopping fish, and feeding our lizards and snakes." },
-      { id: "D", text: "Twilight Safari: A premium evening tour starting at 7:30 PM. Walk with an expert guide to observe active night hunters, followed by a luxury 2-course meal at the safari lodge." },
-      { id: "E", text: "Ocean Dive Experience: Put on a wetsuit and jump into our tropical lagoon to swim alongside playful dolphins. Every guest receives a link to download professional digital photos." },
+      { id: "A", text: "Midnight Caravan: A late-night camping trip where guests sleep in tents near the elephant enclosure. Guests must bring their own food and sleeping bags." },
+      { id: "B", text: "Keeper Academy: Spend a Wednesday working alongside our staff. Get dirty scrubbing penguin pools, chopping fish, and feeding our lizards and snakes." },
+      { id: "C", text: "Little Farmers Yard: A delightful petting zoo where youngsters can hand-feed goats, sheep, and rabbits. Features a massive indoor soft-play barn if weather goes bad." },
+      { id: "D", text: "Ocean Dive Experience: Put on a wetsuit and jump into our tropical lagoon to swim alongside playful dolphins. Every guest receives a link to download professional digital photos." },
+      { id: "E", text: "Predator Photo Safari: Board our windowless open-top jeeps for an unobstructed view of lions, cheetahs, and leopards. Perfect for photographers wanting crisp action shots." },
       { id: "F", text: "Reptile World: An indoor exhibit showcasing giant tortoises, crocodiles, and spiders. Visitors watch feeding shows from behind thick safety glass windows." },
       { id: "G", text: "Bird Kingdom: A giant outdoor cage where you can see tropical birds flying. There are no large animals, mammals, or swimming options available here." },
-      { id: "H", text: "Midnight Caravan: A late-night camping trip where guests sleep in tents near the elephant enclosure. Guests must bring their own food and sleeping bags." }
+      { id: "H", text: "Twilight Safari: A premium evening tour starting at 7:30 PM. Walk with an expert guide to observe active night hunters, followed by a luxury 2-course meal at the safari lodge." }
     ],
     answers: {
-      "b1_r_p2_e18_p6": "A",
-      "b1_r_p2_e18_p7": "B",
-      "b1_r_p2_e18_p8": "C",
-      "b1_r_p2_e18_p9": "D",
-      "b1_r_p2_e18_p10": "E"
+      b1_r_p2_e18_p6: "E",
+      b1_r_p2_e18_p7: "C",
+      b1_r_p2_e18_p8: "B",
+      b1_r_p2_e18_p9: "H",
+      b1_r_p2_e18_p10: "D"
     },
     explanations: {
-      "b1_r_p2_e18_p6": "A — photography (for photographers), open vehicle (windowless open-top jeeps), big cats (lions, cheetahs, leopards), no glass (unobstructed view).",
-      "b1_r_p2_e18_p7": "B — kid-friendly (youngsters), pet/feed farm animals (petting zoo, hand-feed goats, sheep), indoor area (indoor soft-play barn).",
-      "b1_r_p2_e18_p8": "C — keeper for a day (working alongside staff), clean/prepare food (scrubbing pools, chopping fish), reptiles/penguins (lizards, snakes, penguins), weekday (Wednesday).",
-      "b1_r_p2_e18_p9": "D — VIP night-time (premium evening tour), guided walking tour (walk with expert guide), nocturnal predators (active night hunters), dinner included (2-course meal).",
-      "b1_r_p2_e18_p10": "E — marine life (ocean), swim with dolphins (swim alongside playful dolphins), digital photo album included (download professional digital photos)."
+      b1_r_p2_e18_p6: "E — photography (for photographers), open vehicle (windowless open-top jeeps), big cats (lions, cheetahs, leopards), no glass (unobstructed view).",
+      b1_r_p2_e18_p7: "C — kid-friendly (youngsters), pet/feed farm animals (petting zoo, hand-feed goats, sheep), indoor area (indoor soft-play barn).",
+      b1_r_p2_e18_p8: "B — keeper for a day (working alongside staff), clean/prepare food (scrubbing pools, chopping fish), reptiles/penguins (lizards, snakes, penguins), weekday (Wednesday).",
+      b1_r_p2_e18_p9: "H — VIP night-time (premium evening tour), guided walking tour (walk with expert guide), nocturnal predators (active night hunters), dinner included (2-course meal).",
+      b1_r_p2_e18_p10: "D — marine life (ocean), swim with dolphins (swim alongside playful dolphins), digital photo album included (download professional digital photos)."
     }
   },
   {
@@ -1020,29 +1020,28 @@ export const EXERCISES_B1_READING_P2 = [
       }
     ],
     options: [
-      { id: "A", text: "JetStream Ace: Strap into a mechanical chair that pitches and rolls as you control a supersonic fighter jet. A highly realistic solo aviation simulator." },
-      { id: "B", text: "Undead Arena: A full-motion room experience for groups of 2 to 4 players. Put on a backpack VR unit, walk freely, and shoot oncoming zombie swarms together." },
-      { id: "C", text: "Echoes of Antiquity: Walk peacefully through a 3D digital recreation of the Roman Colosseum and Forum. Learn about archaeology through interactive, non-violent puzzles." },
-      { id: "D", text: "Beat Slasher: A fast-paced musical game where you slash glowing blocks using laser swords. It’s an intense physical cardio workout set to licensed EDM soundtracks." },
-      { id: "E", text: "Formula Speed VR: Sit inside a mock cockpit fitted with a real leather force-feedback steering wheel and pedals. Race in real-time against seven online opponents." },
-      { id: "F", text: "Space Explorers: A multiplayer game where you fix a broken spaceship with one partner. It features zero-gravity physics but no airplanes or cars." },
-      { id: "G", text: "Horror Mansion: A terrifying single-player ghost game where you sit completely still in a chair and explore a dark house using a standard hand controller." },
-      { id: "H", text: "Cyber Beats: A sitting music game where you watch a virtual concert. Very relaxing with no moving around, hitting targets, or physical exercise required." }
+      { id: "A", text: "Formula Speed VR: Sit inside a mock cockpit fitted with a real leather force-feedback steering wheel and pedals. Race in real-time against seven online opponents." },
+      { id: "B", text: "JetStream Ace: Strap into a mechanical chair that pitches and rolls as you control a supersonic fighter jet. A highly realistic solo aviation simulator." },
+      { id: "C", text: "Horror Mansion: A terrifying single-player ghost game where you sit completely still in a chair and explore a dark house using a standard hand controller." },
+      { id: "D", text: "Cyber Beats: A sitting music game where you watch a virtual concert. Very relaxing with no moving around, hitting targets, or physical exercise required." },
+      { id: "E", text: "Undead Arena: A full-motion room experience for groups of 2 to 4 players. Put on a backpack VR unit, walk freely, and shoot oncoming zombie swarms together." },
+      { id: "F", text: "Beat Slasher: A fast-paced musical game where you slash glowing blocks using laser swords. It’s an intense physical cardio workout set to licensed EDM soundtracks." },
+      { id: "G", text: "Space Explorers: A multiplayer game where you fix a broken spaceship with one partner. It features zero-gravity physics but no airplanes or cars." },
+      { id: "H", text: "Echoes of Antiquity: Walk peacefully through a 3D digital recreation of the Roman Colosseum and Forum. Learn about archaeology through interactive, non-violent puzzles." }
     ],
     answers: {
-      "b1_r_p2_e19_p6": "A",
-      "b1_r_p2_e19_p7": "B",
-      "b1_r_p2_e19_p8": "C",
-      "b1_r_p2_e19_p9": "D",
-      "b1_r_p2_e19_p10": "E"
+      b1_r_p2_e19_p6: "B",
+      b1_r_p2_e19_p7: "E",
+      b1_r_p2_e19_p8: "H",
+      b1_r_p2_e19_p9: "F",
+      b1_r_p2_e19_p10: "A"
     },
     explanations: {
-      "b1_r_p2_e19_p6": "A — flight simulator (aviation simulator), military jet (fighter jet), single-player (solo), full movement seats (mechanical chair that pitches and rolls).",
-      "b1_r_p2_e19_p7": "B — multiplayer horror (groups of 2-4, zombie swarms), walk around a large room (full-motion room, walk freely).",
-      "b1_r_p2_e19_p8": "C — historical (Roman Colosseum), educational (learn about archaeology), calm/no violence (walk peacefully, non-violent puzzles).",
-      "b1_r_p2_e19_p9": "D — rhythm/music game (musical game, EDM soundtracks), high-energy workout (intense physical cardio workout), cut/hit targets (slash glowing blocks).",
-      "b1_r_p2_e19_p10": "E — racing car (Formula Speed), compete online (race in real-time against online opponents), steering wheel controller (real leather force-feedback steering wheel and pedals)."
+      b1_r_p2_e19_p6: "B — flight simulator (aviation simulator), military jet (fighter jet), single-player (solo), full movement seats (mechanical chair that pitches and rolls).",
+      b1_r_p2_e19_p7: "E — multiplayer horror (groups of 2-4, zombie swarms), walk around a large room (full-motion room, walk freely).",
+      b1_r_p2_e19_p8: "H — historical (Roman Colosseum), educational (learn about archaeology), calm/no violence (walk peacefully, non-violent puzzles).",
+      b1_r_p2_e19_p9: "F — rhythm/music game (musical game, EDM soundtracks), high-energy workout (intense physical cardio workout), cut/hit targets (slash glowing blocks).",
+      b1_r_p2_e19_p10: "A — racing car (Formula Speed), compete online (race in real-time against online opponents), steering wheel controller (real leather force-feedback steering wheel and pedals)."
     }
   }
-
 ];

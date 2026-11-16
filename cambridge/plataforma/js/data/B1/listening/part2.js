@@ -32,7 +32,7 @@ export const EXERCISES_B1_LISTENING_P2 = [
       {
         id: "b1_l_p2_e1_q10",
         context: "You will hear a boy telling his friend about a cookery course.",
-        question: "Why did he enjoy most about it?",
+        question: "What did he enjoy most about it?",
         options: [
           "something his classmate did",
           "something his teacher taught them",

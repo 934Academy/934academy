@@ -64,12 +64,13 @@ async function finishQuiz() {
     </div>
     <div style="display:flex;gap:1rem;margin-bottom:2rem">
       <button class="btn btn-primary" id="btn-review">Review Answers</button>
-      <button class="btn" onclick="location.reload()">Back</button>
+      <button class="btn" id="btn-back">← Listening</button>
     </div>
     <div id="review-list" style="display:flex;flex-direction:column;gap:1rem"></div>
   `;
   
   document.getElementById('btn-review').onclick = showReview;
+  document.getElementById('btn-back').onclick = () => window.navigate('destreza', { skill: _skill });
 }
 
 function showReview() {

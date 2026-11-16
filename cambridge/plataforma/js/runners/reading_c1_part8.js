@@ -91,7 +91,7 @@ function renderExercise(exercises) {
   });
 }
 
-async function finishQuiz(exercises) {
+async function finishQuiz(exercises, save = true) {
   let correct = 0;
   exercise.questions.forEach(q => {
     if (answers[q.id] === q.answer) correct++;
@@ -102,7 +102,7 @@ async function finishQuiz(exercises) {
   const color = pct >= 75 ? '#22c55e' : pct >= 50 ? '#f59e0b' : '#ef4444';
 
   try {
-    await saveResult({
+    if (save) await saveResult({
       exam: _skill,
       part: parseInt(String(_part).replace('part', ''), 10),
       exerciseId: exercise.title,
@@ -155,7 +155,7 @@ function showReview(exercises) {
     <div id="review-list" style="display:flex;flex-direction:column;gap:1rem"></div>
   `;
   
-  document.getElementById('btn-back-results').addEventListener('click', () => finishQuiz(exercises));
+  document.getElementById('btn-back-results').addEventListener('click', () => finishQuiz(exercises, false));
 
   const list = document.getElementById('review-list');
   exercise.questions.forEach((q, i) => {

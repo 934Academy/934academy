@@ -58,7 +58,7 @@ async function finishQuiz() {
   c.innerHTML = `
     <div class="page-header"><h1>Results: ${pct}%</h1></div>
     <button class="btn btn-primary" id="btn-review">Review Answers</button>
-    <button class="btn" onclick="location.reload()">Back</button>
+    <button class="btn" id="btn-back">← Listening</button>
     <div id="review-list" style="margin-top:1rem"></div>
   `;
 
@@ -73,5 +73,9 @@ async function finishQuiz() {
     `).join('');
   };
 
-  await saveResult({ exam: _skill, part: 3, exerciseId: exercise.title, score: pct });
+  document.getElementById('btn-back').onclick = () => window.navigate('destreza', { skill: _skill });
+
+  try {
+    await saveResult({ exam: _skill, part: 3, exerciseId: exercise.title, score: pct });
+  } catch (e) { console.warn(e); }
 }

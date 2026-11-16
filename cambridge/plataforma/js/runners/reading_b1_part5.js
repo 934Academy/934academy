@@ -46,15 +46,17 @@ function renderSelector(exercises) {
 function renderQuestion(exercises) {
   const c       = document.getElementById('ejercicio-content');
   const q       = exercise.questions[questionIndex];
-  const marker  = `(${questionIndex + 1}) ____`;
-  const highlight = `<span style="color:var(--color-primary);font-weight:700">${marker}</span>`;
+  const num     = questionIndex + 21;
+  // Los datos usan "(21)___" o "(21) ___", con o sin espacio
+  const marker  = new RegExp(`\\(${num}\\)\\s*_+`);
+  const highlight = `<span style="color:var(--color-primary);font-weight:700">(${num}) ____</span>`;
   const text    = exercise.reading_text
     .replace(/<\/?(?:h2|p)>/g, '')
     .replace(marker, highlight);
 
   c.innerHTML = `
     <div class="page-header">
-      <h1 class="page-title">Part 1 — ${exercise.title}</h1>
+      <h1 class="page-title">Part 5 — ${exercise.title}</h1>
       <p class="page-subtitle">Question ${questionIndex + 1} of ${exercise.questions.length}</p>
     </div>
     <div class="card" style="margin-bottom:1.5rem;line-height:1.8">
@@ -92,7 +94,7 @@ function renderQuestion(exercises) {
   });
 }
 
-async function finishQuiz(exercises) {
+async function finishQuiz(exercises, save = true) {
   let correct = 0;
   exercise.questions.forEach(q => { if (answers[q.id] === q.answer) correct++; });
   const total = exercise.questions.length;
@@ -100,7 +102,7 @@ async function finishQuiz(exercises) {
   const color = pct >= 75 ? '#22c55e' : pct >= 50 ? '#f59e0b' : '#ef4444';
 
   try {
-    await saveResult({
+    if (save) await saveResult({
       exam:       _skill,
       part:       parseInt(_part.replace('part', '')),
       exerciseId: exercise.title,
@@ -127,7 +129,7 @@ async function finishQuiz(exercises) {
       <button class="btn btn-primary" id="btn-review">Check answers</button>
       <button class="btn" id="btn-repeat">Repeat</button>
       <button class="btn" id="btn-sel">Choose another exercise</button>
-      <button class="btn" id="btn-destreza">← Use of English</button>
+      <button class="btn" id="btn-destreza">← Reading</button>
     </div>
   `;
 
@@ -146,7 +148,7 @@ function showReview(exercises) {
     <button class="btn" id="btn-back" style="margin-bottom:1.5rem">← Return to results</button>
     <div id="review-list" style="display:flex;flex-direction:column;gap:1rem"></div>
   `;
-  document.getElementById('btn-back').addEventListener('click', () => finishQuiz(exercises));
+  document.getElementById('btn-back').addEventListener('click', () => finishQuiz(exercises, false));
 
   const list = document.getElementById('review-list');
   exercise.questions.forEach((q, i) => {

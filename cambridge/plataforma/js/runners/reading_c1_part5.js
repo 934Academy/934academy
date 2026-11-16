@@ -84,7 +84,7 @@ function renderExercise(exercises) {
   });
 }
 
-async function finishQuiz(exercises) {
+async function finishQuiz(exercises, save = true) {
   let correct = 0;
   exercise.questions.forEach(q => { 
     if (answers[q.id] === q.answer) correct++; 
@@ -97,7 +97,7 @@ async function finishQuiz(exercises) {
   try {
     // Si saveResult falla o no responde, el try/catch evitará que la app colapse, 
     // pero si es una promesa que nunca se resuelve, la pantalla se congelará aquí.
-    await saveResult({
+    if (save) await saveResult({
       exam:       _skill,
       part:       parseInt(_part.replace('part', '')),
       exerciseId: exercise.title,
@@ -156,7 +156,7 @@ function showReview(exercises) {
   `;
   
   // 6. Pasamos 'exercises' de vuelta a la vista de resultados
-  document.getElementById('btn-back').addEventListener('click', () => finishQuiz(exercises));
+  document.getElementById('btn-back').addEventListener('click', () => finishQuiz(exercises, false));
 
   const list = document.getElementById('review-list');
   exercise.questions.forEach((q, i) => {

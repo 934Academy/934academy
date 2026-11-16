@@ -97,7 +97,7 @@ function renderExercise(exercises) {
   });
 }
 
-async function finishQuiz(exercises) {
+async function finishQuiz(exercises, save = true) {
   let correct = 0;
   let total = 0;
   
@@ -112,7 +112,7 @@ async function finishQuiz(exercises) {
   const color = pct >= 75 ? '#22c55e' : pct >= 50 ? '#f59e0b' : '#ef4444';
 
   try {
-    await saveResult({ exam: _skill, part: parseInt(_part.replace('part', '')), exerciseId: exercise.title, score: pct });
+    if (save) await saveResult({ exam: _skill, part: parseInt(_part.replace('part', '')), exerciseId: exercise.title, score: pct });
   } catch(e) { 
     console.warn('Error guardando resultado:', e); 
   }
@@ -157,5 +157,5 @@ function showReview(exercises) {
   });
 
   c.innerHTML = reviewHtml + '</div>';
-  document.getElementById('btn-back').addEventListener('click', () => finishQuiz(exercises));
+  document.getElementById('btn-back').addEventListener('click', () => finishQuiz(exercises, false));
 }

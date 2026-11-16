@@ -12,9 +12,9 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does this sign mean?",
         options: [
-          "Adults are not permitted in the children's play area.",
+          "Children must stay to the left in the play area.",
           "Children must always be accompanied by an adult.",
-          "Children must stay to the left in the play area."
+          "Adults are not permitted in the children's play area."
         ],
         answer: 1,
         explanation: "The sign says children under 12 must be accompanied by a responsible adult at all times."
@@ -26,12 +26,8 @@ export const EXERCISES_B1_READING_P1 = [
           <p><em>"Hey Tim, Mum's passport arrived at the post office but she can't pick it up — her ID expired. Can you go and collect it for her? You'll need to show your ID. Thanks!"</em></p>
         </div>`,
         text: "Angus is telling Tim to:",
-        options: [
-          "Collect something from the post office.",
-          "Call Isa.",
-          "Get some new ID."
-        ],
-        answer: 0,
+        options: ["Get some new ID.", "Renew his mum's ID.", "Collect something from the post office."],
+        answer: 2,
         explanation: "Angus asks Tim to collect his mum's passport from the post office using his own ID."
       },
       {
@@ -44,11 +40,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does this notice say?",
         options: [
-          "Do not try to buy so many things.",
           "The number of people permitted in the shop is less than it was previously.",
-          "Only enter after someone has left."
+          "Do not try to buy so many things.",
+          "Customers can only stay inside for 15 minutes."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "The notice states the maximum has been reduced from 30 to 15 — fewer people than before. Option C is partially true but not the main message."
       },
       {
@@ -61,11 +57,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does this offer mean?",
         options: [
+          "Buy ten drinks and get a loyalty card.",
           "Buy ten hot drinks, get one free next time.",
-          "Buy nine hot drinks, get one free today.",
-          "Buy ten drinks and get a loyalty card."
+          "Buy nine hot drinks, get one free today."
         ],
-        answer: 0,
+        answer: 1,
         explanation: "After buying 10 hot drinks and collecting 10 stamps, the 11th drink is free — so you get one free after ten purchases."
       },
       {
@@ -77,9 +73,9 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does this notice say?",
         options: [
+          "The coffee room is closed today only.",
           "The coffee room is only for workers.",
-          "The coffee shop is closed today only.",
-          "The coffee shop is closed indefinitely."
+          "The coffee room is closed indefinitely."
         ],
         answer: 2,
         explanation: "'Until further notice' means there is no set reopening date — it is closed indefinitely."
@@ -132,10 +128,10 @@ export const EXERCISES_B1_READING_P1 = [
         text: "What does this sign tell cyclists?",
         options: [
           "The management will look after your bike.",
-          "You must secure your bike yourself.",
-          "Bikes are not allowed in this area."
+          "Bikes are not allowed in this area.",
+          "You must secure your bike yourself."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "The sign says bikes must be locked and the management is not responsible — you must secure it yourself."
       },
       {
@@ -145,12 +141,8 @@ export const EXERCISES_B1_READING_P1 = [
           <p><em>"Jake — I've used the last of the milk. Can you pick some up on your way home? Also we need bread. I'll be back by 7. — Mum"</em></p>
         </div>`,
         text: "What is Mum asking Jake to do?",
-        options: [
-          "Cook dinner before 7 o'clock.",
-          "Buy milk and bread.",
-          "Call her when he gets home."
-        ],
-        answer: 1,
+        options: ["Buy milk and bread.", "Call her when he gets home.", "Cook dinner before 7 o'clock."],
+        answer: 0,
         explanation: "Mum asks Jake to pick up milk and bread on his way home."
       },
       {
@@ -164,16 +156,15 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "According to the rules, what must adults do?",
         options: [
-          "Swim with children at all times.",
           "Watch over young children while at the pool.",
+          "Swim with children at all times.",
           "Avoid the shallow end of the pool."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "The rules say children under 8 must be supervised by an adult — adults must watch over young children."
       }
     ]
   },
-
   {
     title: "Signs & Notices – Set 3",
     text_preview: "Five short texts: signs, notices and messages. Choose the correct meaning for each one...",
@@ -185,13 +176,13 @@ export const EXERCISES_B1_READING_P1 = [
           <p style="text-align:center"><strong>DO NOT TOUCH THE EXHIBITS</strong><br><br>
           Automated alarms will sound immediately and security staff will be alerted.</p>
         </div>`,
-          text: "What does this sign mean?",
+        text: "What does this sign mean?",
         options: [
+          "Alarms only sound if you try to take the exhibits outside the museum.",
           "Security staff will show you how the alarms work if you touch the exhibits.",
-          "You must not touch anything on display because it will set off an alarm.",
-          "Alarms only sound if you try to take the exhibits outside the museum."
+          "You must not touch anything on display because it will set off an alarm."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "The sign warns that touching the items will immediately cause automated alarms to sound."
       },
       {
@@ -203,10 +194,10 @@ export const EXERCISES_B1_READING_P1 = [
         text: "Sam is writing to Leo to:",
         options: [
           "Ask him if he can buy the tickets for the early movie.",
-          "Suggest meeting inside the cinema before 6pm.",
-          "Explain that he has changed the time of their movie booking."
+          "Explain that he has changed the time of their movie booking.",
+          "Suggest meeting inside the cinema before 6pm."
         ],
-        answer: 2,
+        answer: 1,
         explanation: "Sam explains that because the 6pm show was full, he booked the 8:30pm session instead."
       },
       {
@@ -219,8 +210,8 @@ export const EXERCISES_B1_READING_P1 = [
         text: "What does this notice say?",
         options: [
           "You are not allowed to leave your belongings in a locker overnight.",
-          "Management will clean your locker for you every evening.",
-          "You can keep things in the locker for up to one week."
+          "You can keep things in the locker for up to one week.",
+          "Management will clean your locker for you every evening."
         ],
         answer: 0,
         explanation: "The text states lockers must be cleared daily, meaning items cannot be left overnight."
@@ -233,11 +224,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does Mr. Green want the students to do?",
         options: [
+          "Complete a history project on their computers before tomorrow.",
           "Bring both their laptops and their books tomorrow.",
-          "Leave their computers at home and bring their books.",
-          "Complete a history project on their computers before tomorrow."
+          "Leave their computers at home and bring their books."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "Mr. Green explicitly tells them to bring textbooks but explicitly says 'Do not bring your laptops'."
       },
       {
@@ -249,11 +240,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "How should this product be kept?",
         options: [
-          "It must always be kept inside the refrigerator.",
           "It should be placed in the fridge only after it has been unsealed.",
-          "It needs to be eaten within three days of buying it."
+          "It needs to be eaten within three days of buying it.",
+          "It must always be kept inside the refrigerator."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "'Once opened, keep refrigerated' means refrigeration is only required after the packaging is opened."
       }
     ]
@@ -272,10 +263,10 @@ export const EXERCISES_B1_READING_P1 = [
         text: "What does this notice mean?",
         options: [
           "Trains to London are cancelled today due to repairs.",
-          "Passengers going to London must use a different platform today.",
-          "Platform 3 is open only for slow trains today."
+          "Platform 3 is open only for slow trains today.",
+          "Passengers going to London must use a different platform today."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "Because Platform 3 is closed, London trains will leave from Platform 5 instead."
       },
       {
@@ -302,11 +293,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "According to the sign, who might receive a fine?",
         options: [
-          "People who park for less than two hours while shopping.",
           "Customers who spend more than two hours inside the store.",
+          "People who park for less than two hours while shopping.",
           "Anyone who pays for parking but stays too long."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "Fines apply to non-customers or 'overstays' (people staying longer than the maximum 2 hours)."
       },
       {
@@ -333,11 +324,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does this ticket note state?",
         options: [
+          "The concert doors close permanently at 8:30 PM.",
           "The main performance will begin exactly at 7:00 PM.",
-          "You will not be allowed inside if you arrive later than 8:15 PM.",
-          "The concert doors close permanently at 8:30 PM."
+          "You will not be allowed inside if you arrive later than 8:15 PM."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "'No entry permitted after 8:15 PM' means late arrivals after this time will be turned away."
       }
     ]
@@ -355,11 +346,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What should guests do if they want fresh towels?",
         options: [
-          "Leave their dirty towels on the floor.",
           "Hang their towels back up on the metal rail.",
+          "Leave their dirty towels on the floor.",
           "Ask reception to wash the bathroom floor."
         ],
-        answer: 0,
+        answer: 1,
         explanation: "The policy notes that only towels left on the bathroom floor will be replaced with fresh ones."
       },
       {
@@ -370,11 +361,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does Dan want Chloe to do?",
         options: [
-          "Drive his car onto the motorway.",
           "Inform the dentist that he will arrive late.",
+          "Drive his car onto the motorway.",
           "Cancel his dental appointment for today."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "Dan asks Chloe to call the clinic to let them know he is running late because of traffic."
       },
       {
@@ -386,11 +377,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What is the rule regarding liquids?",
         options: [
-          "You can bring any container if it is placed in a bag.",
           "Containers with more than 100ml of liquid are prohibited.",
-          "You must buy plastic bags at the security desk."
+          "You must buy plastic bags at the security desk.",
+          "You can bring any container if it is placed in a bag."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "Containers over 100ml are not allowed and must be discarded before entering security."
       },
       {
@@ -418,11 +409,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What are users forbidden from doing on the computers?",
         options: [
-          "Accessing social networking sites or games.",
           "Conducting research for university assignments.",
-          "Using the library rooms without permission."
+          "Using the library rooms without permission.",
+          "Accessing social networking sites or games."
         ],
-        answer: 0,
+        answer: 2,
         explanation: "The rule states that playing video games or using social media is strictly forbidden on these machines."
       }
     ]
@@ -439,11 +430,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What must customers do with the baskets?",
         options: [
-          "Leave them in the car park for the next customer.",
           "Take them back to where they entered the shop.",
+          "Leave them in the car park for the next customer.",
           "Ask a member of staff to collect them at the checkout."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "The notice explicitly asks customers to return the baskets to the main entrance rack and not leave them outside."
       },
       {
@@ -455,10 +446,10 @@ export const EXERCISES_B1_READING_P1 = [
         text: "What is Tom asking Paul to do?",
         options: [
           "Buy a present for Lucy on Saturday morning.",
-          "Give him money for the gift before the weekend starts.",
-          "Find out what Lucy wants for her birthday."
+          "Find out what Lucy wants for her birthday.",
+          "Give him money for the gift before the weekend starts."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "Tom asks for the contribution by 'Friday evening' so he can purchase the gift on Saturday, which means before the weekend."
       },
       {
@@ -469,9 +460,9 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What has changed about Bus 42?",
         options: [
-          "It is not operating at all this week.",
+          "It will take a completely new route permanently.",
           "It will stop at a different place for a short time.",
-          "It will take a completely new route permanently."
+          "It is not operating at all this week."
         ],
         answer: 1,
         explanation: "The bus won't stop at High Street 'this week' and passengers must use a 'temporary stop' at the library."
@@ -484,11 +475,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "Who is this toy unsafe for?",
         options: [
-          "Children who are three years old or older.",
           "Children under three years of age.",
-          "Adults who do not supervise play."
+          "Adults who do not supervise play.",
+          "Children who are three years old or older."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "36 months equals 3 years. The toy is not suitable for children under that age."
       },
       {
@@ -520,11 +511,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What should people in the building do?",
         options: [
-          "Wait until the main lift is fixed before going upstairs.",
           "Find an alternative way to reach other floors.",
+          "Wait until the main lift is fixed before going upstairs.",
           "Call the engineering team to report a breakdown."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "People are told to use the stairs or the cargo elevator because the main lift is out of order."
       },
       {
@@ -536,10 +527,10 @@ export const EXERCISES_B1_READING_P1 = [
         text: "Why is David emailing James?",
         options: [
           "To invite him to go to the doctor together.",
-          "To let him know he cannot attend the race.",
-          "To change the time of their running activity."
+          "To change the time of their running activity.",
+          "To let him know he cannot attend the race."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "David says 'I can't join you for the running race' due to an appointment."
       },
       {
@@ -550,11 +541,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What is allowed inside the museum?",
         options: [
-          "Taking pictures with a camera without extra equipment or bright lights.",
           "Selling photos that you take inside the galleries.",
+          "Taking pictures with a camera without extra equipment or bright lights.",
           "Setting up professional cameras in the exhibition spaces."
         ],
-        answer: 0,
+        answer: 1,
         explanation: "'No flash' means no bright lights and 'no tripods' means no extra standing equipment. Personal use means no selling."
       },
       {
@@ -565,11 +556,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "Sarah wants to:",
         options: [
+          "Invite Amy to go to university with her.",
           "Borrow a jacket from Amy tomorrow.",
-          "Give back an item she previously borrowed.",
-          "Invite Amy to go to university with her."
+          "Give back an item she previously borrowed."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "'Return your blue jacket' indicates she wants to give back an item she has."
       },
       {
@@ -580,11 +571,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does the hotel info say?",
         options: [
-          "Everyone must leave the hotel room by 2:00 PM.",
           "You can stay longer in your room if you pay extra.",
+          "Everyone must leave the hotel room by 2:00 PM.",
           "Check-out is completely free before 2:00 PM."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "Staying until 2:00 PM (late check-out) is possible if you pay 'an additional fee of £20'."
       }
     ]
@@ -601,11 +592,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What should people do when returning books out of hours?",
         options: [
+          "Keep them until the library opens the next morning.",
           "Put them inside the designated container.",
-          "Leave them neatly by the entrance doors.",
-          "Keep them until the library opens the next morning."
+          "Leave them neatly by the entrance doors."
         ],
-        answer: 0,
+        answer: 1,
         explanation: "The notice instructs to put books 'inside this secure box' and explicitly says not to leave them on the ground."
       },
       {
@@ -616,11 +607,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does this email warn patients about?",
         options: [
-          "They must pay £15 for every regular dental appointment.",
           "They will be charged if they change their plans too late.",
-          "They cannot cancel an appointment once it is booked."
+          "They cannot cancel an appointment once it is booked.",
+          "They must pay £15 for every regular dental appointment."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "Cancelling with 'less than 24 hours' notice' (too late) results in a fee."
       },
       {
@@ -631,11 +622,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "When can regular public swimmers use the pool on Saturday?",
         options: [
-          "Only if they are taking part in the youth gala.",
           "Before midday and after 4:00 PM.",
+          "Only if they are taking part in the youth gala.",
           "At any time during the afternoon."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "The pool is closed from 12:00 to 16:00 (4:00 PM), so it is accessible *before* or *after* those times."
       },
       {
@@ -646,11 +637,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "Mike wants George to:",
         options: [
-          "Decide quickly so they can get cheaper tickets.",
+          "Wait until Sunday to see if prices drop.",
           "Go to the train station to purchase tickets.",
-          "Wait until Sunday to see if prices drop."
+          "Decide quickly so they can get cheaper tickets."
         ],
-        answer: 0,
+        answer: 2,
         explanation: "Mike highlights the half-price deal online now and says 'let me know immediately' indicating a need for a quick decision."
       },
       {
@@ -661,11 +652,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "To get your pre-ordered tickets, you need to show:",
         options: [
+          "A printed receipt signed by the theatre manager.",
           "Just your name and ID card.",
-          "The email confirmation and the payment card.",
-          "A printed receipt signed by the theatre manager."
+          "The email confirmation and the payment card."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "The notice requests the 'credit card used for purchase' and the 'confirmation email'."
       }
     ]
@@ -682,11 +673,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What is the rule about food in the cinema?",
         options: [
+          "You can bring your own snacks if you pay a small fee.",
           "You are not allowed to eat anything during the movie.",
-          "You must buy your snacks at the cinema counters.",
-          "You can bring your own snacks if you pay a small fee."
+          "You must buy your snacks at the cinema counters."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "The text states that only food bought *inside* the cinema is allowed, meaning you must buy it there."
       },
       {
@@ -712,11 +703,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What is Kyle's problem?",
         options: [
-          "He lost Dan's keys at his office.",
           "He is locked out of the flat.",
+          "He lost Dan's keys at his office.",
           "He wants Dan to stay at work late."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "Kyle forgot his keys inside the flat, which means he cannot enter and is locked out."
       },
       {
@@ -727,11 +718,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "How should this clothing item be cleaned?",
         options: [
-          "In a washing machine on a cold wool cycle.",
           "By hand using cold water.",
+          "In a washing machine on a cold wool cycle.",
           "In a tumble dryer set to low heat."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "The label explicitly dictates 'Hand wash cold only' and 'Do not machine wash'."
       },
       {
@@ -742,9 +733,9 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What are passengers required to do?",
         options: [
-          "Stand up as the bus approaches their destination.",
+          "Fasten their belts only when the vehicle stops.",
           "Keep their seatbelts on while the bus is moving.",
-          "Fasten their belts only when the vehicle stops."
+          "Stand up as the bus approaches their destination."
         ],
         answer: 1,
         explanation: "Passengers must remain seated and buckled *until* it stops, meaning they must stay buckled while it is in motion."
@@ -763,9 +754,9 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What happens if your hand luggage is too big?",
         options: [
-          "It will be left behind at the gate counter.",
+          "The airline will replace it with a smaller bag.",
           "You must pay to put it in the main luggage hold.",
-          "The airline will replace it with a smaller bag."
+          "It will be left behind at the gate counter."
         ],
         answer: 1,
         explanation: "Oversized bags are placed into the aircraft hold and 'subject to a charge' (you must pay)."
@@ -778,11 +769,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What has Clara changed?",
         options: [
-          "The time of their dinner appointment.",
           "The restaurant where they are eating.",
-          "The date of their booking."
+          "The date of their booking.",
+          "The time of their dinner appointment."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "Clara states the time is the same, but they are going to the steakhouse instead of the Italian restaurant."
       },
       {
@@ -793,11 +784,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What is banned in the national park?",
         options: [
-          "Cooking any kind of hot food.",
           "Lighting open wood or charcoal fires.",
-          "Bringing gas canisters into the park."
+          "Bringing gas canisters into the park.",
+          "Cooking any kind of hot food."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "'Open campfires are strictly prohibited' translates to a ban on lighting traditional open fires."
       },
       {
@@ -809,10 +800,10 @@ export const EXERCISES_B1_READING_P1 = [
         text: "To avoid your food being thrown out on Friday, you should:",
         options: [
           "Eat it before 4:00 PM on Friday afternoon.",
-          "Put your name on it and ensure it is fresh.",
-          "Keep it inside an authorized locked box."
+          "Keep it inside an authorized locked box.",
+          "Put your name on it and ensure it is fresh."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "The office discards 'unlabelled' or 'expired' things, so putting your name (labelling) and ensuring it isn't expired keeps it safe."
       },
       {
@@ -823,9 +814,9 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does the notice ask the audience to do?",
         options: [
-          "Keep their phones out of sight in bags.",
+          "Turn down the screen brightness of their gadgets.",
           "Deactivate their phones completely before the show.",
-          "Turn down the screen brightness of their gadgets."
+          "Keep their phones out of sight in bags."
         ],
         answer: 1,
         explanation: "'Switch off all mobile devices' means to turn them completely off."
@@ -844,11 +835,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What should cyclists do on this path?",
         options: [
-          "Avoid using the path if there are walkers.",
           "Let pedestrians pass first and ride slowly.",
+          "Avoid using the path if there are walkers.",
           "Overtake walkers on the left side quickly."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "'Yield to walkers' means giving priority / letting them pass first, and keeping under 10 mph means riding slowly."
       },
       {
@@ -859,11 +850,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "The event has been:",
         options: [
+          "Delayed until a later date.",
           "Cancelled permanently because of bad weather.",
-          "Moved to an indoor location this weekend.",
-          "Delayed until a later date."
+          "Moved to an indoor location this weekend."
         ],
-        answer: 2,
+        answer: 0,
         explanation: "'Postponed' means delayed to a future date, which in this case is the following Saturday."
       },
       {
@@ -875,10 +866,10 @@ export const EXERCISES_B1_READING_P1 = [
         text: "You can get your money back for an item if:",
         options: [
           "You return it after wearing it once for an event.",
-          "You bring it back within two weeks with the tags on and proof of purchase.",
-          "You lost the receipt but bring the original store tags."
+          "You lost the receipt but bring the original store tags.",
+          "You bring it back within two weeks with the tags on and proof of purchase."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "14 days is equivalent to two weeks. A valid receipt is proof of purchase, and original tags must be attached."
       },
       {
@@ -889,14 +880,13 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What is Toby telling his mother?",
         options: [
+          "He will be home in time to cook dinner.",
           "She should save some dinner for him to eat later.",
-          "He wants her to call a mechanic for him.",
-          "He will be home in time to cook dinner."
+          "He wants her to call a mechanic for him."
         ],
-        answer: 0,
+        answer: 1,
         explanation: "Toby says 'I'll heat it up when I get back' and tells her not to wait up, meaning he wants to eat the dinner later."
       },
-
       {
         id: "b1_r_p1_e11_q5",
         reading_text: `<div style="border:2px solid var(--color-border);border-radius:8px;padding:1rem;background:var(--color-surface);max-width:320px">
@@ -926,11 +916,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "Who can use the concert hall car park during a show?",
         options: [
-          "Anyone who wants to shop at the mall across the street.",
           "Only individuals who bought a ticket for the concert.",
+          "Anyone who wants to shop at the mall across the street.",
           "General members of the public during the daytime."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "The sign states spaces are 'exclusive for ticket holders on performance nights'."
       },
       {
@@ -941,11 +931,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What must the recipient do to get their package?",
         options: [
-          "Go to a nearby house to pick it up.",
           "Call the courier company to rearrange delivery.",
+          "Go to a nearby house to pick it up.",
           "Wait for the neighbor to bring it over."
         ],
-        answer: 0,
+        answer: 1,
         explanation: "The note states the item is at 'neighbour at Number 42B' and asks the recipient to collect it from them."
       },
       {
@@ -971,11 +961,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What is the status of the coffee machine?",
         options: [
+          "The staff have fixed it themselves.",
           "It is working normally today.",
-          "It won't be usable until tomorrow.",
-          "The staff have fixed it themselves."
+          "It won't be usable until tomorrow."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "It is currently broken and 'should be operational by tomorrow morning', meaning it cannot be used today."
       },
       {
@@ -986,11 +976,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does the gallery notice say about groups?",
         options: [
+          "Tours are completely free for groups under 10 people.",
           "Groups of 12 people can enter together without booking.",
-          "Large groups need to divide and reserve separate times.",
-          "Tours are completely free for groups under 10 people."
+          "Large groups need to divide and reserve separate times."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "Because tours are capped at 10, 'larger parties must book split sessions' (divide and book separate times)."
       }
     ]
@@ -1007,9 +997,9 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What should residents do if they are busy on Tuesday?",
         options: [
-          "Cancel the safety check for their flat.",
+          "Stay at home all day to wait for the engineer.",
           "Arrange for a warden to have access to their apartment.",
-          "Stay at home all day to wait for the engineer."
+          "Cancel the safety check for their flat."
         ],
         answer: 1,
         explanation: "If they can't be home, they need to 'leave a spare key with the property warden' so the engineer can enter."
@@ -1022,11 +1012,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "Mark is suggesting that they:",
         options: [
-          "Change their travel schedule to arrive earlier.",
           "Ask the owner for a cheaper rental rate.",
+          "Change their travel schedule to arrive earlier.",
           "Pack less luggage for the train trip."
         ],
-        answer: 0,
+        answer: 1,
         explanation: "Since they can check in early at 12:00, Mark suggests taking the 'morning train instead' to make use of the extra time."
       },
       {
@@ -1037,11 +1027,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What happens if a party is 20 minutes late?",
         options: [
-          "They will have to pay double for their food.",
           "They might lose their table to someone else.",
+          "They will have to pay double for their food.",
           "The restaurant will automatically cancel their order."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "Tables are held for only 15 minutes; after that, it may be 'allocated to waiting customers' (given to someone else)."
       },
       {
@@ -1052,11 +1042,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does this sign mean?",
         options: [
+          "The site is currently closed due to flying rocks.",
           "Visitors can pick up stones from the paths as souvenirs.",
-          "It is forbidden to walk off the designated wooden paths.",
-          "The site is currently closed due to flying rocks."
+          "It is forbidden to walk off the designated wooden paths."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "'Stay on the wooden boardwalk paths at all times' explicitly means you cannot walk off them."
       },
       {
@@ -1067,11 +1057,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "To avoid extra charges when returning a rental car, you should:",
         options: [
-          "Fill the car with fuel before bringing it back.",
           "Pay the refueling fee online before renting.",
-          "Return the car empty so they can calculate the cost."
+          "Return the car empty so they can calculate the cost.",
+          "Fill the car with fuel before bringing it back."
         ],
-        answer: 0,
+        answer: 2,
         explanation: "Returning it empty results in a 'refueling fee plus fuel costs', so you should fill it up to avoid these extra fees."
       }
     ]
@@ -1088,9 +1078,9 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What has changed about the chemistry lecture?",
         options: [
-          "The professor who is teaching it.",
+          "The time and date of the session.",
           "The location where it will take place.",
-          "The time and date of the session."
+          "The professor who is teaching it."
         ],
         answer: 1,
         explanation: "The text says it has been 'relocated' to the main auditorium, which means the room/location changed."
@@ -1104,8 +1094,8 @@ export const EXERCISES_B1_READING_P1 = [
         text: "What is Leo offering to do?",
         options: [
           "Walk Maya's dog on a different day and time.",
-          "Take Maya's dog to his office this afternoon.",
-          "Find a new dog walker for Maya."
+          "Find a new dog walker for Maya.",
+          "Take Maya's dog to his office this afternoon."
         ],
         answer: 0,
         explanation: "Leo cannot walk the dog this afternoon but offers to do it 'tomorrow morning instead' (alternative time/day)."
@@ -1118,11 +1108,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What is the offer at the bookshop?",
         options: [
-          "You can buy three books for the price of two.",
           "Every single book in the shop costs nothing.",
-          "You get a discount only if you buy cheap books."
+          "You get a discount only if you buy cheap books.",
+          "You can buy three books for the price of two."
         ],
-        answer: 0,
+        answer: 2,
         explanation: "Buying 2 and getting a 3rd free means you receive three items but only pay for two of them."
       },
       {
@@ -1133,11 +1123,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What does this safety advice state?",
         options: [
-          "Keep appliances connected to the power outlet all day.",
           "Disconnect devices from the power supply as soon as you finish using them.",
-          "Only use irons and heaters in rooms with fire detectors."
+          "Only use irons and heaters in rooms with fire detectors.",
+          "Keep appliances connected to the power outlet all day."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "'Unplug... immediately after use' means to disconnect them from the power socket when finished."
       },
       {
@@ -1149,10 +1139,10 @@ export const EXERCISES_B1_READING_P1 = [
         text: "Drivers using city roads this Sunday morning should:",
         options: [
           "Drive faster to avoid marathon runners.",
-          "Expect journeys to take much longer than usual.",
-          "Park their cars on the main closed roads."
+          "Park their cars on the main closed roads.",
+          "Expect journeys to take much longer than usual."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "Road closures will lead to 'significant delays', meaning travel times will be much longer."
       }
     ]
@@ -1169,11 +1159,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What must swimmers do before swimming?",
         options: [
-          "Wash themselves before going into the pool.",
           "Bring their own soap to use inside the pool lanes.",
+          "Wash themselves before going into the pool.",
           "Shower only after they finish their swim session."
         ],
-        answer: 0,
+        answer: 1,
         explanation: "The rule states swimmers must 'shower thoroughly using soap *before* entering' the pool."
       },
       {
@@ -1184,11 +1174,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What is the manager telling the team?",
         options: [
-          "They can upload files whenever they want tonight.",
           "They have a strict time limit to submit their work today.",
+          "They can upload files whenever they want tonight.",
           "The client will review files tomorrow morning."
         ],
-        answer: 1,
+        answer: 0,
         explanation: "Files must be sent 'by 5:00 PM today' and 'no late submissions' are allowed, representing a strict time limit."
       },
       {
@@ -1199,11 +1189,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "What is the clothing store rule?",
         options: [
+          "You must purchase at least four items of clothing.",
           "You cannot try on more than four garments in total.",
-          "You can take up to four pieces of clothing into a cubicle.",
-          "You must purchase at least four items of clothing."
+          "You can take up to four pieces of clothing into a cubicle."
         ],
-        answer: 1,
+        answer: 2,
         explanation: "'Maximum of 4 items' means four is the limit you can take inside with you at one time."
       },
       {
@@ -1214,11 +1204,11 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "Oscar is suggesting that they:",
         options: [
-          "Travel to the airport together to save money.",
+          "Book separate taxis at the same time.",
           "Take a public bus because it is faster.",
-          "Book separate taxis at the same time."
+          "Travel to the airport together to save money."
         ],
-        answer: 0,
+        answer: 2,
         explanation: "Oscar states that sharing a taxi is 'cheaper than taking the bus' and asks Hugo if he wants to split/share it."
       },
       {
@@ -1229,9 +1219,9 @@ export const EXERCISES_B1_READING_P1 = [
         </div>`,
         text: "According to the rules, campers must:",
         options: [
-          "Turn off all lights inside their tents at 11:00 PM.",
+          "Leave the campsite in their vehicles before 11:00 PM.",
           "Avoid making loud noises during the night.",
-          "Leave the campsite in their vehicles before 11:00 PM."
+          "Turn off all lights inside their tents at 11:00 PM."
         ],
         answer: 1,
         explanation: "During quiet hours (11:00 PM to 7:00 AM), making loud sounds like loud music or shouting is completely banned."
