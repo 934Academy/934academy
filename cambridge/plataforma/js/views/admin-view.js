@@ -168,6 +168,7 @@ export async function renderUsers() {
   try {
     const [profiles, groups] = await Promise.all([getAllProfiles(), getGroups()]);
     document.getElementById('new-group').innerHTML = groupOptions(groups, null);
+    syncRoleFields();
 
     profiles.sort((a, b) => (ROLE_ORDER[a.role] - ROLE_ORDER[b.role]) || a.full_name.localeCompare(b.full_name, 'es'));
 
@@ -218,11 +219,21 @@ usersTbody?.addEventListener('change', async (e) => {
   }
 });
 
-// Alumno → nivel y grupo; teacher → no
+// Alumno → nivel y grupo; teacher → no.
+// Se sincroniza siempre con lo que marca el desplegable (también si el
+// navegador lo restaura solo al recargar o al volver atrás).
 const roleSelect = document.getElementById('new-role');
-roleSelect?.addEventListener('change', () => {
-  document.getElementById('new-student-fields').hidden = roleSelect.value !== 'student';
-});
+function syncRoleFields() {
+  if (!roleSelect) return;
+  const isStudent = roleSelect.value === 'student';
+  const fields = document.getElementById('new-student-fields');
+  fields.hidden = !isStudent;
+  fields.style.display = isStudent ? '' : 'none';   // por si la hoja de estilos está en caché
+  fields.querySelectorAll('select').forEach(s => { s.disabled = !isStudent; });
+}
+roleSelect?.addEventListener('change', syncRoleFields);
+window.addEventListener('pageshow', syncRoleFields);
+syncRoleFields();
 
 document.getElementById('add-student-form')?.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -230,19 +241,24 @@ document.getElementById('add-student-form')?.addEventListener('submit', async (e
   btn.disabled    = true;
   btn.textContent = 'Guardando...';
 
-  const role = roleSelect.value;
+  const role      = roleSelect.value;
+  const isStudent = role === 'student';
   try {
     await createUser({
       role,
       username: document.getElementById('new-username').value,
       fullName: document.getElementById('new-name').value,
       password: document.getElementById('new-password').value,
-      level:    document.getElementById('new-level').value,
-      groupId:  document.getElementById('new-group').value || null,
+      // Nivel y grupo solo se envían para alumnos
+      level:    isStudent ? document.getElementById('new-level').value : null,
+      groupId:  isStudent ? (document.getElementById('new-group').value || null) : null,
     });
     showToast(role === 'teacher' ? 'Teacher añadida correctamente' : 'Alumno añadido correctamente');
+    // Vaciar el formulario pero mantener el rol elegido, para poder crear
+    // varias teachers (o varios alumnos) seguidos
     e.target.reset();
-    document.getElementById('new-student-fields').hidden = false;
+    roleSelect.value = role;
+    syncRoleFields();
     renderUsers();
   } catch (err) {
     showToast(err.message, 'error');
