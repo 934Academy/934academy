@@ -272,8 +272,29 @@ document.addEventListener('navigate', async ({ detail }) => {
 // ════════════════════════════════════════════════════════════
 // DASHBOARD
 // ════════════════════════════════════════════════════════════
+// Nivel con el que se practica: el del alumno. Teachers y admin no tienen
+// nivel, así que ven B2 para poder revisar los ejercicios.
+function practiceLevel() {
+  return currentUser?.role === 'student' ? currentUser.level : 'B2';
+}
+const hasContent = (level) => Boolean(DATA[level]);
+
+function comingSoonHtml(level) {
+  return `
+    <div class="card empty-state">
+      🚧 Los ejercicios de nivel <strong>${escapeHtml(level || '—')}</strong> estarán disponibles próximamente.<br>
+      Mientras tanto, pregunta a tu teacher qué puedes practicar.
+    </div>`;
+}
+
 function renderDashboard() {
   const isB1 = currentUser?.level === 'B1';
+  if (!hasContent(practiceLevel())) {
+    document.getElementById('skill-grid').innerHTML = comingSoonHtml(currentUser.level);
+    document.getElementById('stat-level').textContent = currentUser.level || '—';
+    document.getElementById('stat-name').textContent  = currentUser.full_name;
+    return;
+  }
 
   // Creamos el array de destrezas vacío para armarlo dinámicamente
   const skills = [];
@@ -314,13 +335,14 @@ function renderDashboard() {
 // ════════════════════════════════════════════════════════════
 function renderDestreza(params = {}) {
   const skill = params.skill || 'use-of-english';
-  const level = currentUser?.level || 'B2';
+  const level = practiceLevel();
 
   document.getElementById('destreza-title').textContent    = SKILL_NAMES[skill] || skill;
   document.getElementById('destreza-subtitle').textContent = 'Select a part to practice';
 
   const content = document.getElementById('destreza-content');
   if (!content) return;
+  if (!hasContent(level)) { content.innerHTML = comingSoonHtml(level); return; }
 
   if (skill === 'writing') {
     content.innerHTML = `
@@ -337,7 +359,7 @@ function renderDestreza(params = {}) {
   }
   
 
-  const Parts = PartS[level]?.[skill] || PartS['B2']?.[skill] || [];
+  const Parts = PartS[level]?.[skill] || [];
 
   content.innerHTML = `
     <div class="skill-grid">
@@ -357,14 +379,21 @@ function renderDestreza(params = {}) {
 // LANZAR EJERCICIO
 // ════════════════════════════════════════════════════════════
 function launchExercise(params = {}) {
-  // El admin no tiene nivel: igual que en renderDestreza, usamos B2
-  const level = currentUser?.level || 'B2';
+  const level = practiceLevel();
   const skill = params.skill;
   const part  = params.part;
 
+  if (!hasContent(level)) {
+    document.getElementById('ejercicio-content').innerHTML = comingSoonHtml(level);
+    return;
+  }
+
   if (skill === 'writing') {
-    const prompts = DATA[level]?.['writing']?.prompts || DATA['B2']?.['writing']?.prompts;
-    if (!prompts) return;
+    const prompts = DATA[level]?.['writing']?.prompts;
+    if (!prompts) {
+      document.getElementById('ejercicio-content').innerHTML = comingSoonHtml(level);
+      return;
+    }
     initWriting(prompts, skill, part, level, {
       canSubmit:   currentUser?.role === 'student',
       onSubmitted: () => navigate('mis-writings'),
