@@ -191,7 +191,7 @@ begin
   if new.teacher_id is not null and not exists (
     select 1 from public.profiles where id = new.teacher_id and role in ('teacher', 'admin')
   ) then
-    raise exception 'La responsable del grupo debe ser una profesora.';
+    raise exception 'La responsable del grupo debe ser una teacher.';
   end if;
   return new;
 end $$;
@@ -321,21 +321,34 @@ begin
   return v_id;
 end $$;
 
--- La profesora (o el admin) corrige un writing: feedback + rúbrica 0-5.
--- Se puede volver a llamar para editar la corrección.
+-- Marcas sobre el texto del alumno (subrayados en rojo/verde con nota).
+-- Cada marca: { start, end, type: 'error'|'good', category, correction, note }
+-- start/end = posiciones dentro de "content" (el texto no cambia tras enviarse).
+alter table public.writings
+  add column if not exists annotations jsonb not null default '[]'::jsonb;
+
+-- La versión anterior (sin marcas) tenía otros parámetros: se quita
+drop function if exists public.review_writing(uuid, text, integer, integer, integer, integer);
+
+-- La profesora (o el admin) corrige un writing: feedback + rúbrica 0-5
+-- + marcas sobre el texto. Se puede volver a llamar para editar la corrección.
 create or replace function public.review_writing(
   p_writing_id          uuid,
   p_feedback            text,
   p_score_content       integer,
   p_score_communicative integer,
   p_score_organisation  integer,
-  p_score_language      integer
+  p_score_language      integer,
+  p_annotations         jsonb default '[]'::jsonb
 )
 returns void language plpgsql security definer set search_path = '' as $$
 declare
   v_student uuid;
+  v_len     integer;
+  v_ann     jsonb := coalesce(p_annotations, '[]'::jsonb);
 begin
-  select student_id into v_student from public.writings where id = p_writing_id;
+  select student_id, char_length(content) into v_student, v_len
+    from public.writings where id = p_writing_id;
   if v_student is null then
     raise exception 'Writing no encontrado.';
   end if;
@@ -346,7 +359,28 @@ begin
     raise exception 'Escribe el feedback antes de guardar.';
   end if;
 
+  -- Validar las marcas (la web cuenta posiciones en UTF-16: margen ×2 por emojis)
+  if jsonb_typeof(v_ann) <> 'array' or jsonb_array_length(v_ann) > 500 then
+    raise exception 'Marcas no válidas.';
+  end if;
+  if exists (
+    select 1 from jsonb_array_elements(v_ann) a
+    where jsonb_typeof(a) <> 'object'
+       or jsonb_typeof(a->'start') is distinct from 'number'
+       or jsonb_typeof(a->'end')   is distinct from 'number'
+       or (a->>'start')::numeric < 0
+       or (a->>'start')::numeric >= (a->>'end')::numeric
+       or (a->>'end')::numeric > v_len * 2
+       or coalesce(a->>'type', '') not in ('error', 'good')
+       or char_length(coalesce(a->>'category', ''))   > 40
+       or char_length(coalesce(a->>'correction', '')) > 500
+       or char_length(coalesce(a->>'note', ''))       > 1000
+  ) then
+    raise exception 'Marcas no válidas.';
+  end if;
+
   update public.writings set
+    annotations         = v_ann,
     feedback            = btrim(p_feedback),
     score_content       = p_score_content,
     score_communicative = p_score_communicative,
@@ -384,6 +418,6 @@ grant  execute on function public.touch_last_seen() to authenticated;
 
 -- Permisos de ejecución: solo usuarios con sesión
 revoke execute on function public.submit_writing(text, text, text, text, text)                       from public, anon;
-revoke execute on function public.review_writing(uuid, text, integer, integer, integer, integer)     from public, anon;
+revoke execute on function public.review_writing(uuid, text, integer, integer, integer, integer, jsonb) from public, anon;
 grant  execute on function public.submit_writing(text, text, text, text, text)                       to authenticated;
-grant  execute on function public.review_writing(uuid, text, integer, integer, integer, integer)     to authenticated;
+grant  execute on function public.review_writing(uuid, text, integer, integer, integer, integer, jsonb) to authenticated;

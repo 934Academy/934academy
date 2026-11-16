@@ -1,7 +1,7 @@
 // ════════════════════════════════════════════════════════════
 // VISTAS DE GESTIÓN
-//   · Grupos: profesora → sus grupos y alumnos · admin → crear/editar/borrar
-//   · Usuarios (solo admin): alumnos y profesoras
+//   · Grupos: teacher → sus grupos y alumnos · admin → crear/editar/borrar
+//   · Usuarios (solo admin): alumnos y teachers
 // ════════════════════════════════════════════════════════════
 import { createUser, getAllProfiles, deleteUser, setStudentGroup, getRecentActivity } from '../auth.js';
 import { getGroups, createGroup, setGroupTeacher, deleteGroup } from '../groups.js';
@@ -15,7 +15,7 @@ export function setAdminUser(user) { currentUser = user; }
 
 const ROLE_BADGE = {
   admin:   '<span class="badge badge-admin">Admin</span>',
-  teacher: '<span class="badge badge-teacher">Profesora</span>',
+  teacher: '<span class="badge badge-teacher">Teacher</span>',
   student: '<span class="badge badge-student">Alumno</span>',
 };
 
@@ -26,7 +26,7 @@ function groupOptions(groups, selectedId, emptyLabel = 'Sin grupo') {
 }
 
 function teacherOptions(teachers, selectedId) {
-  return `<option value="">Sin profesora</option>` + teachers.map(t =>
+  return `<option value="">Sin teacher</option>` + teachers.map(t =>
     `<option value="${escapeHtml(t.id)}" ${t.id === selectedId ? 'selected' : ''}>${escapeHtml(t.full_name)}</option>`
   ).join('');
 }
@@ -38,7 +38,7 @@ export async function renderGroups() {
   const content = document.getElementById('grupos-content');
   const isAdmin = currentUser.role === 'admin';
   document.getElementById('grupos-subtitle').textContent = isAdmin
-    ? 'Crea grupos y asígnales una profesora. Los alumnos se asignan en Gestión de usuarios.'
+    ? 'Crea grupos y asígnales una teacher. Los alumnos se asignan en Gestión de usuarios.'
     : 'Tus grupos y sus alumnos';
   content.innerHTML = '<p style="color:var(--color-text-muted)">Cargando...</p>';
 
@@ -69,10 +69,10 @@ export async function renderGroups() {
           </div>
           ${isAdmin
             ? `<div class="form-field" style="margin-bottom:var(--space-3)">
-                 <label class="form-label">Profesora</label>
+                 <label class="form-label">Teacher</label>
                  <select class="form-select" data-action="set-teacher">${teacherOptions(teachers, g.teacher_id)}</select>
                </div>`
-            : `<div class="group-teacher">👩‍🏫 ${escapeHtml(teacher?.full_name || 'Sin profesora')}</div>`}
+            : `<div class="group-teacher">👩‍🏫 ${escapeHtml(teacher?.full_name || 'Sin teacher')}</div>`}
           <div class="form-label" style="margin-bottom:var(--space-2)">Alumnos (${students.length})</div>
           ${students.length
             ? `<table class="group-students">
@@ -129,7 +129,7 @@ groupsContent?.addEventListener('change', async (e) => {
   if (!select) return;
   try {
     await setGroupTeacher(select.closest('[data-group-id]').dataset.groupId, select.value);
-    showToast('Profesora actualizada');
+    showToast('Teacher actualizada');
   } catch (err) {
     showToast(err.message, 'error');
     renderGroups();
@@ -218,7 +218,7 @@ usersTbody?.addEventListener('change', async (e) => {
   }
 });
 
-// Alumno → nivel y grupo; profesora → no
+// Alumno → nivel y grupo; teacher → no
 const roleSelect = document.getElementById('new-role');
 roleSelect?.addEventListener('change', () => {
   document.getElementById('new-student-fields').hidden = roleSelect.value !== 'student';
@@ -240,7 +240,7 @@ document.getElementById('add-student-form')?.addEventListener('submit', async (e
       level:    document.getElementById('new-level').value,
       groupId:  document.getElementById('new-group').value || null,
     });
-    showToast(role === 'teacher' ? 'Profesora añadida correctamente' : 'Alumno añadido correctamente');
+    showToast(role === 'teacher' ? 'Teacher añadida correctamente' : 'Alumno añadido correctamente');
     e.target.reset();
     document.getElementById('new-student-fields').hidden = false;
     renderUsers();

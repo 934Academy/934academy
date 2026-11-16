@@ -59,7 +59,7 @@ export async function getWriting(id) {
 // ─────────────────────────────────────────────
 // PROFESORA: guardar corrección
 // ─────────────────────────────────────────────
-export async function reviewWriting(id, { feedback, scores }) {
+export async function reviewWriting(id, { feedback, scores, annotations = [] }) {
   const { error } = await supabase.rpc('review_writing', {
     p_writing_id:          id,
     p_feedback:            feedback,
@@ -67,6 +67,7 @@ export async function reviewWriting(id, { feedback, scores }) {
     p_score_communicative: scores.score_communicative,
     p_score_organisation:  scores.score_organisation,
     p_score_language:      scores.score_language,
+    p_annotations:         annotations,
   });
   if (error) throw new Error(error.message);
 }

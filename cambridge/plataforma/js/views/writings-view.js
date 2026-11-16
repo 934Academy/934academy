@@ -1,13 +1,14 @@
 // ════════════════════════════════════════════════════════════
 // VISTAS DE WRITINGS
 //   · Alumno:    "Mis writings" (lista) + detalle con el feedback
-//   · Profesora: "Corregir writings" (lista con filtros) + detalle con rúbrica
+//   · Teacher: "Corregir writings" (lista con filtros) + detalle con rúbrica
 // ════════════════════════════════════════════════════════════
 import { listWritings, getWriting, reviewWriting, countPendingWritings, totalScore, RUBRIC } from '../writings.js';
 import { getAllProfiles } from '../auth.js';
 import { getGroups } from '../groups.js';
 import { navigate } from '../router.js';
 import { showToast, escapeHtml, formatDate } from '../ui.js';
+import { annotatedHtml, annotationListHtml, linkMarksToList, createAnnotator } from './annotations.js';
 
 const isStaff = (user) => user.role === 'teacher' || user.role === 'admin';
 
@@ -34,7 +35,7 @@ for (const id of ['mis-writings-content', 'writings-content']) {
 }
 
 // ─────────────────────────────────────────────
-// Contador de pendientes en el menú (profesora/admin)
+// Contador de pendientes en el menú (teacher/admin)
 // ─────────────────────────────────────────────
 export async function refreshPendingBadge() {
   const badge = document.getElementById('pending-badge');
@@ -180,9 +181,14 @@ export async function renderWritingDetail(params, currentUser) {
 
       <div class="writing-layout">
         <div>
-          <div class="card">
-            <div class="card-title">✍️ ${staff ? 'Texto del alumno' : 'Tu texto'}</div>
-            <div class="writing-text">${escapeHtml(w.content)}</div>
+          <div class="card ann-wrap" id="ann-wrap">
+            <div class="card-title-row">
+              <div class="card-title" style="margin:0">✍️ ${staff ? 'Texto del alumno' : 'Tu texto'}</div>
+              <div class="ann-legend"><span class="ann-dot ann-dot-error"></span>Error <span class="ann-dot ann-dot-good"></span>Bien hecho</div>
+            </div>
+            ${staff ? '<p class="ann-hint">✏️ Selecciona con el ratón una palabra o frase para marcarla. Pulsa una marca para editarla.</p>' : ''}
+            <div class="writing-text ${staff ? 'annotatable' : ''}" id="writing-text">${annotatedHtml(w.content, w.annotations)}</div>
+            <div id="ann-list" class="ann-list-wrap">${staff ? '' : annotationListHtml(w.content, w.annotations)}</div>
           </div>
           <details class="card">
             <summary class="card-title" style="cursor:pointer;margin:0">📋 Enunciado</summary>
@@ -195,7 +201,13 @@ export async function renderWritingDetail(params, currentUser) {
       </div>`;
 
     document.getElementById('writing-back').addEventListener('click', () => navigate(backPage));
-    if (staff) bindReviewForm(w);
+    const textEl = document.getElementById('writing-text');
+    const listEl = document.getElementById('ann-list');
+    if (staff) {
+      bindReviewForm(w, { textEl, listEl, wrapEl: document.getElementById('ann-wrap') });
+    } else {
+      linkMarksToList(textEl, listEl);
+    }
   } catch (err) {
     content.innerHTML = errorBox(err);
   }
@@ -206,7 +218,7 @@ function feedbackHtml(w, reviewer) {
   if (w.status !== 'reviewed') {
     return `
       <div class="card empty-state">
-        ⏳ Tu profesora todavía no ha corregido este writing.<br>
+        ⏳ Tu teacher todavía no ha corregido este writing.<br>
         Aquí aparecerá su feedback cuando lo haga.
       </div>`;
   }
@@ -231,7 +243,7 @@ function feedbackHtml(w, reviewer) {
     </div>`}`;
 }
 
-// Profesora: formulario de corrección
+// Teacher: formulario de corrección
 function reviewFormHtml(w) {
   const options = (value) => ['', 0, 1, 2, 3, 4, 5].map(n =>
     `<option value="${n}" ${value !== null && value !== undefined && String(value) === String(n) ? 'selected' : ''}>${n === '' ? '–' : n}</option>`
@@ -259,9 +271,39 @@ function reviewFormHtml(w) {
     </form>`;
 }
 
-function bindReviewForm(w) {
+// ─────────────────────────────────────────────
+// Borrador local: si la teacher se va sin guardar, no pierde las marcas
+// (se guarda solo en su navegador y se borra al guardar la corrección)
+// ─────────────────────────────────────────────
+const draftKey = (id) => `review-draft:${id}`;
+function readDraft(id) {
+  try { return JSON.parse(localStorage.getItem(draftKey(id)) || 'null'); } catch { return null; }
+}
+function writeDraft(id, draft) {
+  try { localStorage.setItem(draftKey(id), JSON.stringify(draft)); } catch {}
+}
+function clearDraft(id) {
+  try { localStorage.removeItem(draftKey(id)); } catch {}
+}
+
+function bindReviewForm(w, { textEl, listEl, wrapEl }) {
   const form    = document.getElementById('review-form');
   const totalEl = document.getElementById('review-total');
+
+  // ¿Hay un borrador más reciente que la última corrección guardada?
+  const draft = readDraft(w.id);
+  const useDraft = draft && (!w.reviewed_at || draft.savedAt > new Date(w.reviewed_at).getTime());
+  if (useDraft) {
+    form.elements.feedback.value = draft.feedback ?? form.elements.feedback.value;
+    RUBRIC.forEach(r => { if (draft.scores?.[r.key] !== undefined) form.elements[r.key].value = draft.scores[r.key] ?? ''; });
+    const note = document.createElement('div');
+    note.className = 'insight insight-warn';
+    note.innerHTML = '📝 Se ha recuperado una corrección que no llegaste a guardar. <button type="button" class="btn btn-ghost btn-sm">Descartar borrador</button>';
+    note.querySelector('button').addEventListener('click', () => { clearDraft(w.id); renderWritingDetail({ id: w.id }, { role: 'teacher' }); });
+    form.prepend(note);
+  } else if (draft) {
+    clearDraft(w.id);
+  }
 
   const readScores = () => Object.fromEntries(
     RUBRIC.map(r => {
@@ -269,11 +311,23 @@ function bindReviewForm(w) {
       return [r.key, v === '' ? null : Number(v)];
     })
   );
+  const saveDraft = () => writeDraft(w.id, {
+    savedAt: Date.now(), annotations: annotator.get(), feedback: form.elements.feedback.value, scores: readScores(),
+  });
+
+  const annotator = createAnnotator({
+    textEl, listEl, wrapEl,
+    content:  w.content,
+    initial:  useDraft ? draft.annotations : w.annotations,
+    onChange: saveDraft,
+  });
+
   const updateTotal = () => {
     const t = totalScore(readScores());
     totalEl.textContent = t === null ? '–/20' : `${t}/20`;
   };
-  form.addEventListener('change', updateTotal);
+  form.addEventListener('change', () => { updateTotal(); saveDraft(); });
+  form.elements.feedback.addEventListener('input', saveDraft);
   updateTotal();
 
   form.addEventListener('submit', async (e) => {
@@ -281,7 +335,8 @@ function bindReviewForm(w) {
     const btn = form.querySelector('button[type=submit]');
     btn.disabled = true;
     try {
-      await reviewWriting(w.id, { feedback: form.elements.feedback.value, scores: readScores() });
+      await reviewWriting(w.id, { feedback: form.elements.feedback.value, scores: readScores(), annotations: annotator.get() });
+      clearDraft(w.id);
       showToast('Corrección guardada ✓');
       refreshPendingBadge();
       navigate('writings');

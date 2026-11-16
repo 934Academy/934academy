@@ -46,7 +46,7 @@ export function setUserUI(profile) {
   document.body.dataset.role = profile.role;
 }
 
-const ROLE_LABELS = { admin: 'Administración', teacher: 'Profesora' };
+const ROLE_LABELS = { admin: 'Administración', teacher: 'Teacher' };
 
 // Último acceso como etiqueta de color: verde ≤2 días, naranja ≤7, rojo más o nunca
 export function lastSeenBadge(value) {
